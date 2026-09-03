@@ -1,0 +1,67 @@
+# ============================================================================
+#  R. Ruge Haustechnik – Server-Einstellungen für Apache (Standard bei den
+#  meisten deutschen Hosting-Paketen). Läuft der Webspace unter nginx, sind
+#  diese Regeln wirkungslos – dann bitte beim Anbieter nachfragen.
+# ============================================================================
+
+# ── Zeichensatz ────────────────────────────────────────────────────────────
+AddDefaultCharset UTF-8
+
+# ── Startseite ─────────────────────────────────────────────────────────────
+DirectoryIndex index.html index.php
+
+# ── HTTPS erzwingen ────────────────────────────────────────────────────────
+# Erst aktivieren, wenn das SSL-Zertifikat beim Hoster eingerichtet ist,
+# sonst ist die Seite nicht mehr erreichbar.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # RewriteCond %{HTTPS} !=on
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # Alte Adresse auffangen: kontakt.html gibt es nicht mehr
+    RewriteRule ^kontakt\.html$ /kontakt.php [R=301,L]
+</IfModule>
+
+# ── Sicherheits-Header ─────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    # HSTS erst einschalten, wenn HTTPS zuverlässig läuft:
+    # Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+# ── Konfigurationsdatei nicht ausliefern ───────────────────────────────────
+# Greift falls PHP einmal ausfällt und die Datei sonst im Klartext erscheint.
+<Files "config.php">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</Files>
+
+# ── Verzeichnisauflistung verhindern ───────────────────────────────────────
+Options -Indexes
+
+# ── Komprimierung ──────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ── Browser-Zwischenspeicher ───────────────────────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg        "access plus 1 year"
+    ExpiresByType image/png         "access plus 1 year"
+    ExpiresByType image/webp        "access plus 1 year"
+    ExpiresByType font/woff2        "access plus 1 year"
+    ExpiresByType text/css          "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/html         "access plus 0 seconds"
+</IfModule>
