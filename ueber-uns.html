@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Über uns – Meisterbetrieb R. Ruge in Steinheim an der Murr</title>
+<meta name="description" content="Lernen Sie R. Ruge kennen: inhabergeführter Meisterbetrieb für Sanitär, Heizung und regenerative Energien in Steinheim an der Murr – persönlich, transparent, mit Meisterbrief." />
+<meta name="theme-color" content="#01328F" />
+<link rel="icon" type="image/png" href="assets/favicon.ruge.png" />
+<link rel="apple-touch-icon" href="assets/favicon.ruge.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:title" content="Über uns – R. Ruge Sanitär Heizung Regenerative Energien" />
+<meta property="og:description" content="Inhabergeführter Meisterbetrieb aus Steinheim an der Murr – Reinhold Ruge betreut Ihr Projekt persönlich." />
+<meta property="og:image" content="assets/hero-installateur.jpg" />
+
+<link rel="preload" href="assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts.css" />
+
+<style>
+  :root {
+    --orange:        #FF6B35;
+    --orange-dark:   #E85A28;
+    --orange-glow:   rgba(255, 107, 53, 0.3);
+    --brand-blue:    #0A2647;
+    --brand-blue-d:  #030D1E;
+    --navy:          #050609;
+    --navy-blue:     #0b1330;
+    --navy-mid:      #07091a;
+    --navy-mid-blue: #0e1638;
+    --navy-light:    #101733;
+    --card-bg:       #0a0e20;
+    --surface:       rgba(255,255,255,0.04);
+    --border:        rgba(255,255,255,0.08);
+    --text-primary:  #FFFFFF;
+    --text-secondary:#A7AFC6;
+    --text-muted:    #5A6280;
+    --header-h: 86px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 56px); }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-blue) 45%, var(--navy) 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; text-wrap: balance; }
+  img, svg { max-width: 100%; }
+  img { height: auto; display: block; }
+  a { color: inherit; }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+  ::selection { background: var(--orange); color: #fff; }
+  :focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; border-radius: 3px; }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 2000;
+    background: var(--orange); color: #fff; padding: 0.8rem 1.4rem; font-weight: 600; text-decoration: none;
+  }
+  .skip-link:focus { left: 12px; top: 12px; }
+
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1; opacity: 0.4;
+  }
+  .cursor-glow {
+    position: fixed; width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,53,0.07) 0%, transparent 70%);
+    pointer-events: none; transform: translate(-50%, -50%);
+    z-index: 9999; transition: opacity 0.3s ease;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: var(--orange); color: white;
+    padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none;
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem;
+    letter-spacing: 1.3px; text-transform: uppercase; border: none; cursor: pointer;
+    transition: all 0.3s ease; position: relative; overflow: hidden;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+  }
+  .btn-primary svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .btn-primary::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 28px var(--orange-glow); }
+  .btn-primary:hover::before { left: 100%; }
+  .btn-outline {
+    background: rgba(255,255,255,0.03); color: var(--text-primary);
+    padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none;
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem;
+    letter-spacing: 1.3px; text-transform: uppercase; border: 1px solid var(--border);
+    cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.6rem;
+  }
+  .btn-outline svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .btn-outline:hover { border-color: var(--orange); color: var(--orange); box-shadow: 0 0 22px var(--orange-glow); }
+
+  /* ── HEADER ── */
+  header.site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: transparent; border-bottom: 1px solid transparent;
+    transition: background 0.4s ease, box-shadow 0.3s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+  }
+  header.site-header.scrolled {
+    background: linear-gradient(100deg, var(--brand-blue) 0%, var(--brand-blue-d) 100%);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 12px 34px rgba(0,0,0,0.45);
+  }
+  .header-inner {
+    max-width: 1320px; margin-inline: auto;
+    min-height: var(--header-h);
+    padding: 0.6rem 6%; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  }
+  .logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+  .logo img { height: 58px; width: auto; transition: height 0.3s ease; }
+  .header-nav { display: flex; align-items: center; gap: 2.2rem; }
+  .header-nav a {
+    color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.85rem;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    transition: color 0.3s; position: relative; padding: 0.3rem 0;
+  }
+  .header-nav a::after {
+    content: ''; position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 2px; background: var(--orange); border-radius: 2px; transition: width 0.3s;
+  }
+  .header-nav a:hover, .header-nav a[aria-current="page"] { color: #fff; }
+  .header-nav a:hover::after, .header-nav a[aria-current="page"]::after { width: 100%; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+    background: none; border: 0;
+  }
+  .hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; display: block; }
+  .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-nav {
+    position: fixed; inset: 0; background: rgba(5,6,9,0.97); backdrop-filter: blur(20px);
+    z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6rem;
+    transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.77,0,0.175,1);
+    padding: 2rem;
+  }
+  .mobile-nav.open { transform: translateX(0); }
+  .mobile-nav a {
+    font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800;
+    color: var(--text-primary); text-decoration: none; text-transform: uppercase;
+    letter-spacing: 2px; transition: color 0.3s;
+  }
+  .mobile-nav a:hover { color: var(--orange); }
+  .mobile-nav .mobile-actions { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1rem; align-items: center; }
+  .mobile-meta { margin-top: 1.5rem; font-size: 0.82rem; color: var(--text-secondary); text-align: center; line-height: 1.8; }
+
+  /* ── SECTION COMMONS ── */
+  section { position: relative; z-index: 1; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header.left { text-align: left; margin-bottom: 2.2rem; }
+  .section-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 1rem;
+  }
+  .section-header h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); font-weight: 800; letter-spacing: -0.5px; }
+  .section-header p { color: var(--text-secondary); max-width: 560px; margin: 1rem auto 0; font-size: 1rem; }
+  .section-header.left p { margin: 1rem 0 0; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 0.95rem; background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+    border-radius: 100px; font-size: 0.76rem; color: var(--text-secondary); backdrop-filter: blur(6px);
+  }
+  .chip svg { width: 14px; height: 14px; stroke: var(--orange); flex-shrink: 0; }
+
+  /* ── SEITEN-HERO ── */
+  .svc-hero { position: relative; min-height: 58vh; display: flex; align-items: flex-end; overflow: hidden; }
+  .svc-hero-media { position: absolute; inset: 0; z-index: 0; background: var(--navy-mid-blue); }
+  .svc-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 30%; filter: brightness(0.4); }
+  .svc-hero-scrim {
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      linear-gradient(to top, rgba(5,6,9,1) 0%, rgba(5,6,9,0.82) 30%, rgba(5,6,9,0.4) 62%, rgba(5,6,9,0.18) 100%),
+      radial-gradient(ellipse at 18% 15%, rgba(255,107,53,0.14) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 10%, rgba(1,50,143,0.22) 0%, transparent 45%);
+  }
+  .svc-hero-grid {
+    position: absolute; inset: 0; z-index: 2;
+    background-image: linear-gradient(rgba(255,107,53,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,107,53,0.04) 1px, transparent 1px);
+    background-size: 70px 70px;
+    mask-image: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 75%);
+  }
+  .svc-hero-content { position: relative; z-index: 3; padding: calc(var(--header-h) + 2.5rem) 6% 3.4rem; max-width: 880px; width: 100%; }
+  .svc-hero-content .hero-eyebrow {
+    display: flex; align-items: center; gap: 0.8rem;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 1.3rem;
+    opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 0.15s forwards;
+  }
+  .svc-hero-content .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--orange); flex-shrink: 0; }
+  .svc-hero-content h1 {
+    font-size: clamp(2.2rem, 4.6vw, 3.6rem); font-weight: 800; line-height: 1.05;
+    letter-spacing: -1px; margin-bottom: 1rem;
+    opacity: 0; transform: translateY(28px); animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+  .svc-hero-content .hero-sub {
+    font-size: 1.02rem; color: var(--text-secondary); max-width: 560px;
+    line-height: 1.75; margin-bottom: 1.8rem;
+    opacity: 0; transform: translateY(28px); animation: fadeUp 0.8s ease 0.45s forwards;
+  }
+  .svc-hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.8rem;
+    opacity: 0; transform: translateY(24px); animation: fadeUp 0.8s ease 0.55s forwards;
+  }
+  .svc-hero-content .hero-chips {
+    list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem;
+    opacity: 0; transform: translateY(18px); animation: fadeUp 0.8s ease 0.7s forwards;
+  }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  /* ── INFO BAND ── */
+  .info-band {
+    background: var(--orange); padding: 1.2rem 6%;
+    display: flex; align-items: center; gap: 3rem; overflow: hidden; position: relative; flex-wrap: wrap;
+  }
+  .info-band::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    animation: shimmer 3.5s infinite;
+  }
+  @keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+  .info-item { display: flex; align-items: center; gap: 1rem; white-space: nowrap; text-decoration: none; color: #fff; }
+  .info-item svg { width: 20px; height: 20px; stroke: rgba(255,255,255,0.8); flex-shrink: 0; }
+  .info-item strong { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; display: block; }
+  .info-item span { font-size: 0.83rem; opacity: 0.85; }
+  .info-div { width: 1px; height: 30px; background: rgba(255,255,255,0.3); flex-shrink: 0; }
+
+  /* ── SUB-NAVIGATION (Sprungmarken) ── */
+  .svc-subnav {
+    position: sticky; top: var(--header-h); z-index: 500;
+    background: rgba(5,6,9,0.88); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .svc-subnav-inner {
+    max-width: 1180px; margin-inline: auto; display: flex; gap: 0.6rem;
+    padding: 0.85rem 6%; overflow-x: auto; scrollbar-width: none;
+  }
+  .svc-subnav-inner::-webkit-scrollbar { display: none; }
+  .svc-pill {
+    flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.55rem 1.15rem; border-radius: 100px; border: 1px solid var(--border);
+    color: var(--text-secondary); text-decoration: none; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.3px; white-space: nowrap; transition: all 0.25s;
+  }
+  .svc-pill:hover { color: #fff; border-color: rgba(255,107,53,0.4); }
+  .svc-pill.active { background: var(--orange); border-color: var(--orange); color: #fff; }
+
+  /* ── SEKTIONEN ── */
+  .svc-section { padding: 6rem 6%; background: linear-gradient(165deg, #04050a 0%, #0b1330 55%, #04050a 100%); scroll-margin-top: calc(var(--header-h) + 56px); overflow: hidden; }
+  .svc-section.alt { background: linear-gradient(165deg, #05060c 0%, #0e1638 55%, #05060c 100%); }
+  .svc-inner { max-width: 1180px; margin-inline: auto; position: relative; }
+  .svc-head { display: flex; align-items: center; gap: 1.3rem; margin-bottom: 1.3rem; position: relative; }
+  .svc-icon {
+    width: 58px; height: 58px; background: rgba(255,107,53,0.1); border-radius: 14px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .svc-icon svg { width: 27px; height: 27px; stroke: var(--orange); }
+  .svc-head h2 { font-size: clamp(1.5rem, 2.6vw, 1.9rem); font-weight: 800; letter-spacing: -0.3px; }
+  .svc-num-bg {
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 5.5rem;
+    color: rgba(255,255,255,0.035); line-height: 1; pointer-events: none; user-select: none;
+  }
+  .svc-intro { color: var(--text-secondary); font-size: 1.02rem; max-width: 760px; margin-bottom: 2.4rem; }
+
+  /* ── WER WIR SIND (Bildkachel wie index „Über uns") ── */
+  .ueber-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .ueber-visual { position: relative; }
+  .ueber-visual::before {
+    content: ''; position: absolute; width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,53,0.18) 0%, transparent 70%);
+    filter: blur(60px); top: -70px; left: -70px; z-index: 0; pointer-events: none;
+  }
+  .ueber-box { border-radius: 14px; overflow: hidden; height: 460px; position: relative; background: #0a1929; }
+  .ueber-box > img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+    filter: brightness(0.55); transition: transform 0.8s cubic-bezier(0.4,0,0.2,1);
+  }
+  .ueber-box:hover > img { transform: scale(1.05); }
+  .ueber-box::before {
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background-image: linear-gradient(rgba(255,107,53,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,107,53,0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .ueber-badge {
+    position: absolute; bottom: -1.6rem; right: -1.6rem;
+    width: 158px; height: 158px; background: var(--orange); border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border: 4px solid var(--navy); z-index: 3; text-align: center; padding: 0.8rem;
+    animation: badgePulse 3s ease-in-out infinite;
+  }
+  .ueber-badge strong { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 800; line-height: 1.2; }
+  .ueber-badge span { font-size: 0.68rem; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.85; margin-top: 5px; }
+  @keyframes badgePulse { 0%,100% { box-shadow: 0 0 0 0 var(--orange-glow); } 50% { box-shadow: 0 0 40px 12px var(--orange-glow); } }
+  .ueber-float {
+    position: absolute; top: 1.8rem; left: -1.8rem;
+    background: rgba(5,6,9,0.92); backdrop-filter: blur(12px);
+    border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.3rem;
+    display: flex; align-items: center; gap: 0.9rem; z-index: 3;
+  }
+  .ueber-float-icon { width: 38px; height: 38px; background: var(--orange); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ueber-float-icon svg { width: 18px; height: 18px; stroke: white; }
+  .ueber-float strong { font-size: 0.88rem; display: block; }
+  .ueber-float p { font-size: 0.75rem; color: var(--text-secondary); }
+  .ueber-content p { color: var(--text-secondary); }
+  .ueber-content p + p { margin-top: 1rem; }
+
+  /* ── QUALIFIKATIONEN (Karten wie index „Leistungen") ── */
+  .quali-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+  .q-card {
+    background: var(--card-bg); border-radius: 14px; padding: 0;
+    border: 1px solid var(--border); position: relative; overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  .q-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--orange-glow) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.4s; z-index: 0; pointer-events: none;
+  }
+  .q-card:hover { border-color: rgba(255,107,53,0.35); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+  .q-card:hover::before { opacity: 1; }
+  .q-media { position: relative; height: 150px; overflow: hidden; background: #0a1929; }
+  .q-media img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72); transition: transform 0.7s cubic-bezier(0.4,0,0.2,1); }
+  .q-card:hover .q-media img { transform: scale(1.08); }
+  .q-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--card-bg) 0%, transparent 55%); }
+  .q-card-inner { position: relative; z-index: 1; padding: 1.5rem 1.8rem 1.9rem; }
+  .q-icon {
+    width: 46px; height: 46px; background: rgba(255,107,53,0.12);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    margin-top: -3.1rem; margin-bottom: 1rem; position: relative; z-index: 2;
+    border: 1px solid rgba(255,255,255,0.1); transition: background 0.3s, box-shadow 0.3s;
+  }
+  .q-card:hover .q-icon { background: rgba(255,107,53,0.25); box-shadow: 0 0 20px var(--orange-glow); }
+  .q-icon svg { width: 21px; height: 21px; stroke: var(--orange); }
+  .q-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .q-desc { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.7; }
+
+  /* ── WERTE (Perks wie index) ── */
+  .perks-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+  .perk { display: flex; gap: 1.2rem; padding: 1.3rem; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); transition: all 0.3s; }
+  .perk:hover { border-color: rgba(255,107,53,0.3); }
+  .perk-icon {
+    width: 44px; height: 44px; background: rgba(255,107,53,0.1); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.3s, box-shadow 0.3s;
+  }
+  .perk:hover .perk-icon { background: rgba(255,107,53,0.2); box-shadow: 0 0 16px var(--orange-glow); }
+  .perk-icon svg { width: 20px; height: 20px; stroke: var(--orange); }
+  .perk h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .perk p { font-size: 0.85rem; color: var(--text-secondary); }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 8rem 6%; text-align: center; position: relative; overflow: hidden;
+    background: linear-gradient(165deg, #04050a 0%, #0b1330 55%, #04050a 100%);
+  }
+  .cta-section::before {
+    content: 'MEISTERBETRIEB'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-family: 'Montserrat', sans-serif; font-size: 13vw; font-weight: 800;
+    color: rgba(255,255,255,0.013); white-space: nowrap; pointer-events: none; letter-spacing: -5px;
+  }
+  .cta-section::after {
+    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,53,0.06) 0%, transparent 70%); pointer-events: none;
+  }
+  .cta-inner { position: relative; z-index: 2; }
+  .cta-section h2 { font-size: clamp(2.1rem, 4.4vw, 3.4rem); font-weight: 800; margin-bottom: 1rem; letter-spacing: -1px; }
+  .cta-section p { color: var(--text-secondary); font-size: 1.02rem; margin-bottom: 2.3rem; }
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .cta-actions .btn-primary, .cta-actions .btn-outline { padding: 1.05rem 2.3rem; font-size: 0.88rem; }
+
+  /* ── FOOTER ── */
+  footer.site-footer { background: linear-gradient(165deg, #04050a 0%, #0b1330 60%, #04050a 100%); border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
+  .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.8rem; }
+  .footer-logo { display: inline-block; margin-bottom: 1.1rem; }
+  .footer-logo img { height: 46px; width: auto; }
+  .footer-brand p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; max-width: 300px; }
+  .footer-col h4 { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.1rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.65rem; }
+  .footer-col ul li a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: var(--orange); }
+  .footer-contact { display: flex; flex-direction: column; gap: 0.8rem; }
+  .f-row { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.85rem; color: var(--text-secondary); }
+  .f-row svg { width: 16px; height: 16px; stroke: var(--orange); flex-shrink: 0; margin-top: 2px; }
+  .f-row a { color: var(--text-secondary); text-decoration: none; transition: color 0.3s; }
+  .f-row a:hover { color: var(--orange); }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-bottom p { font-size: 0.78rem; color: var(--text-muted); }
+  .footer-bottom-links { display: flex; gap: 1.5rem; }
+  .footer-bottom-links a { color: var(--text-muted); text-decoration: none; font-size: 0.78rem; transition: color 0.3s; }
+  .footer-bottom-links a:hover { color: var(--orange); }
+
+  /* ── MOBILE ACTION BAR ── */
+  .action-bar {
+    display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+    background: rgba(5,6,9,0.92); backdrop-filter: blur(14px);
+    border-top: 1px solid var(--border);
+    padding: 0.7rem 5%; gap: 0.7rem;
+  }
+  .action-bar a {
+    flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+    padding: 0.85rem 0.5rem; border-radius: 8px; text-decoration: none; white-space: nowrap;
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.76rem;
+    letter-spacing: 0.3px; text-transform: uppercase;
+  }
+  .action-bar svg { width: 16px; height: 16px; }
+  .ab-call { background: rgba(255,255,255,0.06); color: #fff; border: 1px solid var(--border); }
+  .ab-mail { background: var(--orange); color: #fff; }
+
+  /* ── REVEAL ANIMATIONEN ── */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .ueber-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .ueber-box { height: 380px; }
+    .quali-grid { grid-template-columns: repeat(2, 1fr); }
+    .perks-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    :root { --header-h: 68px; }
+    .logo img { height: 42px; }
+    .header-nav, .header-inner .btn-primary { display: none; }
+    .hamburger { display: flex; }
+    .svc-hero { min-height: 46vh; }
+    .svc-section { padding: 3.6rem 6%; }
+    .svc-num-bg { display: none; }
+    .quali-grid { grid-template-columns: 1fr; }
+    .info-band { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+    .info-div { display: none; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .cta-actions, .svc-hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
+    .ueber-float { display: none; }
+    .action-bar { display: flex; }
+    body { padding-bottom: 68px; }
+    .cursor-glow { display: none; }
+  }
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ══ MOBILE NAV ══ -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+  <a href="leistungen.html">Leistungen</a>
+  <a href="index.html#energien">Regenerative Energien</a>
+  <a href="bereiche.html">Bereiche</a>
+  <a href="index.html#referenzen">Referenzen</a>
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="kontakt.php">Kontakt</a>
+  <div class="mobile-actions">
+    <a href="kontakt.php" class="btn-primary">Anfrage senden</a>
+    <a href="tel:+4971443345604" class="btn-outline">07144 3345604</a>
+  </div>
+  <div class="mobile-meta">
+    R. Ruge Sanitär Heizung Regenerative Energien<br />
+    Zeppelinstraße 44 · 71711 Steinheim an der Murr
+  </div>
+</nav>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="R. Ruge – Startseite">
+      <img src="assets/logo-ruge.png" width="712" height="424" alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" />
+    </a>
+    <nav class="header-nav" aria-label="Hauptnavigation">
+      <a href="leistungen.html">Leistungen</a>
+      <a href="index.html#energien">Energien</a>
+      <a href="bereiche.html">Bereiche</a>
+      <a href="index.html#referenzen">Referenzen</a>
+      <a href="ueber-uns.html" aria-current="page">Über uns</a>
+      <a href="kontakt.php">Kontakt</a>
+    </nav>
+    <a href="kontakt.php" class="btn-primary">Anfrage senden</a>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══ SEITEN-HERO ══ -->
+<section class="svc-hero" id="hero">
+  <div class="svc-hero-media">
+    <img src="assets/hero-installateur.jpg" width="1800" height="1200" fetchpriority="high"
+         alt="Reinhold Ruge bei der Montage einer Sanitärinstallation im Badezimmer" />
+  </div>
+  <div class="svc-hero-scrim"></div>
+  <div class="svc-hero-grid"></div>
+  <div class="svc-hero-content">
+    <p class="hero-eyebrow"><span>Über uns</span></p>
+    <h1>Der Meister, der<br />auch selbst anpackt</h1>
+    <p class="hero-sub">
+      R. Ruge ist ein inhabergeführter Meisterbetrieb aus Steinheim an der Murr. Kein Callcenter,
+      keine anonyme Kette – Sie sprechen direkt mit Reinhold Ruge, der Ihr Projekt persönlich betreut.
+    </p>
+    <div class="svc-hero-actions">
+      <a href="kontakt.php" class="btn-primary">
+        Kostenlos anfragen
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="tel:+4971443345604" class="btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.44 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.88-1.88a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        07144 3345604
+      </a>
+    </div>
+    <ul class="hero-chips">
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Eingetragener Meisterbetrieb</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Inhabergeführt</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Persönliche Beratung</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ INFO BAND ══ -->
+<div class="info-band">
+  <a class="info-item" href="tel:+4971443345604">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.44 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.88-1.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span><strong>07144 3345604</strong><span>Direkt beim Chef anrufen</span></span>
+  </a>
+  <div class="info-div"></div>
+  <div class="info-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span><strong>Meisterbetrieb</strong><span>Handwerkskammer Region Stuttgart</span></span>
+  </div>
+  <div class="info-div"></div>
+  <div class="info-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span><strong>Festpreisangebot</strong><span>Klar kalkuliert, keine Überraschungen</span></span>
+  </div>
+  <div class="info-div"></div>
+  <div class="info-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span><strong>Steinheim &amp; Umgebung</strong><span>Kurze Wege, schnell vor Ort</span></span>
+  </div>
+</div>
+
+<!-- ══ SPRUNGMARKEN ══ -->
+<nav class="svc-subnav" aria-label="Sprungnavigation">
+  <div class="svc-subnav-inner">
+    <a class="svc-pill" href="#wer-wir-sind">Wer wir sind</a>
+    <a class="svc-pill" href="#qualifikationen">Qualifikationen</a>
+    <a class="svc-pill" href="#werte">Wie wir arbeiten</a>
+  </div>
+</nav>
+
+<!-- ══ WER WIR SIND ══ -->
+<section class="svc-section" id="wer-wir-sind">
+  <div class="svc-inner">
+    <div class="ueber-inner">
+      <div class="ueber-visual reveal-left">
+        <div class="ueber-box">
+          <!-- PLATZHALTER: Musterbild eines Handwerkers – vor Livegang durch echtes Foto von Reinhold Ruge ersetzen -->
+          <img src="assets/hero-installateur.jpg" width="1800" height="1200" loading="lazy" decoding="async" alt="Platzhalter: Handwerker bei der Montage einer Sanitärinstallation – wird durch ein echtes Foto ersetzt" />
+          <div class="ueber-badge"><strong>Meister&shy;betrieb</strong><span>Inhabergeführt</span></div>
+        </div>
+        <div class="ueber-float">
+          <div class="ueber-float-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><strong>Zertifizierter Meisterbetrieb</strong><p>Innungs-Mitglied</p></div>
+        </div>
+      </div>
+
+      <div class="ueber-content reveal-right">
+        <div class="section-header left">
+          <div class="section-eyebrow">Wer wir sind</div>
+          <h2>Handwerk, das<br />nachvollziehbar ist</h2>
+        </div>
+        <p>
+          R. Ruge ist ein inhabergeführter Meisterbetrieb für Sanitär, Heizung, regenerative
+          Energien und Flaschnerei mit Sitz in der Zeppelinstraße in Steinheim an der Murr.
+          Verantwortlich für jedes Projekt ist Reinhold Ruge – der Meister, der auch selbst
+          auf der Baustelle steht.
+        </p>
+        <p>
+          Statt Callcenter und wechselnden Ansprechpartnern bekommen Sie bei uns einen festen
+          Kontakt von der ersten Anfrage bis zur fertigen Anlage. Das bedeutet kurze Wege,
+          klare Absprachen und jemanden, der für sein eigenes Angebot geradesteht.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUALIFIKATIONEN ══ -->
+<section class="svc-section alt" id="qualifikationen">
+  <div class="svc-inner">
+    <div class="svc-head reveal">
+      <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h2>Qualifikationen &amp; Meisterbriefe</h2>
+    </div>
+    <p class="svc-intro reveal">
+      Zwei Meisterbriefe und eine kaufmännische Zusatzqualifikation stehen hinter jedem
+      Angebot, das wir Ihnen schreiben. Die vollständigen Angaben zu den zuständigen
+      Handwerkskammern finden Sie in unserem <a href="impressum.html" style="color:var(--orange); text-decoration:underline;">Impressum</a>.
+    </p>
+
+    <div class="quali-grid">
+      <div class="q-card reveal reveal-d1">
+        <div class="q-media"><img src="https://images.unsplash.com/photo-1503789146722-cf137a3c0fea?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80" width="900" height="600" loading="lazy" decoding="async" alt="Rohrzange und Rollgabelschlüssel, Werkzeug eines Gas- und Wasserinstallateurs" /></div>
+        <div class="q-card-inner">
+          <div class="q-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5-2-1.6-3.5-4-4-6.5-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div>
+          <h3 class="q-title">Meisterprüfung Gas- und Wasserinstallateur-Handwerk</h3>
+          <p class="q-desc">Abgelegt bei der Handwerkskammer für Unterfranken – die fachliche Grundlage für Sanitär- und Heizungstechnik.</p>
+        </div>
+      </div>
+
+      <div class="q-card reveal reveal-d2">
+        <div class="q-media"><img src="https://images.unsplash.com/photo-1681049400158-0ff6249ac315?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80" width="900" height="600" loading="lazy" decoding="async" alt="Zwei Handwerker bei Dacharbeiten – Klempner- und Flaschnerarbeiten am Dach" /></div>
+        <div class="q-card-inner">
+          <div class="q-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h3 class="q-title">Meister im Klempner-Handwerk</h3>
+          <p class="q-desc">Abgelegt bei der Handwerkskammer Konstanz – Flaschnerei und Dachentwässerung inklusive.</p>
+        </div>
+      </div>
+
+      <div class="q-card reveal reveal-d3">
+        <div class="q-media"><img src="https://images.unsplash.com/photo-1649209979970-f01d950cc5ed?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80" width="900" height="600" loading="lazy" decoding="async" alt="Taschenrechner auf einem Holztisch als Symbol für saubere Kalkulation" /></div>
+        <div class="q-card-inner">
+          <div class="q-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h3 class="q-title">Betriebswirt des Handwerks</h3>
+          <p class="q-desc">Kaufmännische Zusatzqualifikation für saubere Kalkulation und klare Angebote statt Überraschungen auf der Rechnung.</p>
+        </div>
+      </div>
+
+      <div class="q-card reveal reveal-d1">
+        <div class="q-media"><img src="https://images.unsplash.com/photo-1638262052640-82e94d64664a?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80" width="900" height="600" loading="lazy" decoding="async" alt="Handschlag über einem Holztisch als Symbol für Vertrauen und offizielle Anerkennung" /></div>
+        <div class="q-card-inner">
+          <div class="q-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3 class="q-title">Eintragung in die Handwerksrolle</h3>
+          <p class="q-desc">Geführt bei der Handwerkskammer Region Stuttgart – Voraussetzung für die selbstständige Ausübung des Handwerks.</p>
+        </div>
+      </div>
+
+      <div class="q-card reveal reveal-d2">
+        <div class="q-media"><img src="https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=80" width="900" height="600" loading="lazy" decoding="async" alt="Moderne Wärmepumpe an einem Wohnhaus als Symbol für aktuelle Heiztechnik" /></div>
+        <div class="q-card-inner">
+          <div class="q-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3 class="q-title">Regelmäßige Fortbildung</h3>
+          <p class="q-desc">Wärmepumpe, Trinkwasserhygiene, Regeltechnik – wir bleiben auf dem aktuellen Stand der Technik.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WIE WIR ARBEITEN ══ -->
+<section class="svc-section" id="werte">
+  <div class="svc-inner">
+    <div class="svc-head reveal">
+      <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h2>Wie wir arbeiten</h2>
+    </div>
+    <p class="svc-intro reveal">
+      Kein Verkaufsdruck, keine anonyme Zentrale – nur ein paar Grundsätze, an die wir uns
+      bei jedem Auftrag halten.
+    </p>
+
+    <div class="perks-grid">
+      <div class="perk reveal reveal-d1">
+        <div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.44 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.88-1.88a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><h4>Persönlich &amp; direkt</h4><p>Sie erreichen den Chef direkt, ohne Callcenter und ohne Warteschleife.</p></div>
+      </div>
+      <div class="perk reveal reveal-d2">
+        <div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><h4>Ehrlich kalkuliert</h4><p>Ein schriftliches Angebot mit klaren Positionen, bevor irgendetwas beginnt.</p></div>
+      </div>
+      <div class="perk reveal reveal-d3">
+        <div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><h4>Kurze Wege</h4><p>Von Steinheim an der Murr aus sind wir in der Umgebung schnell wieder vor Ort.</p></div>
+      </div>
+      <div class="perk reveal reveal-d1">
+        <div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <div><h4>Sauber &amp; zuverlässig</h4><p>Termine, die eingehalten werden, und eine Baustelle, die ordentlich hinterlassen wird.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section" id="kontakt">
+  <div class="cta-inner reveal">
+    <div class="section-eyebrow">Kostenlos &amp; unverbindlich</div>
+    <h2>Lernen Sie uns<br>persönlich kennen</h2>
+    <p>Schildern Sie uns kurz Ihr Vorhaben – wir melden uns persönlich bei Ihnen zurück und besprechen die nächsten Schritte.</p>
+    <div class="cta-actions">
+      <a href="kontakt.php" class="btn-primary">
+        Zum Kontaktformular
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="tel:+4971443345604" class="btn-outline">07144 3345604</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo" aria-label="R. Ruge – Startseite">
+        <img src="assets/logo-ruge.png" width="712" height="424" alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" loading="lazy" />
+      </a>
+      <p>Inhabergeführter Meisterbetrieb für Sanitär, Heizung, regenerative Energien und Flaschnerei in Steinheim an der Murr.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Leistungen</h4>
+      <ul>
+        <li><a href="leistungen.html#heizung">Heizung &amp; Brennwerttechnik</a></li>
+        <li><a href="leistungen.html#sanitaer">Sanitär &amp; Badumbau</a></li>
+        <li><a href="index.html#energien">Regenerative Energien</a></li>
+        <li><a href="leistungen.html#flaschnerei">Flaschnerei</a></li>
+        <li><a href="leistungen.html#wartung">Wartung &amp; Kundendienst</a></li>
+        <li><a href="leistungen.html#trinkwasser">Trinkwasserhygiene</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <div class="footer-contact">
+        <div class="f-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>R. Ruge Sanitär Heizung Regenerative Energien<br />Zeppelinstraße 44<br />71711 Steinheim an der Murr</span>
+        </div>
+        <div class="f-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.44 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.88-1.88a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+4971443345604">07144 3345604</a>
+        </div>
+        <div class="f-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:reinholdruge@t-online.de">reinholdruge@t-online.de</a>
+        </div>
+        <div class="f-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Termine nach Vereinbarung</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© <span data-year>2026</span> R. Ruge Sanitär Heizung Regenerative Energien</p>
+    <nav aria-label="Rechtliches" class="footer-bottom-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="kontakt.php">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ══ MOBILE ACTION BAR ══ -->
+<div class="action-bar" aria-label="Schnellkontakt">
+  <a class="ab-call" href="tel:+4971443345604">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.44 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.88-1.88a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Anrufen
+  </a>
+  <a class="ab-mail" href="kontakt.php">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    Anfragen
+  </a>
+</div>
+
+<noscript><style>.reveal,.reveal-left,.reveal-right{opacity:1!important;transform:none!important;}</style></noscript>
+
+<script>
+  // Cursor glow
+  var glow = document.getElementById('cursorGlow');
+  if (glow && window.matchMedia('(pointer:fine)').matches) {
+    document.addEventListener('mousemove', function (e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top  = e.clientY + 'px';
+    });
+  }
+
+  // Header scroll shadow
+  var header = document.getElementById('header');
+  if (header) {
+    var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 20); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // Mobile nav
+  var burger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  function setNav(open) {
+    mobileNav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  }
+  if (burger && mobileNav) {
+    burger.addEventListener('click', function () { setNav(!mobileNav.classList.contains('open')); });
+    mobileNav.addEventListener('click', function (e) { if (e.target.closest('a')) setNav(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setNav(false); });
+  }
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    revealEls.forEach(function (el) { revealObs.observe(el); });
+    setTimeout(function () { revealEls.forEach(function (el) { el.classList.add('visible'); }); }, 4000);
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  // Sprungmarken – aktiver Zustand
+  var subnavLinks = Array.prototype.slice.call(document.querySelectorAll('.svc-pill'));
+  var svcSections = Array.prototype.slice.call(document.querySelectorAll('.svc-section'));
+  if ('IntersectionObserver' in window && subnavLinks.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          subnavLinks.forEach(function (a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    svcSections.forEach(function (s) { spy.observe(s); });
+  }
+
+  // Smooth scroll with header + subnav offset
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href');
+      if (!id || id === '#') return;
+      var t = document.querySelector(id);
+      if (!t) return;
+      e.preventDefault();
+      var headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'), 10) || 86;
+      var top = t.getBoundingClientRect().top + window.pageYOffset - headerH - 56;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      setNav && setNav(false);
+    });
+  });
+
+  // Aktuelles Jahr im Footer
+  document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+</script>
+</body>
+</html>
