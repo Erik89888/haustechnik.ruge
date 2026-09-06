@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Bereiche – Für wen wir arbeiten | R. Ruge Sanitär Heizung Regenerative Energien</title>
+<meta name="description" content="R. Ruge betreut Eigenheime, Sanierungen im Bestand sowie Mehrfamilienhäuser und WEG in Steinheim an der Murr und Umgebung – mit Standorten und Bauart je Bereich." />
+<meta name="theme-color" content="#01328F" />
+<link rel="icon" type="image/png" href="favicon.ruge.png" />
+<link rel="apple-touch-icon" href="favicon.ruge.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:title" content="Bereiche – R. Ruge Sanitär Heizung Regenerative Energien" />
+<meta property="og:description" content="Eigenheim, Sanierung im Bestand und Mehrfamilienhaus &amp; WEG – die drei Bereiche, in denen R. Ruge in Steinheim an der Murr und Umgebung arbeitet." />
+<meta property="og:image" content="eigenheim-wohnraum.jpg" />
+
+<link rel="preload" href="inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="fonts.css" />
+
+<style>
+  :root {
+    --orange:        #FF6B35;
+    --orange-dark:   #E85A28;
+    --orange-glow:   rgba(255, 107, 53, 0.3);
+    --brand-blue:    #0A2647;
+    --brand-blue-d:  #030D1E;
+    --navy:          #050609;
+    --navy-blue:     #0b1330;
+    --navy-mid:      #07091a;
+    --navy-mid-blue: #0e1638;
+    --navy-light:    #101733;
+    --card-bg:       #0a0e20;
+    --surface:       rgba(255,255,255,0.04);
+    --border:        rgba(255,255,255,0.08);
+    --text-primary:  #FFFFFF;
+    --text-secondary:#A7AFC6;
+    --text-muted:    #5A6280;
+    --header-h: 86px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 56px); }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-blue) 45%, var(--navy) 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; text-wrap: balance; }
+  img, svg { max-width: 100%; }
+  img { height: auto; display: block; }
+  a { color: inherit; }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+  ::selection { background: var(--orange); color: #fff; }
+  :focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; border-radius: 3px; }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 2000;
+    background: var(--orange); color: #fff; padding: 0.8rem 1.4rem; font-weight: 600; text-decoration: none;
+  }
+  .skip-link:focus { left: 12px; top: 12px; }
+
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1; opacity: 0.4;
+  }
+  .cursor-glow {
+    position: fixed; width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,53,0.07) 0%, transparent 70%);
+    pointer-events: none; transform: translate(-50%, -50%);
+    z-index: 9999; transition: opacity 0.3s ease;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: var(--orange); color: white;
+    padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none;
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem;
+    letter-spacing: 1.3px; text-transform: uppercase; border: none; cursor: pointer;
+    transition: all 0.3s ease; position: relative; overflow: hidden;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+  }
+  .btn-primary svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .btn-primary::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 28px var(--orange-glow); }
+  .btn-primary:hover::before { left: 100%; }
+  .btn-outline {
+    background: rgba(255,255,255,0.03); color: var(--text-primary);
+    padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none;
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem;
+    letter-spacing: 1.3px; text-transform: uppercase; border: 1px solid var(--border);
+    cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.6rem;
+  }
+  .btn-outline svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .btn-outline:hover { border-color: var(--orange); color: var(--orange); box-shadow: 0 0 22px var(--orange-glow); }
+
+  /* ── HEADER ── */
+  header.site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: transparent; border-bottom: 1px solid transparent;
+    transition: background 0.4s ease, box-shadow 0.3s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+  }
+  header.site-header.scrolled {
+    background: linear-gradient(100deg, var(--brand-blue) 0%, var(--brand-blue-d) 100%);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 12px 34px rgba(0,0,0,0.45);
+  }
+  .header-inner {
+    max-width: 1320px; margin-inline: auto;
+    min-height: var(--header-h);
+    padding: 0.6rem 6%; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  }
+  .logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+  .logo img { height: 58px; width: auto; transition: height 0.3s ease; }
+  .header-nav { display: flex; align-items: center; gap: 2.2rem; }
+  .header-nav a {
+    color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.85rem;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    transition: color 0.3s; position: relative; padding: 0.3rem 0;
+  }
+  .header-nav a::after {
+    content: ''; position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 2px; background: var(--orange); border-radius: 2px; transition: width 0.3s;
+  }
+  .header-nav a:hover, .header-nav a[aria-current="page"] { color: #fff; }
+  .header-nav a:hover::after, .header-nav a[aria-current="page"]::after { width: 100%; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+    background: none; border: 0;
+  }
+  .hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; display: block; }
+  .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-nav {
+    position: fixed; inset: 0; background: rgba(5,6,9,0.97); backdrop-filter: blur(20px);
+    z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6rem;
+    transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.77,0,0.175,1);
+    padding: 2rem;
+  }
+  .mobile-nav.open { transform: translateX(0); }
+  .mobile-nav a {
+    font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800;
+    color: var(--text-primary); text-decoration: none; text-transform: uppercase;
+    letter-spacing: 2px; transition: color 0.3s;
+  }
+  .mobile-nav a:hover { color: var(--orange); }
+  .mobile-nav .mobile-actions { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1rem; align-items: center; }
+  .mobile-meta { margin-top: 1.5rem; font-size: 0.82rem; color: var(--text-secondary); text-align: center; line-height: 1.8; }
+
+  /* ── SECTION COMMONS ── */
+  section { position: relative; z-index: 1; }
+  .section-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 1rem;
+  }
+  .chip {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 0.95rem; background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+    border-radius: 100px; font-size: 0.76rem; color: var(--text-secondary); backdrop-filter: blur(6px);
+  }
+  .chip svg { width: 14px; height: 14px; stroke: var(--orange); flex-shrink: 0; }
+
+  /* ── SEITEN-HERO ── */
+  .svc-hero { position: relative; min-height: 58vh; display: flex; align-items: flex-end; overflow: hidden; }
+  .svc-hero-media { position: absolute; inset: 0; z-index: 0; background: var(--navy-mid-blue); }
+  .svc-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; filter: brightness(0.4); }
+  .svc-hero-scrim {
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      linear-gradient(to top, rgba(5,6,9,1) 0%, rgba(5,6,9,0.82) 30%, rgba(5,6,9,0.4) 62%, rgba(5,6,9,0.18) 100%),
+      radial-gradient(ellipse at 18% 15%, rgba(255,107,53,0.14) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 10%, rgba(1,50,143,0.22) 0%, transparent 45%);
+  }
+  .svc-hero-grid {
+    position: absolute; inset: 0; z-index: 2;
+    background-image: linear-gradient(rgba(255,107,53,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,107,53,0.04) 1px, transparent 1px);
+    background-size: 70px 70px;
+    mask-image: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 75%);
+  }
+  .svc-hero-content { position: relative; z-index: 3; padding: calc(var(--header-h) + 2.5rem) 6% 3.4rem; max-width: 880px; width: 100%; }
+  .svc-hero-content .hero-eyebrow {
+    display: flex; align-items: center; gap: 0.8rem;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 1.3rem;
+    opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 0.15s forwards;
+  }
+  .svc-hero-content .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--orange); flex-shrink: 0; }
+  .svc-hero-content h1 {
+    font-size: clamp(2.2rem, 4.6vw, 3.6rem); font-weight: 800; line-height: 1.05;
+    letter-spacing: -1px; margin-bottom: 1rem;
+    opacity: 0; transform: translateY(28px); animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+  .svc-hero-content .hero-sub {
+    font-size: 1.02rem; color: var(--text-secondary); max-width: 560px;
+    line-height: 1.75; margin-bottom: 1.8rem;
+    opacity: 0; transform: translateY(28px); animation: fadeUp 0.8s ease 0.45s forwards;
+  }
+  .svc-hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.8rem;
+    opacity: 0; transform: translateY(24px); animation: fadeUp 0.8s ease 0.55s forwards;
+  }
+  .svc-hero-content .hero-chips {
+    list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem;
+    opacity: 0; transform: translateY(18px); animation: fadeUp 0.8s ease 0.7s forwards;
+  }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  /* ── INFO BAND ── */
+  .info-band {
+    background: var(--orange); padding: 1.2rem 6%;
+    display: flex; align-items: center; gap: 3rem; overflow: hidden; position: relative; flex-wrap: wrap;
+  }
+  .info-band::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    animation: shimmer 3.5s infinite;
+  }
+  @keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+  .info-item { display: flex; align-items: center; gap: 1rem; white-space: nowrap; text-decoration: none; color: #fff; }
+  .info-item svg { width: 20px; height: 20px; stroke: rgba(255,255,255,0.8); flex-shrink: 0; }
+  .info-item strong { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; display: block; }
+  .info-item span { font-size: 0.83rem; opacity: 0.85; }
+  .info-div { width: 1px; height: 30px; background: rgba(255,255,255,0.3); flex-shrink: 0; }
+
+  /* ── SUB-NAVIGATION (Sprungmarken) ── */
+  .svc-subnav {
+    position: sticky; top: var(--header-h); z-index: 500;
+    background: rgba(5,6,9,0.88); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .svc-subnav-inner {
+    max-width: 1180px; margin-inline: auto; display: flex; gap: 0.6rem;
+    padding: 0.85rem 6%; overflow-x: auto; scrollbar-width: none;
+  }
+  .svc-subnav-inner::-webkit-scrollbar { display: none; }
+  .svc-pill {
+    flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.55rem 1.15rem; border-radius: 100px; border: 1px solid var(--border);
+    color: var(--text-secondary); text-decoration: none; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.3px; white-space: nowrap; transition: all 0.25s;
+  }
+  .svc-pill:hover { color: #fff; border-color: rgba(255,107,53,0.4); }
+  .svc-pill.active { background: var(--orange); border-color: var(--orange); color: #fff; }
+
+  /* ── BEREICH-SEKTIONEN ── */
+  .bereich-section { background: linear-gradient(165deg, #04050a 0%, #0b1330 55%, #04050a 100%); scroll-margin-top: calc(var(--header-h) + 56px); }
+  .bereich-section.alt { background: linear-gradient(165deg, #05060c 0%, #0e1638 55%, #05060c 100%); }
+
+  .bereich-media { position: relative; width: 100%; height: clamp(320px, 42vw, 560px); overflow: hidden; background: #0a1929; }
+  .bereich-media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.78); transition: transform 1.2s cubic-bezier(0.4,0,0.2,1); }
+  .bereich-section:hover .bereich-media img { transform: scale(1.04); }
+  .bereich-media::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to bottom, rgba(5,6,9,0) 55%, rgba(5,6,9,0.95) 100%);
+  }
+  .bereich-media-tag {
+    position: absolute; left: 6%; bottom: 1.6rem; z-index: 2;
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #fff;
+  }
+  .bereich-media-tag::before { content: ''; width: 26px; height: 1px; background: var(--orange); }
+
+  .bereich-body { padding: 4.5rem 6%; }
+  .bereich-inner { max-width: 1180px; margin-inline: auto; position: relative; }
+  .bereich-head { display: flex; align-items: center; gap: 1.3rem; margin-bottom: 1.2rem; position: relative; }
+  .bereich-icon {
+    width: 58px; height: 58px; background: rgba(255,107,53,0.1); border-radius: 14px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .bereich-icon svg { width: 27px; height: 27px; stroke: var(--orange); }
+  .bereich-head h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); font-weight: 800; letter-spacing: -0.3px; }
+  .bereich-num-bg {
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 5.5rem;
+    color: rgba(255,255,255,0.035); line-height: 1; pointer-events: none; user-select: none;
+  }
+  .bereich-intro { color: var(--text-secondary); font-size: 1.02rem; max-width: 760px; margin-bottom: 2.2rem; }
+
+  .bereich-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+  .bereich-detail {
+    display: flex; gap: 1.1rem; padding: 1.5rem; border-radius: 12px;
+    border: 1px solid var(--border); background: var(--surface); transition: border-color 0.3s;
+  }
+  .bereich-detail:hover { border-color: rgba(255,107,53,0.3); }
+  .bereich-detail-icon {
+    width: 44px; height: 44px; background: rgba(255,107,53,0.1); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .bereich-detail-icon svg { width: 20px; height: 20px; stroke: var(--orange); }
+  .bereich-detail h3 { font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
+  .bereich-detail p { font-size: 0.92rem; color: #D3DBEF; }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 8rem 6%; text-align: center; position: relative; overflow: hidden;
+    background: linear-gradient(165deg, #04050a 0%, #0b1330 55%, #04050a 100%);
+  }
+  .cta-section::before {
+    content: 'BEREICHE'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-family: 'Montserrat', sans-serif; font-size: 15vw; font-weight: 800;
+    color: rgba(255,255,255,0.013); white-space: nowrap; pointer-events: none; letter-spacing: -5px;
+  }
+  .cta-section::after {
+    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,53,0.06) 0%, transparent 70%); pointer-events: none;
+  }
+  .cta-inner { position: relative; z-index: 2; }
+  .cta-section h2 { font-size: clamp(2.1rem, 4.4vw, 3.4rem); font-weight: 800; margin-bottom: 1rem; letter-spacing: -1px; }
+  .cta-section p { color: var(--text-secondary); font-size: 1.02rem; margin-bottom: 2.3rem; }
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .cta-actions .btn-primary, .cta-actions .btn-outline { padding: 1.05rem 2.3rem; font-size: 0.88rem; }
+
+  /* ── FOOTER ── */
+  footer.site-footer { background: linear-gradient(165deg, #04050a 0%, #0b1330 60%, #04050a 100%); border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
+  .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.8rem; }
+  .footer-logo { display: inline-block; margin-bottom: 1.1rem; }
+  .footer-logo img { height: 46px; width: auto; }
+  .footer-brand p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; max-width: 300px; }
+  .footer-col h4 { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.1rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.65rem; }
+  .footer-col ul li a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: var(--orange); }
+  .footer-contact { display: flex; flex-direction: column; gap: 0.8rem; }
+  .f-row { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.85rem; color: var(--text-secondary); }
+  .f-row svg { width: 16px; height: 16px; stroke: var(--orange); flex-shrink: 0; margin-top: 2px; }
+  .f-row a { color: var(--text-secondary); text-decoration: none; transition: color 0.3s; }
+  .f-row a:hover { color: var(--orange); }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-bottom p { font-size: 0.78rem; color: var(--text-muted); }
+  .footer-bottom-links { display: flex; gap: 1.5rem; }
+  .footer-bottom-links a { color: var(--text-muted); text-decoration: none; font-size: 0.78rem; transition: color 0.3s; }
+  .footer-bottom-links a:hover { color: var(--orange); }
+
+  /* ── MOBILE ACTION BAR ── */
+  .action-bar {
+    display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+    background: rgba(5,6,9,0.92); backdrop-filter: blur(14px);
+    border-top: 1px solid var(--border);
+    padding: 0.7rem 5%; gap: 0.7rem;
+  }
+  .action-bar a {
+    flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+    padding: 0.85rem 0.5rem; border-radius: 8px; text-decoration: none; white-space: nowrap;
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.76rem;
+    letter-spacing: 0.3px; text-transform: uppercase;
+  }
+  .action-bar svg { width: 16px; height: 16px; }
+  .ab-call { background: rgba(255,255,255,0.06); color: #fff; border: 1px solid var(--border); }
+  .ab-mail { background: var(--orange); color: #fff; }
+
+  /* ── REVEAL ANIMATIONEN ── */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .bereich-detail-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    :root { --header-h: 68px; }
+    .logo img { height: 42px; }
+    .header-nav, .header-inner .btn-primary { display: none; }
+    .hamburger { display: flex; }
+    .svc-hero { min-height: 46vh; }
+    .bereich-body { padding: 3.2rem 6%; }
+    .bereich-num-bg { display: none; }
+    .bereich-media { height: clamp(220px, 60vw, 340px); }
+    .info-band { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+    .info-div { display: none; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .cta-actions, .svc-hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
+    .action-bar { display: flex; }
+    body { padding-bottom: 68px; }
+    .cursor-glow { display: none; }
+  }
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ══ MOBILE NAV ══ -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+  <a href="leistungen.html">Leistungen</a>
+  <a href="index.html#energien">Regenerative Energien</a>
+  <a href="bereiche.html">Bereiche</a>
+  <a href="index.html#referenzen">Referenzen</a>
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="kontakt.php">Kontakt</a>
+  <div class="mobile-actions">
+    <a href="kontakt.php" class="btn-primary">Anfrage senden</a>
+    <a href="tel:+4971443345604" class="btn-outline">07144 3345604</a>
+  </div>
+  <div class="mobile-meta">
+    R. Ruge Sanitär Heizung Regenerative Energien<br />
+    Zeppelinstraße 44 · 71711 Steinheim an der Murr
+  </div>
+</nav>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="R. Ruge – Startseite">
+      <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" />
+    </a>
+    <nav class="header-nav" aria-label="Hauptnavigation">
+      <a href="leistungen.html">Leistungen</a>
+      <a href="index.html#energien">Energien</a>
+      <a href="bereiche.html" aria-current="page">Bereiche</a>
+      <a href="index.html#referenzen">Referenzen</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="kontakt.php">Kontakt</a>
+    </nav>
+    <a href="kontakt.php" class="btn-primary">Anfrage senden</a>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══ SEITEN-HERO ══ -->
+<section class="svc-hero" id="hero">
+  <div class="svc-hero-media">
+    <img src="solar-dach.jpg" width="2000" height="1500" fetchpriority="high"
+         alt="Handwerker montiert Solarmodule auf einem Hausdach vor blauem Himmel" />
+  </div>
+  <div class="svc-hero-scrim"></div>
+  <div class="svc-hero-grid"></div>
+  <div class="svc-hero-content">
+    <p class="hero-eyebrow"><span>Leistungsbereiche</span></p>
+    <h1>Für wen wir<br />arbeiten</h1>
+    <p class="hero-sub">
+      Wir betreuen private Bauherren, Eigentümer und Eigentümergemeinschaften im Bestand –
+      vom einzelnen Bad bis zur kompletten Haustechnik im Mehrfamilienhaus.
+    </p>
+    <div class="svc-hero-actions">
+      <a href="kontakt.php" class="btn-primary">
+        Kostenlos anfragen
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="tel:+4971443345604" class="btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.44 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.88-1.88a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        07144 3345604
+      </a>
+    </div>
+    <ul class="hero-chips">
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Privatkunden</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Sanierung im Bestand</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>WEG &amp; Mehrfamilienhaus</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ INFO BAND ══ -->
+<div class="info-band">
+  <a class="info-item" href="tel:+4971443345604">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.44 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.88-1.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span><strong>07144 3345604</strong><span>Direkt beim Chef anrufen</span></span>
+  </a>
+  <div class="info-div"></div>
+  <div class="info-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span><strong>Meisterbetrieb</strong><span>Handwerkskammer Region Stuttgart</span></span>
+  </div>
+  <div class="info-div"></div>
+  <div class="info-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span><strong>Festpreisangebot</strong><span>Klar kalkuliert, keine Überraschungen</span></span>
+  </div>
+  <div class="info-div"></div>
+  <div class="info-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span><strong>Steinheim &amp; Umgebung</strong><span>Kurze Wege, schnell vor Ort</span></span>
+  </div>
+</div>
+
+<!-- ══ SPRUNGMARKEN ══ -->
+<nav class="svc-subnav" aria-label="Bereiche Sprungnavigation">
+  <div class="svc-subnav-inner">
+    <a class="svc-pill" href="#eigenheim">Eigenheim</a>
+    <a class="svc-pill" href="#sanierung">Sanierung</a>
+    <a class="svc-pill" href="#mehrfamilienhaus">Mehrfamilienhaus &amp; WEG</a>
+  </div>
+</nav>
+
+<!-- 1 · EIGENHEIM & WOHNGEBÄUDE -->
+<section class="bereich-section" id="eigenheim">
+  <div class="bereich-media">
+    <img src="eigenheim-wohnraum.jpg" width="1400" height="952" loading="lazy" decoding="async" alt="Modernes, offenes Wohnzimmer mit Küche in einem Eigenheim" />
+    <div class="bereich-media-tag">Privatkunden</div>
+  </div>
+  <div class="bereich-body">
+    <div class="bereich-inner">
+      <div class="bereich-head reveal">
+        <div class="bereich-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h2>Eigenheim &amp; Wohngebäude</h2>
+        <span class="bereich-num-bg">01</span>
+      </div>
+      <p class="bereich-intro reveal">
+        Von der tropfenden Armatur bis zur kompletten Heizungsanlage: Für Eigentümerinnen
+        und Eigentümer im eigenen Haus sind wir Ansprechpartner für die gesamte Haustechnik –
+        einmal beauftragt, ein fester Kontakt bis zum Abschluss.
+      </p>
+      <div class="bereich-detail-grid reveal">
+        <div class="bereich-detail">
+          <div class="bereich-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h3>Standorte</h3><p>Steinheim an der Murr und die nähere Umgebung. Kurze Wege bedeuten: Wir sind bei Rückfragen schnell wieder vor Ort. Ob Ihr Wohnort dazugehört, klären wir kurz am Telefon.</p></div>
+        </div>
+        <div class="bereich-detail">
+          <div class="bereich-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div><h3>Bauart</h3><p>Ein- und Zweifamilienhäuser sowie Doppelhaushälften im Bestand – von der einzelnen Reparatur über den Badumbau bis zur kompletten Heizungserneuerung.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · SANIERUNG & MODERNISIERUNG -->
+<section class="bereich-section alt" id="sanierung">
+  <div class="bereich-media">
+    <img src="sanierung-rohbau.jpg" width="822" height="600" loading="lazy" decoding="async" alt="Badezimmer im Rohbau während einer Sanierung" />
+    <div class="bereich-media-tag">Sanierung</div>
+  </div>
+  <div class="bereich-body">
+    <div class="bereich-inner">
+      <div class="bereich-head reveal">
+        <div class="bereich-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h2>Sanierung &amp; Modernisierung</h2>
+        <span class="bereich-num-bg">02</span>
+      </div>
+      <p class="bereich-intro reveal">
+        Alte Anlagen raus, effiziente Technik rein: Wir begleiten Sanierungen Schritt für
+        Schritt – von der Planung über den Rückbau bis zur bewohnbaren Fertigstellung, mit
+        einem realistischen Ablaufplan statt böser Überraschungen.
+      </p>
+      <div class="bereich-detail-grid reveal">
+        <div class="bereich-detail">
+          <div class="bereich-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h3>Standorte</h3><p>Ebenfalls Steinheim an der Murr und Umgebung – mit besonderer Erfahrung in gewachsenen Wohngebieten mit älterer Bausubstanz.</p></div>
+        </div>
+        <div class="bereich-detail">
+          <div class="bereich-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div><h3>Bauart</h3><p>Altbauten und gewachsene Bestandsimmobilien: Badsanierung, Heizungstausch und hydraulischer Abgleich, abgestimmt auf vorhandene Grundrisse und Leitungen.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · MEHRFAMILIENHAUS & WEG -->
+<section class="bereich-section" id="mehrfamilienhaus">
+  <div class="bereich-media">
+    <img src="mehrfamilienhaus.jpg" width="1400" height="1867" loading="lazy" decoding="async" alt="Mehrfamilienhaus mit Balkonen in der Abenddämmerung" style="object-position: center 30%;" />
+    <div class="bereich-media-tag">Wohnungsbau</div>
+  </div>
+  <div class="bereich-body">
+    <div class="bereich-inner">
+      <div class="bereich-head reveal">
+        <div class="bereich-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/></svg></div>
+        <h2>Mehrfamilienhaus &amp; WEG</h2>
+        <span class="bereich-num-bg">03</span>
+      </div>
+      <p class="bereich-intro reveal">
+        Für Eigentümergemeinschaften und Vermieter kümmern wir uns um zentrale Anlagen,
+        die zuverlässig laufen müssen – mit einem Ansprechpartner für die gesamte Technik
+        statt vieler Einzelaufträge.
+      </p>
+      <div class="bereich-detail-grid reveal">
+        <div class="bereich-detail">
+          <div class="bereich-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h3>Standorte</h3><p>Steinheim an der Murr und Umgebung – für Eigentümergemeinschaften, Verwaltungen und Vermieter vor Ort.</p></div>
+        </div>
+        <div class="bereich-detail">
+          <div class="bereich-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/></svg></div>
+          <div><h3>Bauart</h3><p>Mehrfamilienhäuser und Wohnanlagen im Bestand: zentrale Heizungs- und Sanitäranlagen sowie deren Wartung und Instandhaltung.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section" id="kontakt">
+  <div class="cta-inner reveal">
+    <div class="section-eyebrow">Kostenlos &amp; unverbindlich</div>
+    <h2>Ihr Bereich ist<br>nicht dabei?</h2>
+    <p>Schildern Sie uns kurz Ihr Vorhaben – wir sagen Ihnen ehrlich, ob und wie wir helfen können.</p>
+    <div class="cta-actions">
+      <a href="kontakt.php" class="btn-primary">
+        Zum Kontaktformular
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="tel:+4971443345604" class="btn-outline">07144 3345604</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo" aria-label="R. Ruge – Startseite">
+        <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" loading="lazy" />
+      </a>
+      <p>Inhabergeführter Meisterbetrieb für Sanitär, Heizung, regenerative Energien und Flaschnerei in Steinheim an der Murr.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Leistungen</h4>
+      <ul>
+        <li><a href="leistungen.html#heizung">Heizung &amp; Brennwerttechnik</a></li>
+        <li><a href="leistungen.html#sanitaer">Sanitär &amp; Badumbau</a></li>
+        <li><a href="index.html#energien">Regenerative Energien</a></li>
+        <li><a href="leistungen.html#flaschnerei">Flaschnerei</a></li>
+        <li><a href="leistungen.html#wartung">Wartung &amp; Kundendienst</a></li>
+        <li><a href="leistungen.html#trinkwasser">Trinkwasserhygiene</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <div class="footer-contact">
+        <div class="f-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>R. Ruge Sanitär Heizung Regenerative Energien<br />Zeppelinstraße 44<br />71711 Steinheim an der Murr</span>
+        </div>
+        <div class="f-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.44 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.88-1.88a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+4971443345604">07144 3345604</a>
+        </div>
+        <div class="f-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:reinholdruge@t-online.de">reinholdruge@t-online.de</a>
+        </div>
+        <div class="f-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Termine nach Vereinbarung</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© <span data-year>2026</span> R. Ruge Sanitär Heizung Regenerative Energien</p>
+    <nav aria-label="Rechtliches" class="footer-bottom-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="kontakt.php">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ══ MOBILE ACTION BAR ══ -->
+<div class="action-bar" aria-label="Schnellkontakt">
+  <a class="ab-call" href="tel:+4971443345604">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.44 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.88-1.88a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Anrufen
+  </a>
+  <a class="ab-mail" href="kontakt.php">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    Anfragen
+  </a>
+</div>
+
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+
+<script>
+  // Cursor glow
+  var glow = document.getElementById('cursorGlow');
+  if (glow && window.matchMedia('(pointer:fine)').matches) {
+    document.addEventListener('mousemove', function (e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top  = e.clientY + 'px';
+    });
+  }
+
+  // Header scroll shadow
+  var header = document.getElementById('header');
+  if (header) {
+    var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 20); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // Mobile nav
+  var burger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  function setNav(open) {
+    mobileNav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  }
+  if (burger && mobileNav) {
+    burger.addEventListener('click', function () { setNav(!mobileNav.classList.contains('open')); });
+    mobileNav.addEventListener('click', function (e) { if (e.target.closest('a')) setNav(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setNav(false); });
+  }
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    revealEls.forEach(function (el) { revealObs.observe(el); });
+    setTimeout(function () { revealEls.forEach(function (el) { el.classList.add('visible'); }); }, 4000);
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  // Sprungmarken – aktiver Zustand
+  var subnavLinks = Array.prototype.slice.call(document.querySelectorAll('.svc-pill'));
+  var bereichSections = Array.prototype.slice.call(document.querySelectorAll('.bereich-section'));
+  if ('IntersectionObserver' in window && subnavLinks.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          subnavLinks.forEach(function (a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    bereichSections.forEach(function (s) { spy.observe(s); });
+  }
+
+  // Smooth scroll with header + subnav offset
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href');
+      if (!id || id === '#') return;
+      var t = document.querySelector(id);
+      if (!t) return;
+      e.preventDefault();
+      var headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'), 10) || 86;
+      var top = t.getBoundingClientRect().top + window.pageYOffset - headerH - 56;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      setNav && setNav(false);
+    });
+  });
+
+  // Aktuelles Jahr im Footer
+  document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+</script>
+</body>
+</html>
