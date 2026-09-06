@@ -32,6 +32,26 @@
     --navy-mid-blue: #0e1638;
     --navy-light:    #101733;
     --card-bg:       #0a0e20;
+
+    /* ── Sektions-Welle: durchlaufender Verlauf über die ganze Seite ──
+       up   = dunkel oben → blau unten
+       down = blau oben   → dunkel unten
+       full = dunkel → blau → dunkel (für einzeln stehende Sektionen)
+       Aufeinanderfolgende Sektionen wechseln sich ab, dadurch treffen an
+       jeder Naht immer zwei identische Farben aufeinander und die Kante
+       verschwindet. Die Stopps folgen einer Smootherstep-Kurve, damit die
+       Steigung an beiden Enden fast null ist (kein sichtbarer Knick). */
+    --wave-up: linear-gradient(to bottom,
+      #04050a 0%, #04050a 10%, #04060c 20%, #050710 30%, #060916 40%,
+      #080c1d 50%, #090f24 60%, #0a112a 70%, #0b122e 80%, #0b1330 90%, #0b1330 100%);
+    --wave-down: linear-gradient(to top,
+      #04050a 0%, #04050a 10%, #04060c 20%, #050710 30%, #060916 40%,
+      #080c1d 50%, #090f24 60%, #0a112a 70%, #0b122e 80%, #0b1330 90%, #0b1330 100%);
+    --wave-full: linear-gradient(to bottom,
+      #04050a 0%,  #04050a 5%,  #04060c 10%, #050710 15%, #060916 20%,
+      #080c1d 25%, #090f24 30%, #0a112a 35%, #0b122e 40%, #0b1330 45%,
+      #0b1330 55%, #0b122e 60%, #0a112a 65%, #090f24 70%, #080c1d 75%,
+      #060916 80%, #050710 85%, #04060c 90%, #04050a 95%, #04050a 100%);
     --surface:       rgba(255,255,255,0.04);
     --border:        rgba(255,255,255,0.08);
     --text-primary:  #FFFFFF;
@@ -263,8 +283,9 @@
   .svc-pill.active { background: var(--orange); border-color: var(--orange); color: #fff; }
 
   /* ── SEKTIONEN ── */
-  .svc-section { padding: 6rem 6%; background: linear-gradient(165deg, #04050a 0%, #0b1330 55%, #04050a 100%); scroll-margin-top: calc(var(--header-h) + 56px); overflow: hidden; }
-  .svc-section.alt { background: linear-gradient(165deg, #05060c 0%, #0e1638 55%, #05060c 100%); }
+  /* Welle: svc → alt → svc → cta → footer laufen durch */
+  .svc-section { padding: 6rem 6%; background: var(--wave-up); scroll-margin-top: calc(var(--header-h) + 56px); overflow: hidden; }
+  .svc-section.alt { background: var(--wave-down); }
   .svc-inner { max-width: 1180px; margin-inline: auto; position: relative; }
   .svc-head { display: flex; align-items: center; gap: 1.3rem; margin-bottom: 1.3rem; position: relative; }
   .svc-icon {
@@ -368,7 +389,7 @@
   /* ── CTA ── */
   .cta-section {
     padding: 8rem 6%; text-align: center; position: relative; overflow: hidden;
-    background: linear-gradient(165deg, #04050a 0%, #0b1330 55%, #04050a 100%);
+    background: var(--wave-down);
   }
   .cta-section::before {
     content: 'MEISTERBETRIEB'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -387,7 +408,8 @@
   .cta-actions .btn-primary, .cta-actions .btn-outline { padding: 1.05rem 2.3rem; font-size: 0.88rem; }
 
   /* ── FOOTER ── */
-  footer.site-footer { background: linear-gradient(165deg, #04050a 0%, #0b1330 60%, #04050a 100%); border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
+  /* Wellenende: cta läuft dunkel aus, Footer trägt einen vollen Bogen */
+  footer.site-footer { background: var(--wave-full); border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
   .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.8rem; }
   .footer-logo { display: inline-block; margin-bottom: 1.1rem; }
   .footer-logo img { height: 46px; width: auto; }
@@ -470,7 +492,7 @@
 <!-- ══ MOBILE NAV ══ -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
   <a href="leistungen.html">Leistungen</a>
-  <a href="index.html#energien">Regenerative Energien</a>
+  <a href="energien.html">Regenerative Energien</a>
   <a href="bereiche.html">Bereiche</a>
   <a href="index.html#referenzen">Referenzen</a>
   <a href="ueber-uns.html">Über uns</a>
@@ -738,7 +760,7 @@
       <ul>
         <li><a href="leistungen.html#heizung">Heizung &amp; Brennwerttechnik</a></li>
         <li><a href="leistungen.html#sanitaer">Sanitär &amp; Badumbau</a></li>
-        <li><a href="index.html#energien">Regenerative Energien</a></li>
+        <li><a href="energien.html">Regenerative Energien</a></li>
         <li><a href="leistungen.html#flaschnerei">Flaschnerei</a></li>
         <li><a href="leistungen.html#wartung">Wartung &amp; Kundendienst</a></li>
         <li><a href="leistungen.html#trinkwasser">Trinkwasserhygiene</a></li>
