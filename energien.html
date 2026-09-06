@@ -32,6 +32,26 @@
     --navy-mid-blue: #0e1638;
     --navy-light:    #101733;
     --card-bg:       #0a0e20;
+
+    /* ── Sektions-Welle: durchlaufender Verlauf über die ganze Seite ──
+       up   = dunkel oben → blau unten
+       down = blau oben   → dunkel unten
+       full = dunkel → blau → dunkel (für einzeln stehende Sektionen)
+       Aufeinanderfolgende Sektionen wechseln sich ab, dadurch treffen an
+       jeder Naht immer zwei identische Farben aufeinander und die Kante
+       verschwindet. Die Stopps folgen einer Smootherstep-Kurve, damit die
+       Steigung an beiden Enden fast null ist (kein sichtbarer Knick). */
+    --wave-up: linear-gradient(to bottom,
+      #04050a 0%, #04050a 10%, #04060c 20%, #050710 30%, #060916 40%,
+      #080c1d 50%, #090f24 60%, #0a112a 70%, #0b122e 80%, #0b1330 90%, #0b1330 100%);
+    --wave-down: linear-gradient(to top,
+      #04050a 0%, #04050a 10%, #04060c 20%, #050710 30%, #060916 40%,
+      #080c1d 50%, #090f24 60%, #0a112a 70%, #0b122e 80%, #0b1330 90%, #0b1330 100%);
+    --wave-full: linear-gradient(to bottom,
+      #04050a 0%,  #04050a 5%,  #04060c 10%, #050710 15%, #060916 20%,
+      #080c1d 25%, #090f24 30%, #0a112a 35%, #0b122e 40%, #0b1330 45%,
+      #0b1330 55%, #0b122e 60%, #0a112a 65%, #090f24 70%, #080c1d 75%,
+      #060916 80%, #050710 85%, #04060c 90%, #04050a 95%, #04050a 100%);
     --surface:       rgba(255,255,255,0.04);
     --border:        rgba(255,255,255,0.08);
     --text-primary:  #FFFFFF;
@@ -366,8 +386,11 @@
   }
 
   /* ── DETAIL-BLÖCKE ── */
-  .svc-section { padding: 4.5rem 6%; background: linear-gradient(165deg, #04050a 0%, #0b1330 55%, #04050a 100%); scroll-margin-top: 5rem; }
-  .svc-section.alt { background: linear-gradient(165deg, #05060c 0%, #0e1638 55%, #05060c 100%); }
+  /* Welle: alt → svc → alt → funding → faq → cta → footer laufen durch.
+     Achtung: auf DIESER Seite steht .alt im Markup zuerst, deshalb sind
+     up/down hier genau andersherum belegt als auf leistungen.html. */
+  .svc-section { padding: 4.5rem 6%; background: var(--wave-down); scroll-margin-top: 5rem; }
+  .svc-section.alt { background: var(--wave-up); }
   .svc-inner { max-width: 1180px; margin-inline: auto; position: relative; }
   .svc-head { display: flex; align-items: center; gap: 1.3rem; margin-bottom: 1.3rem; }
   .svc-icon {
@@ -387,11 +410,11 @@
   .svc-text-col p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.4rem; }
 
   /* ── FÖRDERUNG ── */
-  .funding { padding: 5rem 6%; background: linear-gradient(165deg, #05060c 0%, #0e1638 55%, #05060c 100%); text-align: center; }
+  .funding { padding: 5rem 6%; background: var(--wave-down); text-align: center; }
   .funding-inner { max-width: 720px; margin-inline: auto; }
 
   /* ── FAQ ── */
-  .faq { padding: 5rem 6%; background: linear-gradient(165deg, #04050a 0%, #0b1330 55%, #04050a 100%); }
+  .faq { padding: 5rem 6%; background: var(--wave-up); }
   .faq-inner { max-width: 760px; margin: 0 auto; }
   .faq-item { border-bottom: 1px solid var(--border); }
   .faq-q {
@@ -415,7 +438,7 @@
   /* ── CTA ── */
   .cta-section {
     padding: 7rem 6%; text-align: center; position: relative; overflow: hidden;
-    background: linear-gradient(165deg, #04050a 0%, #0b1330 55%, #04050a 100%);
+    background: var(--wave-down);
   }
   .cta-section::before {
     content: 'ENERGIE'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -459,7 +482,8 @@
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ── FOOTER ── */
-  footer.site-footer { background: linear-gradient(165deg, #04050a 0%, #0b1330 60%, #04050a 100%); border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
+  /* Wellenende: cta läuft dunkel aus, Footer trägt einen vollen Bogen */
+  footer.site-footer { background: var(--wave-full); border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
   .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.8rem; }
   .footer-logo { display: inline-block; margin-bottom: 1.1rem; }
   .footer-logo img { height: 46px; width: auto; }
