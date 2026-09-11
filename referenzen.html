@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Referenzen – Ausgeführte Projekte | R. Ruge Sanitär Heizung Regenerative Energien</title>
-<meta name="description" content="Ausgeführte Projekte von R. Ruge im Detail: Badumbau und Dachgeschoss-Bad in Oberstenfeld, Heizungstausch mit Wärmepumpe in Steinheim – mit Bildergalerie aus jedem Projekt." />
+<title>Leistungen im Detail – Projekte &amp; Referenzen | R. Ruge Sanitär Heizung Regenerative Energien</title>
+<meta name="description" content="Alle Leistungen von R. Ruge im Detail mit Bildergalerie: Heizung & Brennwerttechnik, Sanitär & Badumbau, Regenerative Energien, Flaschnerei, Wartung & Kundendienst, Trinkwasserhygiene." />
 <meta name="theme-color" content="#01328F" />
 <link rel="icon" type="image/png" href="favicon.ruge.png" />
 <link rel="apple-touch-icon" href="favicon.ruge.png" />
 
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="de_DE" />
-<meta property="og:title" content="Referenzen – Ausgeführte Projekte | R. Ruge" />
-<meta property="og:description" content="Badumbau, Heizungstausch, Wärmepumpe – abgeschlossene Projekte Schritt für Schritt in Bildern." />
-<meta property="og:image" content="ref-dachgeschoss-oberstenfeld-02.jpg" />
+<meta property="og:title" content="Leistungen im Detail – R. Ruge" />
+<meta property="og:description" content="Heizung, Sanitär, regenerative Energien, Flaschnerei, Wartung und Trinkwasserhygiene – mit Bildern aus echten Projekten." />
+<meta property="og:image" content="leistungen-hero-poster.jpg" />
 
 <link rel="preload" href="inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -178,6 +178,10 @@
   }
   .mobile-nav a:hover { color: var(--orange); }
   .mobile-nav .mobile-actions { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1rem; align-items: center; }
+  .mobile-nav .mobile-actions .btn-primary,
+  .mobile-nav .mobile-actions .btn-outline {
+    padding: 0.55rem 1.1rem; font-size: 0.68rem; letter-spacing: 0.8px; white-space: nowrap;
+  }
   .mobile-meta { margin-top: 1.5rem; font-size: 0.82rem; color: var(--text-secondary); text-align: center; line-height: 1.8; }
 
   /* ── SECTION COMMONS (aus index.html) ── */
@@ -195,8 +199,8 @@
   }
   .chip svg { width: 14px; height: 14px; stroke: var(--orange); flex-shrink: 0; }
 
-  /* ── SEITEN-HERO ── */
-  .svc-hero { position: relative; min-height: 60vh; display: flex; align-items: flex-end; overflow: hidden; }
+  /* ── SEITEN-HERO (einheitliche Höhe auf allen Unterseiten) ── */
+  .svc-hero { position: relative; min-height: clamp(620px, 75vh, 820px); display: flex; align-items: flex-end; overflow: hidden; }
   .svc-hero-media { position: absolute; inset: 0; z-index: 0; background: var(--navy-mid-blue); }
   .svc-hero-media video, .svc-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; filter: brightness(0.42); }
   .svc-hero-media video { display: none; }
@@ -219,6 +223,10 @@
     mask-image: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 75%);
   }
   .svc-hero-content { position: relative; z-index: 3; padding: calc(var(--header-h) + 2.5rem) 6% 3.4rem; max-width: 880px; width: 100%; }
+  /* Flache Fenster: Innenabstand reduzieren, damit der Inhalt in die einheitliche Hero-Höhe passt */
+  @media (min-width: 769px) and (max-height: 800px) {
+    .svc-hero-content { padding-top: calc(var(--header-h) + 1.5rem); padding-bottom: 2.6rem; }
+  }
   .svc-hero-content .hero-eyebrow {
     display: flex; align-items: center; gap: 0.8rem;
     font-size: 0.72rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
@@ -227,7 +235,7 @@
   }
   .svc-hero-content .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--orange); flex-shrink: 0; }
   .svc-hero-content h1 {
-    font-size: clamp(2.2rem, 4.6vw, 3.6rem); font-weight: 800; line-height: 1.05;
+    font-size: clamp(2.3rem, 5vw, 4rem); font-weight: 800; line-height: 1.05;
     letter-spacing: -1px; margin-bottom: 1rem;
     opacity: 0; transform: translateY(28px); animation: fadeUp 0.8s ease 0.3s forwards;
   }
@@ -367,7 +375,7 @@
     background: var(--wave-up);
   }
   .cta-section::before {
-    content: 'REFERENZEN'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    content: 'LEISTUNGEN'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
     font-family: 'Montserrat', sans-serif; font-size: 15vw; font-weight: 800;
     color: rgba(255,255,255,0.013); white-space: nowrap; pointer-events: none; letter-spacing: -5px;
   }
@@ -445,7 +453,7 @@
     .logo img { height: 42px; }
     .header-nav, .header-inner .btn-primary { display: none; }
     .hamburger { display: flex; }
-    .svc-hero { min-height: 46vh; }
+    .svc-hero { min-height: 60vh; }
     .svc-section { padding: 3.6rem 6%; }
     .svc-num-bg { display: none; }
     .info-band { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
@@ -464,67 +472,6 @@
   @media (max-width: 520px) {
     .svc-gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: clamp(120px, 34vw, 170px); gap: 0.6rem; }
     .gal-span-3 { grid-column: span 2; }
-  }
-
-  /* ── PROJEKT-ÜBERBLICK (Karten wie auf der Startseite) ── */
-  /* auto-fit: eine Karte füllt die Breite, zwei bzw. drei stehen nebeneinander */
-  .ref-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
-  .b-card { position: relative; overflow: hidden; cursor: pointer; text-decoration: none; display: block; height: 420px; border-radius: 14px; }
-  .b-bg { position: absolute; inset: 0; overflow: hidden; background: #0a1929; }
-  .b-bg img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.5); transition: transform 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.4s; }
-  .b-card:hover .b-bg img { transform: scale(1.07); filter: brightness(0.35); }
-  .b-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(3,4,8,0.88) 0%, rgba(3,4,8,0.15) 60%); transition: background 0.4s; }
-  .b-card:hover .b-overlay { background: linear-gradient(to top, rgba(3,4,8,0.93) 0%, rgba(3,4,8,0.35) 60%); }
-  .b-num {
-    position: absolute; top: 1.4rem; right: 1.5rem;
-    font-family: 'Montserrat', sans-serif; font-size: 5rem; font-weight: 800;
-    color: rgba(255,255,255,0.05); line-height: 1; transition: color 0.4s;
-  }
-  .b-card:hover .b-num { color: rgba(255,107,53,0.09); }
-  .b-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2.1rem; }
-  .b-tag { display: inline-block; font-size: 0.62rem; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; font-weight: 600; }
-  .b-title {
-    font-family: 'Montserrat', sans-serif; font-size: clamp(1.15rem, 1.55vw, 1.4rem);
-    font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px;
-    margin-bottom: 0.5rem; color: #fff;
-    line-height: 1.2; min-height: 2.4em; hyphens: auto;
-  }
-  .b-desc {
-    font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6;
-    max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.4s ease;
-  }
-  .b-card:hover .b-desc { max-height: 90px; opacity: 1; }
-  .b-arrow {
-    width: 36px; height: 36px; border: 1px solid var(--orange); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin-top: 1.1rem; transform: translateY(20px); opacity: 0; transition: all 0.4s;
-  }
-  .b-card:hover .b-arrow { opacity: 1; transform: translateY(0); background: var(--orange); }
-  .b-arrow svg { width: 14px; height: 14px; stroke: white; }
-  .reveal-d1 { transition-delay: 0.1s; } .reveal-d2 { transition-delay: 0.2s; } .reveal-d3 { transition-delay: 0.3s; }
-
-  .section-header h2 { font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 0.9rem; }
-  .section-header p { color: var(--text-secondary); font-size: 1.02rem; max-width: 640px; margin-inline: auto; }
-
-  /* Eckdaten-Zeile innerhalb einer Projekt-Sektion */
-  .svc-facts {
-    list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem;
-    margin-bottom: 1.8rem; min-height: 2.45rem; align-items: flex-start;
-  }
-
-  /* Wellen-Umkehr: nur nötig, solange die Zahl der Sektionen ungerade ist.
-     Kommt Projekt 03 dazu, muss .alt an .cta-section UND am Footer wieder weg. */
-  .cta-section.alt { background: var(--wave-down); }
-  footer.site-footer.alt { background: var(--wave-up); }
-
-  @media (max-width: 1024px) {
-    .ref-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 768px) {
-    .ref-grid { grid-template-columns: 1fr; }
-    .b-card { height: 340px; }
-    .b-content { padding: 1.5rem; }
-    .b-title { min-height: 0; }
   }
 </style>
 </head>
@@ -558,10 +505,10 @@
       <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" />
     </a>
     <nav class="header-nav" aria-label="Hauptnavigation">
-      <a href="leistungen.html">Leistungen</a>
+      <a href="leistungen.html" aria-current="page">Leistungen</a>
       <a href="energien.html">Energien</a>
       <a href="bereiche.html">Bereiche</a>
-      <a href="referenzen.html" aria-current="page">Referenzen</a>
+      <a href="referenzen.html">Referenzen</a>
       <a href="ueber-uns.html">Über uns</a>
       <a href="kontakt.php">Kontakt</a>
     </nav>
@@ -575,28 +522,27 @@
 <main id="main">
 
 <!-- ══ SEITEN-HERO ══ -->
-<!-- Video läuft ab 769px, darunter greift das Poster-Foto (siehe .svc-hero-media) -->
 <section class="svc-hero" id="hero">
   <div class="svc-hero-media">
-    <video autoplay muted loop playsinline preload="auto" poster="ref-dachgeschoss-oberstenfeld-02.jpg" aria-hidden="true">
-      <source media="(min-width: 769px)" src="referenzen-hero.mp4" type="video/mp4" />
+    <video autoplay muted loop playsinline preload="auto" poster="leistungen-hero-poster.jpg" aria-hidden="true">
+      <source media="(min-width: 769px)" src="leistungen-hero.mp4" type="video/mp4" />
     </video>
-    <img class="svc-hero-photo" src="ref-dachgeschoss-oberstenfeld-02.jpg" width="1600" height="902" fetchpriority="high"
-         alt="Dachgeschossbad mit freistehender Dusche, Wand-WC und Waschtisch mit Holzfront" />
+    <img class="svc-hero-photo" src="leistungen-hero-poster.jpg" width="2560" height="1440" fetchpriority="high"
+         alt="Handwerker bei der Metallbearbeitung in der Werkstatt" />
   </div>
   <div class="svc-hero-scrim"></div>
   <div class="svc-hero-grid"></div>
   <div class="svc-hero-content">
-    <p class="hero-eyebrow"><span>Aus unserer Arbeit</span></p>
-    <h1>Projekte, die wir<br />wirklich gebaut haben</h1>
+    <p class="hero-eyebrow"><span>Unsere Leistungen im Detail</span></p>
+    <h1>Vom Wasserhahn bis zur<br />kompletten Heizungsanlage</h1>
     <p class="hero-sub">
-      Kein Katalog, keine Musterbilder: Hier sehen Sie abgeschlossene Arbeiten aus
-      Steinheim und Umgebung – vom Ausgangszustand bis zum letzten montierten Detail.
+      Hier finden Sie alle Leistungen von R. Ruge im Überblick – mit Bildern aus echten
+      Projekten, damit Sie sehen, wie unsere Arbeit tatsächlich aussieht.
     </p>
     <ul class="hero-chips">
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Echte Projektfotos</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>6 Leistungsbereiche</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Projektbilder inklusive</li>
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Alles aus einer Hand</li>
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Meisterbetrieb</li>
     </ul>
   </div>
 </section>
@@ -615,7 +561,7 @@
   <div class="info-div"></div>
   <div class="info-item">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-    <span><strong>Projekte im Detail</strong><span>Jeder Schritt in Bildern</span></span>
+    <span><strong>Bildergalerien</strong><span>Projekte zu jeder Leistung</span></span>
   </div>
   <div class="info-div"></div>
   <div class="info-item">
@@ -625,187 +571,170 @@
 </div>
 
 <!-- ══ SPRUNGMARKEN ══ -->
-<nav class="svc-subnav" aria-label="Referenzen Sprungnavigation">
+<nav class="svc-subnav" aria-label="Leistungen Sprungnavigation">
   <div class="svc-subnav-inner">
-    <a class="svc-pill" href="#ueberblick">Überblick</a>
-    <a class="svc-pill" href="#bad-oberstenfeld">Badumbau Oberstenfeld</a>
-    <a class="svc-pill" href="#heizung-steinheim">Heizungstausch Steinheim</a>
-    <a class="svc-pill" href="#dachgeschoss-oberstenfeld">Dachgeschoss-Bad Oberstenfeld</a>
+    <a class="svc-pill" href="#heizung">Heizung</a>
+    <a class="svc-pill" href="#sanitaer">Sanitär &amp; Bad</a>
+    <a class="svc-pill" href="#energien">Energien</a>
+    <a class="svc-pill" href="#flaschnerei">Flaschnerei</a>
+    <a class="svc-pill" href="#wartung">Wartung</a>
+    <a class="svc-pill" href="#trinkwasser">Trinkwasser</a>
   </div>
 </nav>
 
-<!-- 0 · ÜBERBLICK -->
-<section class="svc-section" id="ueberblick">
+<!-- 1 · HEIZUNG -->
+<section class="svc-section" id="heizung">
   <div class="svc-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">Ausgeführte Projekte</div>
-      <h2>Arbeit, die man ansehen kann</h2>
-      <p>
-        Ein Handwerksbetrieb wird nicht an Versprechen gemessen, sondern am fertigen Ergebnis.
-        Deshalb zeigen wir hier ganze Projekte statt einzelner Schönwetterbilder – mit allem,
-        was dazugehört.
-      </p>
+    <div class="svc-head reveal">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+      </div>
+      <h2>Heizung &amp; Brennwerttechnik</h2>
+      <span class="svc-num-bg">01</span>
+    </div>
+    <p class="svc-intro reveal">
+      Eine moderne Heizung ist die Grundlage für ein warmes Zuhause und spürbar niedrigere
+      Energiekosten. Wir beraten Sie ergebnisoffen zur passenden Technik für Ihr Gebäude,
+      tauschen veraltete Kessel gegen effiziente Brennwertgeräte und sorgen mit einem
+      hydraulischen Abgleich dafür, dass jeder Raum gleichmäßig warm wird.
+    </p>
+
+    <div class="svc-gallery reveal" data-gallery="heizung">
+      <button class="gal-item gal-span-2" type="button" data-full="infrarotheizung.jpg" data-caption="Infrarot-Heizpaneel, deckenbündig montiert">
+        <img src="infrarotheizung.jpg" width="772" height="500" loading="lazy" decoding="async" alt="Infrarot-Heizpaneel an einer Holzdecke montiert" />
+        <span class="gal-cap">Infrarot-Heizpaneel, deckenbündig montiert</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1545259742-b4fd8fea67e4?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Hydraulischer Abgleich für gleichmäßige Wärme">
+        <img src="https://images.unsplash.com/photo-1545259742-b4fd8fea67e4?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Digitales Thermostat zur Regelung der Heizungsanlage" />
+        <span class="gal-cap">Hydraulischer Abgleich für gleichmäßige Wärme</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1676210133055-eab6ef033ce3?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Rohranbindung beim Heizkörpertausch">
+        <img src="https://images.unsplash.com/photo-1676210133055-eab6ef033ce3?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Handwerker verlegt Heizungsrohre bei einem Heizkörpertausch" />
+        <span class="gal-cap">Rohranbindung beim Heizkörpertausch</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="https://images.unsplash.com/photo-1594100618242-737edc8c517e?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Heizkörper nach dem Austausch">
+        <img src="https://images.unsplash.com/photo-1594100618242-737edc8c517e?auto=format&amp;fit=crop&amp;w=1000&amp;h=800&amp;q=80" width="1000" height="800" loading="lazy" decoding="async" alt="Weißer Heizkörper an einer Wand montiert" />
+        <span class="gal-cap">Heizkörper nach dem Austausch</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1712921674253-da12a1118740?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Druckkontrolle an der Heizungsanlage">
+        <img src="https://images.unsplash.com/photo-1712921674253-da12a1118740?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Nahaufnahme eines Manometers an einer Heizungsanlage" />
+        <span class="gal-cap">Druckkontrolle an der Heizungsanlage</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1748442001865-5583ec02ae22?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Anlagentechnik beim Kesseltausch">
+        <img src="https://images.unsplash.com/photo-1748442001865-5583ec02ae22?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Techniker prüft Rohrleitungen und Ventile einer Heizungsanlage" />
+        <span class="gal-cap">Anlagentechnik beim Kesseltausch</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
     </div>
 
-    <div class="ref-grid">
-      <a href="#bad-oberstenfeld" class="b-card reveal reveal-d1">
-        <div class="b-bg"><img src="ref-bad-oberstenfeld-waschtisch.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Doppelwaschtisch mit Aufsatzbecken auf einer Glasablage vor dunkler Glasfliesenwand" /></div>
-        <div class="b-overlay"></div>
-        <div class="b-num">01</div>
-        <div class="b-content">
-          <div class="b-tag">Sanitär &amp; Bad</div>
-          <h3 class="b-title">Badumbau<br>Oberstenfeld</h3>
-          <p class="b-desc">Komplettes Bad neu aufgebaut – bodengleiche Dusche, freistehende Wanne und abgehängte Decke mit LED-Lichtband.</p>
-          <div class="b-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-      </a>
-
-      <a href="#heizung-steinheim" class="b-card reveal reveal-d2">
-        <div class="b-bg"><img src="ref-p2-aussen.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Außeneinheit einer Wärmepumpe auf einem verzinkten Stahlgestell an einem Wohnhaus" /></div>
-        <div class="b-overlay"></div>
-        <div class="b-num">02</div>
-        <div class="b-content">
-          <div class="b-tag">Heizung &amp; Energie</div>
-          <h3 class="b-title">Heizungstausch<br>Steinheim</h3>
-          <p class="b-desc">Ölheizung raus, Wärmepumpe rein – mit eingebundener Solaranlage und Fotovoltaik.</p>
-          <div class="b-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-      </a>
-
-      <a href="#dachgeschoss-oberstenfeld" class="b-card reveal reveal-d3">
-        <div class="b-bg"><img src="ref-dachgeschoss-oberstenfeld-04.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Freistehende Dusche mit Glasabtrennung und gemauerter Sitzbank in einem Dachgeschossbad" /></div>
-        <div class="b-overlay"></div>
-        <div class="b-num">03</div>
-        <div class="b-content">
-          <div class="b-tag">Sanitär &amp; Bad</div>
-          <h3 class="b-title">Dachgeschoss-Bad<br>Oberstenfeld</h3>
-          <p class="b-desc">Bad unter der Schräge neu geordnet – mit freistehender Dusche und gemauerter Sitzbank.</p>
-          <div class="b-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-      </a>
+    <div class="svc-details">
+      <div class="reveal-left">
+        <h3>Das gehört dazu</h3>
+        <ul class="svc-check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Beratung zur passenden <strong>Heiztechnik</strong> für Neubau und Bestand</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>Installation von Gas- und <strong>Öl-Brennwertkesseln</strong></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg><strong>Kesseltausch</strong> bei veralteten oder ineffizienten Anlagen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg><strong>Hydraulischer Abgleich</strong> zur Optimierung des gesamten Systems</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><strong>Fußbodenheizung</strong> – Neuinstallation und Nachrüstung</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="8" y1="4" x2="8" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="16" y1="4" x2="16" y2="20"/></svg><strong>Heizkörpertausch</strong> und Anbindung an bestehende Leitungen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><strong>Wartungsverträge</strong> für einen dauerhaft zuverlässigen Betrieb</li>
+        </ul>
+      </div>
+      <div class="svc-text-col reveal-right">
+        <p>
+          Ob Komplettsanierung der Heizungsanlage oder gezielte Einzelmaßnahme – wir planen
+          realistisch, rechnen transparent und setzen die Arbeiten so um, dass Ihr Zuhause
+          möglichst kurz ohne Wärme ist.
+        </p>
+        <a href="kontakt.php" class="btn-outline">
+          Heizung anfragen
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 1 · BADUMBAU OBERSTENFELD -->
-<section class="svc-section alt" id="bad-oberstenfeld">
+<!-- 2 · SANITÄR -->
+<section class="svc-section alt" id="sanitaer">
   <div class="svc-inner">
     <div class="svc-head reveal">
       <div class="svc-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.09 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
       </div>
-      <h2>Badumbau in Oberstenfeld</h2>
-      <span class="svc-num-bg">01</span>
+      <h2>Sanitär &amp; Badumbau</h2>
+      <span class="svc-num-bg">02</span>
     </div>
-
-    <ul class="svc-facts reveal">
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Oberstenfeld</li>
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Komplettbad</li>
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M8 4a4 4 0 0 1 8 0"/><line x1="8" y1="16" x2="8" y2="18"/><line x1="12" y1="16" x2="12" y2="19"/><line x1="16" y1="16" x2="16" y2="18"/></svg>Bestandsanschlüsse erhalten</li>
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Abgehängte Decke mit LED</li>
-    </ul>
-
     <p class="svc-intro reveal">
-      Ein Bad, das komplett neu gedacht wurde – ohne einen einzigen Anschluss zu verlegen.
-      Dusche, Wanne, WC und Waschtisch blieben genau dort, wo sie vorher waren. Verändert
-      hat sich alles andere: Dunkle Glasfliesen setzen ruhige, tiefe Flächen gegen den hellen
-      Rest des Raums, die Decke wurde abgehängt und nimmt ein umlaufendes LED-Lichtband auf.
-      Das Ergebnis wirkt deutlich großzügiger als vorher – bei unverändertem Grundriss.
+      Ihr Bad ist mehr als ein Funktionsraum – hier beginnt und endet der Tag. Wir begleiten
+      Sie von der ersten Idee über die Planung bis zur montierten Armatur und koordinieren
+      dabei alle beteiligten Gewerke, damit Sie einen einzigen Ansprechpartner haben. Die
+      Galerie zeigt ein Projekt von der Rohbauphase bis zum fertigen Ergebnis.
     </p>
 
-    <div class="svc-gallery reveal" data-gallery="bad-oberstenfeld">
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-waschtisch.jpg" data-caption="Doppelwaschtisch auf maßgefertigter Glasablage">
-        <img src="ref-bad-oberstenfeld-waschtisch.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Doppelwaschtisch mit zwei Aufsatzbecken auf einer Glasablage vor dunkler Glasfliesenwand" />
-        <span class="gal-cap">Doppelwaschtisch auf maßgefertigter Glasablage</span>
+    <div class="svc-gallery reveal" data-gallery="sanitaer">
+      <button class="gal-item gal-span-2" type="button" data-full="bad-modern.jpg" data-caption="Komplettsanierung – wandhängendes WC">
+        <img src="bad-modern.jpg" width="764" height="600" loading="lazy" decoding="async" alt="Modernes Bad mit wandhängendem WC nach dem Umbau" />
+        <span class="gal-cap">Komplettsanierung – wandhängendes WC</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-wanne.jpg" data-caption="Freistehende Wanne mit bodenstehender Armatur">
-        <img src="ref-bad-oberstenfeld-wanne.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Freistehende weiße Badewanne mit bodenstehender Chromarmatur vor dunkler Fliesenwand" />
-        <span class="gal-cap">Freistehende Wanne mit bodenstehender Armatur</span>
+      <button class="gal-item" type="button" data-full="sanierung-vorher.jpg" data-caption="Ausgangszustand – vor dem Umbau">
+        <img src="sanierung-vorher.jpg" width="859" height="600" loading="lazy" decoding="async" alt="Altes Badezimmer vor dem Umbau" />
+        <span class="gal-cap">Ausgangszustand – vor dem Umbau</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-wanne-fenster.jpg" data-caption="Freistehende Wanne vor der Fensterfront">
-        <img src="ref-bad-oberstenfeld-wanne-fenster.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Freistehende Badewanne vor einem Fenster im fertigen Badezimmer" />
-        <span class="gal-cap">Freistehende Wanne vor der Fensterfront</span>
+      <button class="gal-item" type="button" data-full="sanierung-rohbau.jpg" data-caption="Rohbauphase während der Sanierung">
+        <img src="sanierung-rohbau.jpg" width="822" height="600" loading="lazy" decoding="async" alt="Badezimmer im Rohbau während einer Sanierung" />
+        <span class="gal-cap">Rohbauphase während der Sanierung</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-gesamt.jpg" data-caption="Blick über Waschtisch und Wanne">
-        <img src="ref-bad-oberstenfeld-gesamt.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Gesamtansicht des Badezimmers mit Waschtisch, Spiegelfläche und Badewanne" />
-        <span class="gal-cap">Blick über Waschtisch und Wanne</span>
+      <button class="gal-item" type="button" data-full="dusche.jpg" data-caption="Bodengleiche Dusche, modern gefliest">
+        <img src="dusche.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Bodengleiche Dusche in einem modern gefliesten Bad" />
+        <span class="gal-cap">Bodengleiche Dusche, modern gefliest</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-lichtband.jpg" data-caption="Abgehängte Decke mit umlaufendem LED-Lichtband">
-        <img src="ref-bad-oberstenfeld-lichtband.jpg" width="2448" height="2448" loading="lazy" decoding="async" alt="Abgehängte Badezimmerdecke mit umlaufendem LED-Lichtband, gespiegelt in der Spiegelfläche" />
-        <span class="gal-cap">Abgehängte Decke mit umlaufendem LED-Lichtband</span>
+      <button class="gal-item gal-span-3" type="button" data-full="waschtisch.jpg" data-caption="Doppelwaschtisch mit Unterschrank">
+        <img src="waschtisch.jpg" width="664" height="500" loading="lazy" decoding="async" alt="Doppelwaschtisch mit Unterschrank in einem modernen Bad" />
+        <span class="gal-cap">Doppelwaschtisch mit Unterschrank</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-waschtisch-detail.jpg" data-caption="Spiegelfläche mit seitlichen Glasschränken">
-        <img src="ref-bad-oberstenfeld-waschtisch-detail.jpg" width="1728" height="1152" loading="lazy" decoding="async" alt="Waschtischbereich mit großer Spiegelfläche und seitlichen Glasschränken" />
-        <span class="gal-cap">Spiegelfläche mit seitlichen Glasschränken</span>
+      <button class="gal-item gal-span-2" type="button" data-full="bad-handtuchheizung.jpg" data-caption="Fertiges Bad mit Handtuchheizkörper">
+        <img src="bad-handtuchheizung.jpg" width="603" height="500" loading="lazy" decoding="async" alt="Fertiggestelltes Badezimmer mit Handtuchheizkörper und Spiegelschrank" />
+        <span class="gal-cap">Fertiges Bad mit Handtuchheizkörper</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-tageslicht.jpg" data-caption="Das fertige Bad bei Tageslicht">
-        <img src="ref-bad-oberstenfeld-tageslicht.jpg" width="1152" height="1728" loading="lazy" decoding="async" alt="Fertiges Badezimmer bei Tageslicht mit Waschtisch, Spiegel und Badewanne am Fenster" />
-        <span class="gal-cap">Das fertige Bad bei Tageslicht</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-dusche.jpg" data-caption="Bodengleiche Dusche mit Linienentwässerung">
-        <img src="ref-bad-oberstenfeld-dusche.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Bodengleiche Dusche mit Linienentwässerung und dunkler Glasfliesenfläche" />
-        <span class="gal-cap">Bodengleiche Dusche mit Linienentwässerung</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-wc.jpg" data-caption="Wand-WC auf neuer Vorwandinstallation">
-        <img src="ref-bad-oberstenfeld-wc.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Wandhängendes WC vor weißer Fliesenwand mit dunklen Glasfliesen am Boden" />
-        <span class="gal-cap">Wand-WC auf neuer Vorwandinstallation</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-dusche-detail.jpg" data-caption="Die Dusche im täglichen Gebrauch">
-        <img src="ref-bad-oberstenfeld-dusche-detail.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Duschbereich mit Handbrause, Brausestange und Ablage im täglichen Gebrauch" />
-        <span class="gal-cap">Die Dusche im täglichen Gebrauch</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-regendusche.jpg" data-caption="Deckenbündige Regendusche">
-        <img src="ref-bad-oberstenfeld-regendusche.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Große deckenbündige Regenbrause in der abgehängten Decke, daneben das umlaufende LED-Lichtband" />
-        <span class="gal-cap">Deckenbündige Regendusche</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-decke-dusche.jpg" data-caption="Lichtband über dem Duschbereich">
-        <img src="ref-bad-oberstenfeld-decke-dusche.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Umlaufendes LED-Lichtband der abgehängten Decke über dem Duschbereich mit dunklen Glasfliesen" />
-        <span class="gal-cap">Lichtband über dem Duschbereich</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-decke-gesamt.jpg" data-caption="Die abgehängte Decke im Detail">
-        <img src="ref-bad-oberstenfeld-decke-gesamt.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Abgehängte Badezimmerdecke mit umlaufend eingelassenem LED-Lichtband" />
-        <span class="gal-cap">Die abgehängte Decke im Detail</span>
+      <button class="gal-item gal-span-2" type="button" data-full="bad-referenz.jpg" data-caption="Referenzprojekt Badumbau">
+        <img src="bad-referenz.jpg" width="800" height="600" loading="lazy" decoding="async" alt="Referenzprojekt eines abgeschlossenen Badumbaus" />
+        <span class="gal-cap">Referenzprojekt Badumbau</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
     </div>
 
     <div class="svc-details">
       <div class="reveal-left">
-        <h3>Das haben wir gemacht</h3>
+        <h3>Das gehört dazu</h3>
         <ul class="svc-check-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Kompletter Rückbau und Neuaufbau – <strong>Sanitärobjekte an den bestehenden Standorten</strong></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M8 4a4 4 0 0 1 8 0"/><line x1="8" y1="16" x2="8" y2="18"/><line x1="12" y1="16" x2="12" y2="19"/><line x1="16" y1="16" x2="16" y2="18"/></svg><strong>Bodengleiche Dusche</strong> mit Linienentwässerung</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg><strong>Freistehende Badewanne</strong> mit bodenstehender Armatur</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="7" rx="1"/><path d="M7 10v5a4 4 0 0 0 4 4h2"/></svg><strong>Wand-WC</strong> mit neuer Vorwandinstallation</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg><strong>Doppelwaschtisch</strong> mit Aufsatzbecken auf extern gefertigter Glasablage</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><strong>Abgehängte Decke</strong> mit umlaufendem LED-Lichtband</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="12" y1="4" x2="12" y2="20"/></svg><strong>Dunkle Glasfliesen</strong> als Akzentflächen, Koordination der Fliesenarbeiten</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><strong>Badplanung</strong> von der ersten Skizze bis zum fertigen Konzept</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><strong>Komplettsanierung</strong> bestehender Bäder</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg><strong>Barrierefreie</strong> und altersgerechte Badlösungen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v8a4 4 0 0 0 4 4h12"/><polyline points="16 12 20 16 16 20"/></svg><strong>Rohrleitungsbau</strong> für Wasser- und Abwasserinstallationen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M8 4a4 4 0 0 1 8 0"/><line x1="8" y1="16" x2="8" y2="18"/><line x1="12" y1="16" x2="12" y2="19"/><line x1="16" y1="16" x2="16" y2="18"/></svg>Bodengleiche <strong>Duschen</strong>, Wannen und moderne Armaturen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5-2-1.6-3.5-4-4-6.5-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg><strong>Trinkwasserinstallationen</strong> nach aktuellen DIN-Vorgaben</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><strong>Koordination</strong> von Fliesenlegern und weiteren Gewerken</li>
         </ul>
       </div>
       <div class="svc-text-col reveal-right">
         <p>
-          Weil die Anschlusspunkte erhalten blieben, war der Eingriff in die Bausubstanz
-          gering – der Umbau lief planbar und ohne böse Überraschungen.
-        </p>
-        <p>
-          Die Wirkung entsteht hier nicht aus dem Grundriss, sondern aus Material und Licht:
-          tiefe, glänzende Flächen gegen matte helle Fliesen, dazu eine Decke, die den
-          ganzen Raum gleichmäßig ausleuchtet.
+          Ob kleine Reparatur oder komplette Neuplanung – wir arbeiten sauber, termintreu und
+          sprechen mit Ihnen jeden Schritt ab, bevor er umgesetzt wird.
         </p>
         <a href="kontakt.php" class="btn-outline">
-          Ähnliches Projekt anfragen
+          Badumbau anfragen
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -813,77 +742,74 @@
   </div>
 </section>
 
-<!-- 2 · HEIZUNGSTAUSCH STEINHEIM -->
-<section class="svc-section" id="heizung-steinheim">
+<!-- 3 · REGENERATIVE ENERGIEN -->
+<section class="svc-section" id="energien">
   <div class="svc-inner">
     <div class="svc-head reveal">
       <div class="svc-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </div>
-      <h2>Heizungstausch in Steinheim</h2>
-      <span class="svc-num-bg">02</span>
+      <h2>Regenerative Energien</h2>
+      <span class="svc-num-bg">03</span>
     </div>
-
-    <ul class="svc-facts reveal">
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Steinheim</li>
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>Öl raus, Wärmepumpe rein</li>
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Solaranlage eingebunden</li>
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Mit PV verbunden</li>
-    </ul>
-
     <p class="svc-intro reveal">
-      Raus mit dem Öl, rein mit der Wärmepumpe – und zwar so, dass nichts Vorhandenes
-      verloren geht. Die bereits installierte Solaranlage haben wir nicht stillgelegt,
-      sondern in die neue Wärmepumpenanlage eingebunden; ebenso die Fotovoltaik, die der
-      Eigentümer aufs Dach gebracht hat. Für die Außeneinheit war am Boden kein Platz.
-      Die Lösung kam vom Schlosser: ein passgenau gebautes Stahlgestell, auf dem die
-      Einheit über dem Kellerabgang steht – ohne einen Quadratmeter Hoffläche zu belegen.
+      Wer heute in erneuerbare Energien investiert, senkt dauerhaft die Betriebskosten und
+      macht sich unabhängiger von schwankenden Energiepreisen. Wir zeigen Ihnen ehrlich,
+      welche Technik zu Ihrem Gebäude, Ihrem Verbrauch und Ihrem Budget passt.
     </p>
 
-    <div class="svc-gallery reveal" data-gallery="heizung-steinheim">
-      <button class="gal-item gal-span-2" type="button" data-full="ref-p2-aussen.jpg" data-caption="Außeneinheit auf dem maßgebauten Stahlgestell">
-        <img src="ref-p2-aussen.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Außeneinheit einer Luft-Wasser-Wärmepumpe auf einem verzinkten Stahlgestell über dem Kellerabgang eines Wohnhauses" />
-        <span class="gal-cap">Außeneinheit auf dem maßgebauten Stahlgestell</span>
+    <div class="svc-gallery reveal" data-gallery="energien">
+      <button class="gal-item gal-span-2" type="button" data-full="solar-dach.jpg" data-caption="Montage der Solarmodule auf dem Dach">
+        <img src="solar-dach.jpg" width="2000" height="1500" loading="lazy" decoding="async" alt="Handwerker montiert Solarmodule auf einem Hausdach vor blauem Himmel" />
+        <span class="gal-cap">Montage der Solarmodule auf dem Dach</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item" type="button" data-full="ref-p2-innen.jpg" data-caption="Innengerät mit neuer Rohranbindung">
-        <img src="ref-p2-innen.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Innengerät der Wärmepumpe im Technikraum mit gedämmten Rohrleitungen und Absperrarmaturen" />
-        <span class="gal-cap">Innengerät mit neuer Rohranbindung</span>
+      <button class="gal-item" type="button" data-full="solarthermie.jpg" data-caption="Röhrenkollektoren für Warmwasser">
+        <img src="solarthermie.jpg" width="785" height="550" loading="lazy" decoding="async" alt="Solarthermie-Röhrenkollektoren auf einem Hausdach" />
+        <span class="gal-cap">Röhrenkollektoren für Warmwasser</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item" type="button" data-full="ref-p2-anbindung.jpg" data-caption="Armaturen, Pumpengruppe und Schlammabscheider">
-        <img src="ref-p2-anbindung.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Detailansicht der Rohranbindung über dem Innengerät mit Absperrhähnen, Pumpengruppe und Schlammabscheider" />
-        <span class="gal-cap">Armaturen, Pumpengruppe und Schlammabscheider</span>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Wärmepumpe – Außeneinheit">
+        <img src="https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Außeneinheit einer Luft-Wasser-Wärmepumpe neben einem Wohnhaus" />
+        <span class="gal-cap">Wärmepumpe – Außeneinheit</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="https://images.unsplash.com/photo-1719559519300-e9d2c2bf6de1?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Fotovoltaik als Ergänzung zur Wärmepumpe">
+        <img src="https://images.unsplash.com/photo-1719559519300-e9d2c2bf6de1?auto=format&amp;fit=crop&amp;w=1000&amp;h=800&amp;q=80" width="1000" height="800" loading="lazy" decoding="async" alt="Handwerker mit Fotovoltaik-Modul vor einem Wohnhaus" />
+        <span class="gal-cap">Fotovoltaik als Ergänzung zur Wärmepumpe</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1694327672187-74aa0605314d?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Solarzellen im Nahaufnahme-Detail">
+        <img src="https://images.unsplash.com/photo-1694327672187-74aa0605314d?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Nahaufnahme von Solarzellen auf einem Photovoltaik-Modul" />
+        <span class="gal-cap">Solarzellen im Nahaufnahme-Detail</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1724041875334-0a6397111c7e?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Fotovoltaik-Anlage auf dem Gebäude">
+        <img src="https://images.unsplash.com/photo-1724041875334-0a6397111c7e?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Solarmodul auf einem Gebäudedach im Detail" />
+        <span class="gal-cap">Fotovoltaik-Anlage auf dem Gebäude</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
     </div>
 
     <div class="svc-details">
       <div class="reveal-left">
-        <h3>Das haben wir gemacht</h3>
+        <h3>Das gehört dazu</h3>
         <ul class="svc-check-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>Ausbau der alten <strong>Ölheizung</strong> und Umstellung auf eine <strong>Wärmepumpe</strong></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Einbindung der <strong>bestehenden Solaranlage</strong> in die neue Anlage</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Verbindung der Wärmepumpe mit der bauseits montierten <strong>Fotovoltaikanlage</strong></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><line x1="9" y1="21" x2="9" y2="12"/><line x1="15" y1="21" x2="15" y2="12"/></svg>Aufstellung der Außeneinheit auf einem <strong>maßgebauten Stahlgestell</strong> (Schlosserarbeit)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v8a4 4 0 0 0 4 4h12"/><polyline points="16 12 20 16 16 20"/></svg>Komplette <strong>Rohranbindung</strong> im Technikraum, gedämmt und abgesperrt</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5-2-1.6-3.5-4-4-6.5-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>Einbau von <strong>Pumpengruppe und Schlammabscheider</strong> zum Schutz der Anlage</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><strong>Inbetriebnahme</strong> und Einregulierung der gesamten Anlage</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg><strong>Wärmepumpen</strong> – Luft/Wasser und Sole/Wasser</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><strong>Solarthermie</strong> für Warmwasser und Heizungsunterstützung</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><strong>Fotovoltaik</strong> als sinnvolle Ergänzung zur Wärmepumpe</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 8.5a5 5 0 0 1 7 7M5.5 5.5a9 9 0 0 1 13 13"/><circle cx="12" cy="12" r="1"/></svg><strong>Infrarotheizung</strong> für punktuelle Wärme ohne große Umbauten</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>Kombination mit <strong>Brennwerttechnik</strong> und hydraulischem Abgleich</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5.5a6.5 6.5 0 1 0 0 13 6.6 6.6 0 0 0 4.6-1.9"/><line x1="4" y1="10" x2="13" y2="10"/><line x1="4" y1="13" x2="11" y2="13"/></svg>Einschätzung, welche <strong>Förderprogramme</strong> grundsätzlich infrage kommen</li>
         </ul>
       </div>
       <div class="svc-text-col reveal-right">
         <p>
-          Wärmepumpe, Solarthermie und Fotovoltaik arbeiten hier nicht nebeneinander her,
-          sondern als eine Anlage. Was die Sonne liefert, wird zuerst genutzt – zugekauft
-          wird nur der Rest.
-        </p>
-        <p>
-          Der enge Platz vor dem Haus war die eigentliche Herausforderung. Statt die
-          Außeneinheit irgendwo hinzuquetschen, haben wir sie zusammen mit einem Schlosser
-          nach oben verlegt. Der Hof ist frei geblieben.
+          Wir rechnen transparent vor, was sich für Ihr Gebäude tatsächlich lohnt – auch wenn
+          das Ergebnis manchmal eine kleinere Lösung statt der großen Anlage ist.
         </p>
         <a href="kontakt.php" class="btn-outline">
-          Heizungstausch anfragen
+          Beratung anfragen
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -891,111 +817,216 @@
   </div>
 </section>
 
-<!-- 3 · DACHGESCHOSS-BAD OBERSTENFELD -->
-<section class="svc-section alt" id="dachgeschoss-oberstenfeld">
+<!-- 4 · FLASCHNEREI -->
+<section class="svc-section alt" id="flaschnerei">
   <div class="svc-inner">
     <div class="svc-head reveal">
       <div class="svc-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
-      <h2>Dachgeschoss-Bad in Oberstenfeld</h2>
-      <span class="svc-num-bg">03</span>
+      <h2>Flaschnerei &amp; Spenglerei</h2>
+      <span class="svc-num-bg">04</span>
     </div>
-
-    <ul class="svc-facts reveal">
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Oberstenfeld</li>
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Dachgeschoss</li>
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M14 7h7M3 17h7"/></svg>Grundriss neu geordnet</li>
-      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M8 4a4 4 0 0 1 8 0"/><line x1="8" y1="16" x2="8" y2="18"/><line x1="12" y1="16" x2="12" y2="19"/><line x1="16" y1="16" x2="16" y2="18"/></svg>Freistehende Dusche mit Sitzbank</li>
-    </ul>
-
     <p class="svc-intro reveal">
-      Unter der Dachschräge ist jeder Zentimeter Verhandlungssache. Damit das Bad wirklich
-      nutzbar wird, haben wir Teile der Aufteilung neu geordnet, statt den alten Grundriss
-      einfach zu übernehmen. Herzstück ist die freistehende Dusche: rundum verglast, mit
-      Regenbrause und einer fest gemauerten Sitzbank – Komfort, den man in einem Dachbad
-      selten erwartet. Holzverkleidete Schräge und Fliesen in Holzoptik halten den Raum warm,
-      während hell gefliste Wände das wenige Tageslicht weiterreichen.
+      Als Meister im Klempner-Handwerk übernehmen wir die klassische Flaschnerei rund ums
+      Dach – von der Dachentwässerung bis zu sauberen Blecharbeiten an Kaminen, Gauben und
+      Fenstersimsen.
     </p>
 
-    <div class="svc-gallery reveal" data-gallery="dachgeschoss-oberstenfeld">
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-04.jpg" data-caption="Freistehende Dusche mit gemauerter Sitzbank">
-        <img src="ref-dachgeschoss-oberstenfeld-04.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Freistehende Dusche mit umlaufender Glasabtrennung, Regenbrause und gemauerter Sitzbank in einem Dachgeschossbad" />
-        <span class="gal-cap">Freistehende Dusche mit gemauerter Sitzbank</span>
+    <div class="svc-gallery reveal" data-gallery="flaschnerei">
+      <button class="gal-item gal-span-2" type="button" data-full="flaschnerei.jpg" data-caption="Verblechung und Dachrinne am Giebel">
+        <img src="flaschnerei.jpg" width="1144" height="460" loading="lazy" decoding="async" alt="Dachgiebel mit Verblechung und Dachrinne aus der Flaschnerei" />
+        <span class="gal-cap">Verblechung und Dachrinne am Giebel</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-02.jpg" data-caption="Blick über Dusche, WC und Waschtisch">
-        <img src="ref-dachgeschoss-oberstenfeld-02.jpg" width="1600" height="902" loading="lazy" decoding="async" alt="Dachgeschossbad mit freistehender Dusche, Wand-WC, Handtuchheizkörper und Waschtisch mit Holzfront" />
-        <span class="gal-cap">Blick über Dusche, WC und Waschtisch</span>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1634853982486-c06f0e17940f?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Saubere Dachrinnenmontage im Detail">
+        <img src="https://images.unsplash.com/photo-1634853982486-c06f0e17940f?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Nahaufnahme einer sauber montierten Dachrinne" />
+        <span class="gal-cap">Saubere Dachrinnenmontage im Detail</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item" type="button" data-full="ref-dachgeschoss-oberstenfeld-01.jpg" data-caption="Das Bad unter der Dachschräge">
-        <img src="ref-dachgeschoss-oberstenfeld-01.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Dachgeschossbad mit holzverkleideter Dachschräge, Fliesen in Holzoptik und freistehender Dusche" />
-        <span class="gal-cap">Das Bad unter der Dachschräge</span>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1683041717386-91a33191da42?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Kaminverkleidung in Blech">
+        <img src="https://images.unsplash.com/photo-1683041717386-91a33191da42?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Roter Ziegelkamin mit Blechverkleidung auf einem Dach" />
+        <span class="gal-cap">Kaminverkleidung in Blech</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item" type="button" data-full="ref-dachgeschoss-oberstenfeld-10.jpg" data-caption="Regenbrause über der Duschfläche">
-        <img src="ref-dachgeschoss-oberstenfeld-10.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Deckenmontierte Regenbrause über der flachen Duschwanne, dahinter Fenster und Wand-WC" />
-        <span class="gal-cap">Regenbrause über der Duschfläche</span>
+      <button class="gal-item gal-span-3" type="button" data-full="https://images.unsplash.com/photo-1654531015087-8cc3d04d1b2d?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Komplette Dachentwässerung bis zum Fallrohr">
+        <img src="https://images.unsplash.com/photo-1654531015087-8cc3d04d1b2d?auto=format&amp;fit=crop&amp;w=1400&amp;h=700&amp;q=80" width="1400" height="700" loading="lazy" decoding="async" alt="Dachrinne mit Rinnenkessel und angeschlossenem Fallrohr an einer Hausecke" />
+        <span class="gal-cap">Komplette Dachentwässerung bis zum Fallrohr</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
-      <button class="gal-item" type="button" data-full="ref-dachgeschoss-oberstenfeld-05.jpg" data-caption="WC und Heizkörper am Fenster">
-        <img src="ref-dachgeschoss-oberstenfeld-05.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Wand-WC und Flachheizkörper unter dem Fenster, daneben die verglaste Dusche" />
-        <span class="gal-cap">WC und Heizkörper am Fenster</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-dachgeschoss-oberstenfeld-09.jpg" data-caption="Waschtisch mit Handtuchheizkörper">
-        <img src="ref-dachgeschoss-oberstenfeld-09.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Waschtischbereich mit Spiegelleuchte und Handtuchheizkörper neben der Tür" />
-        <span class="gal-cap">Waschtisch mit Handtuchheizkörper</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-07.jpg" data-caption="Indirektes Lichtband an der Dachschräge">
-        <img src="ref-dachgeschoss-oberstenfeld-07.jpg" width="1600" height="902" loading="lazy" decoding="async" alt="Umlaufendes LED-Lichtband entlang der holzverkleideten Dachschräge über dem Sideboard" />
-        <span class="gal-cap">Indirektes Lichtband an der Dachschräge</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-08.jpg" data-caption="Dusche, Waschtisch und Stauraum auf einen Blick">
-        <img src="ref-dachgeschoss-oberstenfeld-08.jpg" width="1600" height="902" loading="lazy" decoding="async" alt="Dachgeschossbad mit verglaster Dusche, Waschtisch mit Spiegelschrank und Sideboard in Eiche" />
-        <span class="gal-cap">Dusche, Waschtisch und Stauraum auf einen Blick</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-06.jpg" data-caption="Blick aus der Dusche in den Raum">
-        <img src="ref-dachgeschoss-oberstenfeld-06.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Blick über die Duschfläche auf Waschtisch und Sideboard unter der Dachschräge" />
-        <span class="gal-cap">Blick aus der Dusche in den Raum</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-03.jpg" data-caption="Waschtisch mit großem Spiegel">
-        <img src="ref-dachgeschoss-oberstenfeld-03.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Wandhängender Waschtisch mit Holzfront und großflächigem Spiegel unter der Dachschräge" />
-        <span class="gal-cap">Waschtisch mit großem Spiegel</span>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Dachdecker bei der Arbeit">
+        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Handwerker steht auf dem Dach eines Hauses" />
+        <span class="gal-cap">Dachdecker bei der Arbeit</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
     </div>
 
     <div class="svc-details">
       <div class="reveal-left">
-        <h3>Das haben wir gemacht</h3>
+        <h3>Das gehört dazu</h3>
         <ul class="svc-check-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Bad im <strong>Dachgeschoss</strong> komplett umgebaut, <strong>Aufteilung teilweise neu geordnet</strong></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="12" x2="20" y2="12"/></svg><strong>Freistehende Dusche</strong> mit umlaufender Glasabtrennung</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18v7H3z"/><path d="M6 12V8h12v4"/></svg>Fest gemauerte <strong>Sitzbank</strong> in der Dusche</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M8 4a4 4 0 0 1 8 0"/><line x1="8" y1="16" x2="8" y2="18"/><line x1="12" y1="16" x2="12" y2="19"/><line x1="16" y1="16" x2="16" y2="18"/></svg><strong>Regenbrause</strong> und separate Handbrause mit Unterputz-Armaturen</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="7" rx="1"/><path d="M7 10v5a4 4 0 0 0 4 4h2"/></svg><strong>Wand-WC</strong> mit Vorwandinstallation</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg><strong>Waschtisch</strong> mit Unterschrank und beleuchtetem Spiegel</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="8" y1="4" x2="8" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="16" y1="4" x2="16" y2="20"/></svg><strong>Handtuchheizkörper</strong> und Anbindung an die bestehende Heizung</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg><strong>Dachrinnen</strong> und Fallrohre – Montage und Reparatur</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><strong>Kaminverkleidungen</strong> und Dachdurchdringungen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg><strong>Blecharbeiten</strong> an Gauben, Fenstersimsen und Anschlüssen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 4 14.9"/><polyline points="13 11 9 17 12 17 11 21 16 15 13 15 13 11"/></svg>Reparaturen nach <strong>Sturm-, Hagel-</strong> oder Witterungsschäden</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Regelmäßige Kontrolle und Wartung der <strong>Dachentwässerung</strong></li>
         </ul>
       </div>
       <div class="svc-text-col reveal-right">
         <p>
-          Der eigentliche Gewinn liegt hier nicht im Material, sondern im Zuschnitt: Weil wir
-          die Aufteilung angefasst haben, steht die Dusche heute dort, wo die Raumhöhe es
-          zulässt – und nicht dort, wo früher zufällig die Leitungen lagen.
-        </p>
-        <p>
-          Die gemauerte Sitzbank kostet kaum Fläche und macht die Dusche im Alltag spürbar
-          bequemer – auch mit Blick auf später.
+          Kleine Undichtigkeiten werden schnell zu großen Wasserschäden – wir sind zeitnah vor
+          Ort und beheben das Problem an der Wurzel, nicht nur oberflächlich.
         </p>
         <a href="kontakt.php" class="btn-outline">
-          Dachbad anfragen
+          Flaschnerei anfragen
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · WARTUNG -->
+<section class="svc-section" id="wartung">
+  <div class="svc-inner">
+    <div class="svc-head reveal">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <h2>Wartung &amp; Kundendienst</h2>
+      <span class="svc-num-bg">05</span>
+    </div>
+    <p class="svc-intro reveal">
+      Regelmäßige Wartung hält Ihre Anlage effizient, sicher und verlängert ihre
+      Lebensdauer spürbar. Kommt es doch einmal zu einer Störung, sind wir zeitnah zur
+      Stelle und reparieren nachvollziehbar – mit klarer Rückmeldung, was gemacht wurde.
+    </p>
+
+    <div class="svc-gallery reveal" data-gallery="wartung">
+      <button class="gal-item gal-span-2" type="button" data-full="https://images.unsplash.com/photo-1676210134190-3f2c0d5cf58d?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Jährliche Wartung nach Herstellervorgaben">
+        <img src="https://images.unsplash.com/photo-1676210134190-3f2c0d5cf58d?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Techniker führt Wartungsarbeiten an einer Warmwasseranlage durch" />
+        <span class="gal-cap">Jährliche Wartung nach Herstellervorgaben</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1676210134050-6f12c6898395?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Störungssuche vor Ort">
+        <img src="https://images.unsplash.com/photo-1676210134050-6f12c6898395?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Techniker bei der Störungssuche an einer Sanitärinstallation" />
+        <span class="gal-cap">Störungssuche vor Ort</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1771122453274-d3270e73cf94?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Passende Ersatzteile griffbereit">
+        <img src="https://images.unsplash.com/photo-1771122453274-d3270e73cf94?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Nahaufnahme einer professionellen Werkzeugtasche" />
+        <span class="gal-cap">Passende Ersatzteile griffbereit</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="https://images.unsplash.com/photo-1780034766246-68bab7c0ce00?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Optimierung der Regeltechnik">
+        <img src="https://images.unsplash.com/photo-1780034766246-68bab7c0ce00?auto=format&amp;fit=crop&amp;w=1000&amp;h=800&amp;q=80" width="1000" height="800" loading="lazy" decoding="async" alt="Industrieventil mit Stellantrieb zur Anlagenregelung" />
+        <span class="gal-cap">Optimierung der Regeltechnik</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1694532438941-06bb0d95dae5?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Druckprüfung an der Anlage">
+        <img src="https://images.unsplash.com/photo-1694532438941-06bb0d95dae5?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Nahaufnahme eines Druckmessers bei der Anlagenkontrolle" />
+        <span class="gal-cap">Druckprüfung an der Anlage</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Rohrleitung im Bestand geprüft">
+        <img src="https://images.unsplash.com/photo-1676210134188-4c05dd172f89?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Handwerker installiert eine Rohrleitung in einer Wand" />
+        <span class="gal-cap">Rohrleitung im Bestand geprüft</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+    </div>
+
+    <div class="svc-details">
+      <div class="reveal-left">
+        <h3>Das gehört dazu</h3>
+        <ul class="svc-check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><strong>Jährliche Heizungswartung</strong> nach Herstellervorgaben</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><strong>Störungssuche</strong> und fachgerechte Reparatur</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Beschaffung passender <strong>Ersatzteile</strong></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><strong>Optimierung</strong> bestehender Anlagen für mehr Effizienz</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.44 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.88-1.88a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Fester <strong>Ansprechpartner</strong> bei Ausfällen und Rückfragen</li>
+        </ul>
+      </div>
+      <div class="svc-text-col reveal-right">
+        <p>
+          Wartungsverträge sorgen dafür, dass Termine nicht in Vergessenheit geraten – Sie
+          müssen sich um nichts kümmern, wir melden uns rechtzeitig bei Ihnen.
+        </p>
+        <a href="kontakt.php" class="btn-outline">
+          Wartung anfragen
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · TRINKWASSERHYGIENE -->
+<section class="svc-section alt" id="trinkwasser">
+  <div class="svc-inner">
+    <div class="svc-head reveal">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5-2-1.6-3.5-4-4-6.5-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/><path d="M9.5 15.5h5"/></svg>
+      </div>
+      <h2>Trinkwasserhygiene</h2>
+      <span class="svc-num-bg">06</span>
+    </div>
+    <p class="svc-intro reveal">
+      Kalk und Korrosion kosten auf Dauer Geld und Komfort – und beeinträchtigen im
+      schlimmsten Fall die Wasserqualität. Wir prüfen Ihre Trinkwasserinstallation und
+      bringen sie wieder auf ein sauberes, sicheres Niveau.
+    </p>
+
+    <div class="svc-gallery reveal" data-gallery="trinkwasser">
+      <button class="gal-item gal-span-2" type="button" data-full="https://images.unsplash.com/photo-1616556425595-93db848a50c7?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Sicheres Trinkwasser für die Familie">
+        <img src="https://images.unsplash.com/photo-1616556425595-93db848a50c7?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Klares Wasser wird in ein Trinkglas gegossen" />
+        <span class="gal-cap">Sicheres Trinkwasser für die Familie</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1633171698710-3d562931742a?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Kontrolle von Armaturen und Leitungen">
+        <img src="https://images.unsplash.com/photo-1633171698710-3d562931742a?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Nahaufnahme einer Metallarmatur mit Wassertropfen" />
+        <span class="gal-cap">Kontrolle von Armaturen und Leitungen</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1628767719221-fdf36470b997?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Moderne Filtertechnik an der Armatur">
+        <img src="https://images.unsplash.com/photo-1628767719221-fdf36470b997?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Hand hält eine moderne Edelstaharmatur" />
+        <span class="gal-cap">Moderne Filtertechnik an der Armatur</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="https://images.unsplash.com/photo-1510148567806-766658eb5b86?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Spürbar saubereres Wasser">
+        <img src="https://images.unsplash.com/photo-1510148567806-766658eb5b86?auto=format&amp;fit=crop&amp;w=1000&amp;h=800&amp;q=80" width="1000" height="800" loading="lazy" decoding="async" alt="Makroaufnahme eines klaren Wassertropfens" />
+        <span class="gal-cap">Spürbar saubereres Wasser</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1617155093730-a8bf47be792d?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Wasseranalyse im Detail">
+        <img src="https://images.unsplash.com/photo-1617155093730-a8bf47be792d?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Klares Wasser in einem Messbecher zur Qualitätsprüfung" />
+        <span class="gal-cap">Wasseranalyse im Detail</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1495774539583-885e02cca8c2?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Wassertropfen in Bewegung">
+        <img src="https://images.unsplash.com/photo-1495774539583-885e02cca8c2?auto=format&amp;fit=crop&amp;w=900&amp;h=900&amp;q=80" width="900" height="900" loading="lazy" decoding="async" alt="Wassertropfen fällt in ein mit Wasser gefülltes Gefäß" />
+        <span class="gal-cap">Wassertropfen in Bewegung</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+    </div>
+
+    <div class="svc-details">
+      <div class="reveal-left">
+        <h3>Das gehört dazu</h3>
+        <ul class="svc-check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4 20a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2l-5-12V2"/><line x1="8" y1="2" x2="16" y2="2"/><line x1="6" y1="15" x2="18" y2="15"/></svg><strong>Wasseranalyse</strong> zur Einschätzung der aktuellen Qualität</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg><strong>Enthärtungsanlagen</strong> gegen Kalkablagerungen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5-2-1.6-3.5-4-4-6.5-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg><strong>Filtertechnik</strong> für spürbar saubereres Wasser</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg><strong>Spülung</strong> und Kontrolle von Leitungen im Bestand</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Maßnahmen zur Vermeidung von <strong>Legionellenrisiken</strong></li>
+        </ul>
+      </div>
+      <div class="svc-text-col reveal-right">
+        <p>
+          Gerade in älteren Gebäuden lohnt sich ein Blick auf die Trinkwasserqualität – oft
+          reichen schon kleine Maßnahmen, um spürbar mehr Komfort zu gewinnen.
+        </p>
+        <a href="kontakt.php" class="btn-outline">
+          Wasserqualität prüfen lassen
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -1006,9 +1037,9 @@
 <!-- CTA -->
 <section class="cta-section" id="kontakt">
   <div class="cta-inner reveal">
-    <div class="section-eyebrow">Ihr Projekt könnte das nächste sein</div>
+    <div class="section-eyebrow">Ihre Leistung war nicht dabei?</div>
     <h2>Jetzt kostenlos<br>anfragen</h2>
-    <p>Erzählen Sie uns, was Sie vorhaben – wir sagen Ihnen ehrlich, was sich umsetzen lässt.</p>
+    <p>Sprechen Sie uns einfach an – wir sagen Ihnen ehrlich, ob und wie wir helfen können.</p>
     <div class="cta-actions">
       <a href="kontakt.php" class="btn-primary">
         Kostenlos anfragen
@@ -1020,6 +1051,7 @@
 </section>
 
 </main>
+
 <!-- ══ FOOTER ══ -->
 <footer class="site-footer">
   <div class="footer-top">
@@ -1033,12 +1065,12 @@
     <div class="footer-col">
       <h4>Leistungen</h4>
       <ul>
-        <li><a href="leistungen.html#heizung">Heizung &amp; Brennwerttechnik</a></li>
-        <li><a href="leistungen.html#sanitaer">Sanitär &amp; Badumbau</a></li>
-        <li><a href="leistungen.html#energien">Regenerative Energien</a></li>
-        <li><a href="leistungen.html#flaschnerei">Flaschnerei</a></li>
-        <li><a href="leistungen.html#wartung">Wartung &amp; Kundendienst</a></li>
-        <li><a href="leistungen.html#trinkwasser">Trinkwasserhygiene</a></li>
+        <li><a href="#heizung">Heizung &amp; Brennwerttechnik</a></li>
+        <li><a href="#sanitaer">Sanitär &amp; Badumbau</a></li>
+        <li><a href="#energien">Regenerative Energien</a></li>
+        <li><a href="#flaschnerei">Flaschnerei</a></li>
+        <li><a href="#wartung">Wartung &amp; Kundendienst</a></li>
+        <li><a href="#trinkwasser">Trinkwasserhygiene</a></li>
       </ul>
     </div>
 
@@ -1241,3 +1273,4 @@
 </script>
 </body>
 </html>
+
