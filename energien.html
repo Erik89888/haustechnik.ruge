@@ -391,6 +391,32 @@
   .svc-check-list strong { color: #fff; font-weight: 700; }
   .svc-text-col p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.4rem; }
 
+  /* ── NIBE-BAND (gleicher Stil wie .energien-band auf index.html) ── */
+  .nibe-bleed { width: 100vw; margin-left: 50%; transform: translateX(-50%); margin-top: 2.6rem; }
+  .nibe-band { position: relative; overflow: hidden; min-height: 560px; display: flex; align-items: center; }
+  .nibe-media { position: absolute; inset: 0; z-index: 0; background: var(--navy-mid-blue); }
+  .nibe-media img { width: 100%; height: 100%; object-fit: cover; object-position: 68% 55%; }
+  .nibe-scrim {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(100deg, rgba(4,6,12,0.97) 0%, rgba(6,10,24,0.92) 34%, rgba(8,14,32,0.55) 62%, rgba(8,14,32,0.12) 100%);
+  }
+  .nibe-inner { position: relative; z-index: 2; padding: 5rem 6%; width: 100%; }
+  .nibe-copy { max-width: 540px; }
+  .nibe-copy h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 1rem; }
+  .nibe-copy h2 .word-accent { color: var(--orange); }
+  .nibe-copy p { color: var(--text-secondary); margin-bottom: 1.6rem; }
+  .nibe-list { list-style: none; display: grid; gap: 0.7rem; margin-bottom: 2.2rem; }
+  .nibe-list li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.92rem; color: #D3DBEF; }
+  .nibe-list svg { width: 17px; height: 17px; stroke: var(--orange); flex-shrink: 0; margin-top: 5px; }
+  .nibe-hint { display: block; margin-top: 0.8rem; font-size: 0.72rem; color: var(--text-muted); }
+  @media (max-width: 768px) {
+    .nibe-band { min-height: 0; }
+    .nibe-inner { padding: 3.5rem 6%; }
+    .nibe-scrim {
+      background: linear-gradient(120deg, rgba(4,6,12,0.97) 0%, rgba(6,10,24,0.93) 55%, rgba(8,14,32,0.8) 100%);
+    }
+  }
+
   /* ── FÖRDERUNG ── */
   .funding { padding: 5rem 6%; background: var(--wave-down); text-align: center; }
   .funding-inner { max-width: 720px; margin-inline: auto; }
@@ -736,6 +762,37 @@
           Wärmepumpe anfragen
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+      </div>
+    </div>
+
+    <div class="nibe-bleed" id="nibe-produkte">
+      <div class="nibe-band">
+        <div class="nibe-media">
+          <img src="nibe-banner.jpg" width="1200" height="800" loading="lazy" decoding="async"
+               alt="NIBE Sole/Wasser-Wärmepumpe in einem Hauswirtschaftsraum neben Werkbank und Fenster" />
+        </div>
+        <div class="nibe-scrim"></div>
+        <div class="nibe-inner">
+          <div class="nibe-copy reveal">
+            <div class="section-eyebrow">NIBE Fachpartner</div>
+            <h2>Unsere Wärmepumpen<br />kommen von <span class="word-accent">NIBE</span>.</h2>
+            <p>
+              Wir planen, montieren und warten Wärmepumpen dieses Herstellers. Die
+              Produktübersicht wird laufend von NIBE gepflegt – Sie sehen hier also
+              immer den aktuellen Stand.
+            </p>
+            <ul class="nibe-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Luft/Wasser-, Sole/Wasser- und Abluft-Wärmepumpen</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Produktdaten direkt vom Hersteller, immer aktuell</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Planung, Einbau und Wartung aus einer Hand</li>
+            </ul>
+            <a href="waermepumpen-nibe.html" class="btn-primary">
+              Zu unseren Wärmepumpen
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="nibe-hint">Öffnet unsere NIBE-Produktseite – die Inhalte dort stammen von NIBE</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1195,6 +1252,7 @@
 </script>
 </body>
 </html>
+
 
 
 
