@@ -395,10 +395,25 @@
   .nibe-bleed { width: 100vw; margin-left: 50%; transform: translateX(-50%); margin-top: 2.6rem; }
   .nibe-band { position: relative; overflow: hidden; min-height: 560px; display: flex; align-items: center; }
   .nibe-media { position: absolute; inset: 0; z-index: 0; background: var(--navy-mid-blue); }
-  .nibe-media img { width: 100%; height: 100%; object-fit: cover; object-position: 68% 55%; }
+  .nibe-media img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 52%; }
   .nibe-scrim {
     position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(100deg, rgba(4,6,12,0.97) 0%, rgba(6,10,24,0.92) 34%, rgba(8,14,32,0.55) 62%, rgba(8,14,32,0.12) 100%);
+  }
+  /* Herstellerzeichen oben rechts im Band – helle Karte, damit das rote
+     NIBE-Logo auch auf dem dunklen Bild sauber steht. */
+  .nibe-badge {
+    position: absolute; z-index: 3; top: 2rem; right: 6%;
+    display: flex; flex-direction: column; align-items: center; gap: 0.45rem;
+    padding: 0.85rem 1.3rem 0.7rem;
+    background: rgba(255,255,255,0.94);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.38);
+  }
+  .nibe-badge img { display: block; width: 92px; height: auto; }
+  .nibe-badge span {
+    font-family: 'Montserrat', sans-serif; font-size: 0.58rem; font-weight: 700;
+    letter-spacing: 2.4px; text-transform: uppercase; color: #4A5468;
   }
   .nibe-inner { position: relative; z-index: 2; padding: 5rem 6%; width: 100%; }
   .nibe-copy { max-width: 540px; }
@@ -411,7 +426,10 @@
   .nibe-hint { display: block; margin-top: 0.8rem; font-size: 0.72rem; color: var(--text-muted); }
   @media (max-width: 768px) {
     .nibe-band { min-height: 0; }
-    .nibe-inner { padding: 3.5rem 6%; }
+    .nibe-inner { padding: 4.8rem 6% 3.5rem; }
+    .nibe-badge { top: 1.2rem; padding: 0.6rem 0.95rem 0.5rem; gap: 0.3rem; }
+    .nibe-badge img { width: 68px; }
+    .nibe-badge span { font-size: 0.5rem; letter-spacing: 1.8px; }
     .nibe-scrim {
       background: linear-gradient(120deg, rgba(4,6,12,0.97) 0%, rgba(6,10,24,0.93) 55%, rgba(8,14,32,0.8) 100%);
     }
@@ -768,10 +786,14 @@
     <div class="nibe-bleed" id="nibe-produkte">
       <div class="nibe-band">
         <div class="nibe-media">
-          <img src="nibe-banner.jpg" width="1200" height="800" loading="lazy" decoding="async"
-               alt="NIBE Sole/Wasser-Wärmepumpe in einem Hauswirtschaftsraum neben Werkbank und Fenster" />
+          <img src="nibe-banner-haus.jpg" width="1920" height="1493" loading="lazy" decoding="async"
+               alt="Modernes Wohnhaus in der Abenddämmerung mit warm beleuchteten Räumen" />
         </div>
         <div class="nibe-scrim"></div>
+        <div class="nibe-badge">
+          <img src="nibe-logo.svg" width="120" height="28" loading="lazy" decoding="async" alt="NIBE" />
+          <span>Fachpartner</span>
+        </div>
         <div class="nibe-inner">
           <div class="nibe-copy reveal">
             <div class="section-eyebrow">NIBE Fachpartner</div>
@@ -1252,6 +1274,7 @@
 </script>
 </body>
 </html>
+
 
 
 
