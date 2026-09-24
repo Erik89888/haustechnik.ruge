@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Impressum – R. Ruge Sanitär Heizung Regenerative Energien</title>
+<title>Impressum | R. Ruge Sanitär Heizung Regenerative Energien</title>
 <meta name="description" content="Impressum und Anbieterkennzeichnung gemäß § 5 DDG für R. Ruge Sanitär Heizung Regenerative Energien, Steinheim an der Murr." />
 <meta name="theme-color" content="#01328F" />
 <meta name="robots" content="index,follow" />
@@ -148,6 +148,10 @@
   }
   .mobile-nav a:hover { color: var(--orange); }
   .mobile-nav .mobile-actions { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1rem; align-items: center; }
+  .mobile-nav .mobile-actions .btn-primary,
+  .mobile-nav .mobile-actions .btn-outline {
+    padding: 0.55rem 1.1rem; font-size: 0.68rem; letter-spacing: 0.8px; white-space: nowrap;
+  }
   .mobile-meta { margin-top: 1.5rem; font-size: 0.82rem; color: var(--text-secondary); text-align: center; line-height: 1.8; }
 
   /* ── SEITENKOPF ── */
@@ -197,6 +201,7 @@
   .legal-body h3 { font-size: 1.02rem; font-weight: 700; margin: 1.6rem 0 0.6rem; }
   .legal-body p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem; }
   .legal-body p:last-child { margin-bottom: 0; }
+  .legal-credit { margin-top: 2.8rem; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.2px; }
   .legal-body a { color: var(--orange); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
   .legal-body a:hover { border-color: var(--orange); }
   .legal-body ul { margin: 0 0 1rem 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -214,7 +219,8 @@
   .note strong { color: var(--orange); }
 
   /* ── FOOTER ── */
-  footer.site-footer { background: linear-gradient(165deg, #04050a 0%, #0b1330 60%, #04050a 100%); border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
+  /* Seitenabschluss: durchgehend schwarz, kein Verlauf */
+  footer.site-footer { background: #000; border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
   .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.8rem; }
   .footer-logo { display: inline-block; margin-bottom: 1.1rem; }
   .footer-logo img { height: 46px; width: auto; }
@@ -284,16 +290,16 @@
 <!-- ══ HEADER ══ -->
 <header class="site-header" id="header">
   <div class="header-inner">
-    <a href="index.html" class="logo" aria-label="R. Ruge – Startseite">
+    <a href="index.html" class="logo" aria-label="Zur Startseite von R. Ruge">
       <img src="logo-ruge.png" width="712" height="424"
-           alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" />
+           alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" />
     </a>
 
     <nav class="header-nav" aria-label="Hauptnavigation">
       <a href="index.html#leistungen">Leistungen</a>
-      <a href="index.html#energien">Energien</a>
+      <a href="energien.html">Energien</a>
       <a href="bereiche.html">Bereiche</a>
-      <a href="index.html#referenzen">Referenzen</a>
+      <a href="referenzen.html">Referenzen</a>
       <a href="ueber-uns.html">Über uns</a>
       <a href="kontakt.php">Kontakt</a>
     </nav>
@@ -312,9 +318,9 @@
 <!-- ══ MOBILE NAV ══ -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
   <a href="index.html#leistungen">Leistungen</a>
-  <a href="index.html#energien">Regenerative Energien</a>
+  <a href="energien.html">Regenerative Energien</a>
   <a href="bereiche.html">Bereiche</a>
-  <a href="index.html#referenzen">Referenzen</a>
+  <a href="referenzen.html">Referenzen</a>
   <a href="ueber-uns.html">Über uns</a>
   <a href="kontakt.php">Kontakt</a>
   <div class="mobile-actions">
@@ -431,7 +437,7 @@
 
         <h3>Eintragung in die Handwerksrolle</h3>
         <p>
-          Handwerkskammer Region Stuttgart – Betriebsnummer 670082690
+          Handwerkskammer Region Stuttgart, Betriebsnummer 670082690
         </p>
 
         <p>
@@ -536,7 +542,7 @@
           kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht
           vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet.
           Sollten Sie dennoch auf eine Urheberrechtsverletzung aufmerksam werden,
-          bitten wir um einen entsprechenden Hinweis – bei Bekanntwerden von
+          bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von
           Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
         </p>
 
@@ -555,6 +561,8 @@
         </div>
       </section>
 
+      <p class="legal-credit">Webdesign &amp; Entwicklung von <a href="https://irtona.de" target="_blank" rel="noopener">Irtona.de</a></p>
+
     </div>
   </div>
 </section>
@@ -565,9 +573,9 @@
 <footer class="site-footer">
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="index.html" class="footer-logo" aria-label="R. Ruge – Startseite">
+      <a href="index.html" class="footer-logo" aria-label="Zur Startseite von R. Ruge">
         <img src="logo-ruge.png" width="712" height="424"
-             alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" loading="lazy" />
+             alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" loading="lazy" />
       </a>
       <p>
         Inhabergeführter Meisterbetrieb für Sanitär, Heizung, regenerative
@@ -580,7 +588,7 @@
       <ul>
         <li><a href="index.html#leistungen">Heizung &amp; Brennwerttechnik</a></li>
         <li><a href="index.html#leistungen">Sanitär &amp; Badumbau</a></li>
-        <li><a href="index.html#energien">Regenerative Energien</a></li>
+        <li><a href="energien.html">Regenerative Energien</a></li>
         <li><a href="index.html#leistungen">Flaschnerei</a></li>
         <li><a href="index.html#leistungen">Wartung &amp; Kundendienst</a></li>
         <li><a href="index.html#leistungen">Trinkwasserhygiene</a></li>
@@ -668,4 +676,5 @@
 </script>
 </body>
 </html>
+
 
