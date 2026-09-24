@@ -3,33 +3,299 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Datenschutzerklärung – R. Ruge Sanitär Heizung Regenerative Energien</title>
+<title>Datenschutzerklärung | R. Ruge Sanitär Heizung Regenerative Energien</title>
 <meta name="description" content="Datenschutzerklärung nach DSGVO für die Website von R. Ruge Sanitär Heizung Regenerative Energien, Steinheim an der Murr." />
 <meta name="theme-color" content="#01328F" />
 <meta name="robots" content="index,follow" />
-<link rel="icon" type="image/png" href="assets/favicon.png" />
-<link rel="apple-touch-icon" href="assets/favicon.png" />
+<link rel="icon" type="image/png" href="favicon.ruge.png" />
+<link rel="apple-touch-icon" href="favicon.ruge.png" />
 
-<script>document.documentElement.className += " js";</script>
-<link rel="preload" href="assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="assets/fonts/montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/fonts.css" />
-<link rel="stylesheet" href="assets/style.css" />
+<link rel="preload" href="inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="fonts.css" />
+
+<style>
+  :root {
+    --orange:        #FF6B35;
+    --orange-dark:   #E85A28;
+    --orange-glow:   rgba(255, 107, 53, 0.3);
+    --brand-blue:    #0A2647;
+    --brand-blue-d:  #030D1E;
+    --navy:          #050609;
+    --navy-blue:     #0b1330;
+    --navy-mid:      #07091a;
+    --navy-mid-blue: #0e1638;
+    --navy-light:    #101733;
+    --card-bg:       #0a0e20;
+    --surface:       rgba(255,255,255,0.04);
+    --border:        rgba(255,255,255,0.08);
+    --text-primary:  #FFFFFF;
+    --text-secondary:#A7AFC6;
+    --text-muted:    #5A6280;
+    --header-h: 86px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 10px); }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-blue) 45%, var(--navy) 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; text-wrap: balance; }
+  img, svg { max-width: 100%; }
+  img { height: auto; display: block; }
+  a { color: inherit; }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+  ::selection { background: var(--orange); color: #fff; }
+  :focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; border-radius: 3px; }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 2000;
+    background: var(--orange); color: #fff; padding: 0.8rem 1.4rem; font-weight: 600; text-decoration: none;
+  }
+  .skip-link:focus { left: 12px; top: 12px; }
+
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1; opacity: 0.4;
+  }
+  .cursor-glow {
+    position: fixed; width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,53,0.07) 0%, transparent 70%);
+    pointer-events: none; transform: translate(-50%, -50%);
+    z-index: 9999; transition: opacity 0.3s ease;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: var(--orange); color: white;
+    padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none;
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem;
+    letter-spacing: 1.3px; text-transform: uppercase; border: none; cursor: pointer;
+    transition: all 0.3s ease; position: relative; overflow: hidden;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+  }
+  .btn-primary::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 28px var(--orange-glow); }
+  .btn-primary:hover::before { left: 100%; }
+  .btn-outline {
+    background: rgba(255,255,255,0.03); color: var(--text-primary);
+    padding: 0.85rem 1.8rem; border-radius: 6px; text-decoration: none;
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem;
+    letter-spacing: 1.3px; text-transform: uppercase; border: 1px solid var(--border);
+    cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.6rem;
+  }
+  .btn-outline:hover { border-color: var(--orange); color: var(--orange); box-shadow: 0 0 22px var(--orange-glow); }
+
+  /* ── HEADER ── */
+  header.site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: linear-gradient(100deg, var(--brand-blue) 0%, var(--brand-blue-d) 100%);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 12px 34px rgba(0,0,0,0.45);
+    transition: box-shadow 0.3s ease;
+  }
+  .header-inner {
+    max-width: 1320px; margin-inline: auto;
+    min-height: var(--header-h);
+    padding: 0.6rem 6%; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  }
+  .logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+  .logo img { height: 58px; width: auto; transition: height 0.3s ease; }
+  .header-nav { display: flex; align-items: center; gap: 2.2rem; }
+  .header-nav a {
+    color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.85rem;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    transition: color 0.3s; position: relative; padding: 0.3rem 0;
+  }
+  .header-nav a::after {
+    content: ''; position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 2px; background: var(--orange); border-radius: 2px; transition: width 0.3s;
+  }
+  .header-nav a:hover, .header-nav a[aria-current="page"] { color: #fff; }
+  .header-nav a:hover::after, .header-nav a[aria-current="page"]::after { width: 100%; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+    background: none; border: 0;
+  }
+  .hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; display: block; }
+  .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-nav {
+    position: fixed; inset: 0; background: rgba(5,6,9,0.97); backdrop-filter: blur(20px);
+    z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6rem;
+    transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.77,0,0.175,1);
+    padding: 2rem;
+  }
+  .mobile-nav.open { transform: translateX(0); }
+  .mobile-nav a {
+    font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800;
+    color: var(--text-primary); text-decoration: none; text-transform: uppercase;
+    letter-spacing: 2px; transition: color 0.3s;
+  }
+  .mobile-nav a:hover { color: var(--orange); }
+  .mobile-nav .mobile-actions { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1rem; align-items: center; }
+  .mobile-nav .mobile-actions .btn-primary,
+  .mobile-nav .mobile-actions .btn-outline {
+    padding: 0.55rem 1.1rem; font-size: 0.68rem; letter-spacing: 0.8px; white-space: nowrap;
+  }
+  .mobile-meta { margin-top: 1.5rem; font-size: 0.82rem; color: var(--text-secondary); text-align: center; line-height: 1.8; }
+
+  /* ── SEITENKOPF ── */
+  .page-head {
+    position: relative; overflow: hidden;
+    padding: calc(var(--header-h) + 5rem) 6% 4rem;
+    background: linear-gradient(165deg, #04050a 0%, #0b1330 55%, #04050a 100%);
+  }
+  .page-head::after {
+    content: ''; position: absolute; top: -120px; right: -100px; width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,53,0.10) 0%, transparent 70%); pointer-events: none;
+  }
+  .page-head .inner { position: relative; z-index: 1; max-width: 760px; }
+  .page-head .eyebrow {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 1.2rem;
+  }
+  .page-head .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--orange); }
+  .page-head h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 1rem; }
+  .page-head .inner > p { color: var(--text-secondary); font-size: 1.02rem; }
+
+  /* ── RECHTLICHE INHALTE ── */
+  .legal { padding: 5rem 6% 7rem; background: var(--navy-mid); }
+  .legal-grid { display: grid; grid-template-columns: 260px 1fr; gap: 3.5rem; max-width: 1180px; margin-inline: auto; align-items: start; }
+  .toc {
+    position: sticky; top: calc(var(--header-h) + 1.5rem);
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.6rem 1.5rem;
+  }
+  .toc h2 { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+  .toc ol { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 0.1rem; }
+  .toc li { counter-increment: toc; }
+  .toc a {
+    display: flex; gap: 0.6rem; padding: 0.45rem 0; color: var(--text-secondary); text-decoration: none;
+    font-size: 0.85rem; line-height: 1.4; transition: color 0.25s;
+  }
+  .toc a::before {
+    content: counter(toc, decimal-leading-zero); color: var(--orange);
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.76rem; flex-shrink: 0;
+  }
+  .toc a:hover { color: #fff; }
+
+  .legal-body { max-width: 760px; }
+  .legal-body section { padding-bottom: 3rem; margin-bottom: 3rem; border-bottom: 1px solid var(--border); scroll-margin-top: calc(var(--header-h) + 20px); }
+  .legal-body section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .legal-body h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1.2rem; letter-spacing: -0.2px; }
+  .legal-body h3 { font-size: 1.02rem; font-weight: 700; margin: 1.6rem 0 0.6rem; }
+  .legal-body p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem; }
+  .legal-body p:last-child { margin-bottom: 0; }
+  .legal-body a { color: var(--orange); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  .legal-body a:hover { border-color: var(--orange); }
+  .legal-body ul { margin: 0 0 1rem 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .legal-body ul li { position: relative; padding-left: 1.3rem; color: var(--text-secondary); font-size: 0.95rem; }
+  .legal-body ul li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 1px; background: var(--orange); }
+  .legal-body code { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.85em; }
+
+  .data-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1.6rem; margin-bottom: 1.2rem; }
+  .data-card dl { display: grid; grid-template-columns: auto 1fr; gap: 0.6rem 1.5rem; }
+  .data-card dt { font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); padding-top: 0.15rem; }
+  .data-card dd { color: var(--text-primary); font-size: 0.95rem; }
+
+  .note { background: rgba(255,107,53,0.06); border: 1px solid rgba(255,107,53,0.25); border-radius: 12px; padding: 1.1rem 1.4rem; margin-top: 1rem; }
+  .note p { color: var(--text-secondary); font-size: 0.88rem; margin: 0; }
+  .note strong { color: var(--orange); }
+
+  /* ── FOOTER ── */
+  /* Seitenabschluss: durchgehend schwarz, kein Verlauf */
+  footer.site-footer { background: #000; border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
+  .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.8rem; }
+  .footer-logo { display: inline-block; margin-bottom: 1.1rem; }
+  .footer-logo img { height: 46px; width: auto; }
+  .footer-brand p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; max-width: 300px; }
+  .footer-col h4 { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.1rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.65rem; }
+  .footer-col ul li a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: var(--orange); }
+  .footer-contact { display: flex; flex-direction: column; gap: 0.8rem; }
+  .f-row { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.85rem; color: var(--text-secondary); }
+  .f-row svg { width: 16px; height: 16px; stroke: var(--orange); flex-shrink: 0; margin-top: 2px; }
+  .f-row a { color: var(--text-secondary); text-decoration: none; transition: color 0.3s; }
+  .f-row a:hover { color: var(--orange); }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-bottom p { font-size: 0.78rem; color: var(--text-muted); }
+  .footer-bottom-links { display: flex; gap: 1.5rem; }
+  .footer-bottom-links a { color: var(--text-muted); text-decoration: none; font-size: 0.78rem; transition: color 0.3s; }
+  .footer-bottom-links a:hover { color: var(--orange); }
+  .footer-bottom-links a[aria-current="page"] { color: var(--orange); }
+
+  /* ── MOBILE ACTION BAR ── */
+  .action-bar {
+    display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+    background: rgba(5,6,9,0.92); backdrop-filter: blur(14px);
+    border-top: 1px solid var(--border);
+    padding: 0.7rem 5%; gap: 0.7rem;
+  }
+  .action-bar a {
+    flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+    padding: 0.85rem 0.5rem; border-radius: 8px; text-decoration: none; white-space: nowrap;
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.76rem;
+    letter-spacing: 0.3px; text-transform: uppercase;
+  }
+  .action-bar svg { width: 16px; height: 16px; }
+  .ab-call { background: rgba(255,255,255,0.06); color: #fff; border: 1px solid var(--border); }
+  .ab-mail { background: var(--orange); color: #fff; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .legal-grid { grid-template-columns: 1fr; }
+    .toc { position: static; }
+    .data-card dl { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 1024px) {
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    :root { --header-h: 68px; }
+    .logo img { height: 42px; }
+    .header-nav, .header-inner .btn-primary { display: none; }
+    .hamburger { display: flex; }
+    .page-head { padding-top: calc(var(--header-h) + 3rem); }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .action-bar { display: flex; }
+    body { padding-bottom: 68px; }
+    .cursor-glow { display: none; }
+  }
+</style>
 </head>
 
 <body>
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- ══ HEADER ══ -->
 <header class="site-header" id="header">
   <div class="header-inner">
-    <a href="index.html" class="logo" aria-label="R. Ruge – Startseite">
-      <img src="assets/logo-ruge.png" width="712" height="424"
-           alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" />
+    <a href="index.html" class="logo" aria-label="Zur Startseite von R. Ruge">
+      <img src="logo-ruge.png" width="712" height="424"
+           alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" />
     </a>
 
     <nav class="header-nav" aria-label="Hauptnavigation">
-      <a href="leistungen.html">Leistungen</a>
+      <a href="index.html#leistungen">Leistungen</a>
       <a href="energien.html">Energien</a>
       <a href="bereiche.html">Bereiche</a>
       <a href="referenzen.html">Referenzen</a>
@@ -50,12 +316,12 @@
 
 <!-- ══ MOBILE NAV ══ -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
-  <a href="leistungen.html">Leistungen</a>
-      <a href="energien.html">Energien</a>
-      <a href="bereiche.html">Bereiche</a>
-      <a href="referenzen.html">Referenzen</a>
-      <a href="ueber-uns.html">Über uns</a>
-      <a href="kontakt.php">Kontakt</a>
+  <a href="index.html#leistungen">Leistungen</a>
+  <a href="energien.html">Regenerative Energien</a>
+  <a href="bereiche.html">Bereiche</a>
+  <a href="referenzen.html">Referenzen</a>
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="kontakt.php">Kontakt</a>
   <div class="mobile-actions">
     <a href="kontakt.php" class="btn btn-primary">Anfrage senden</a>
     <a href="tel:+4971443345604" class="btn btn-outline">07144 3345604</a>
@@ -121,7 +387,7 @@
 
         <h3>Wie erheben wir Ihre Daten?</h3>
         <p>
-          Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen –
+          Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen,
           etwa durch Angaben, die Sie in das Kontaktformular eintragen oder die Sie uns
           per E-Mail oder Telefon übermitteln. Andere Daten werden beim Besuch der
           Website automatisch durch unsere IT-Systeme erfasst. Das sind vor allem
@@ -132,15 +398,15 @@
         <p>
           Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website
           zu gewährleisten. Die von Ihnen übermittelten Kontaktdaten nutzen wir
-          ausschließlich, um Ihre Anfrage zu beantworten und – sofern es dazu kommt –
+          ausschließlich, um Ihre Anfrage zu beantworten und, sofern es dazu kommt,
           ein Angebot zu erstellen und einen Auftrag abzuwickeln. Eine Auswertung Ihres
           Nutzerverhaltens findet auf dieser Website nicht statt.
         </p>
 
         <h3>Hinweis zur Datenübertragung im Internet</h3>
         <p>
-          Wir weisen darauf hin, dass die Datenübertragung im Internet – zum Beispiel bei
-          der Kommunikation per E-Mail – Sicherheitslücken aufweisen kann. Ein lückenloser
+          Wir weisen darauf hin, dass die Datenübertragung im Internet, zum Beispiel bei
+          der Kommunikation per E-Mail, Sicherheitslücken aufweisen kann. Ein lückenloser
           Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
         </p>
       </section>
@@ -192,7 +458,7 @@
           Maßnahmen erforderlich, verarbeiten wir Ihre Daten auf Grundlage von Art. 6
           Abs. 1 lit. b DSGVO. Des Weiteren verarbeiten wir Ihre Daten, sofern diese zur
           Erfüllung einer rechtlichen Verpflichtung erforderlich sind, auf Grundlage von
-          Art. 6 Abs. 1 lit. c DSGVO – etwa bei steuer- und handelsrechtlichen
+          Art. 6 Abs. 1 lit. c DSGVO, etwa bei steuer- und handelsrechtlichen
           Aufbewahrungspflichten.
         </p>
         <p>
@@ -249,7 +515,7 @@
           Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht
           vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1
           lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der
-          technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu
+          technisch fehlerfreien Darstellung und der Optimierung seiner Website. Hierzu
           müssen die Server-Log-Dateien erfasst werden.
         </p>
 
@@ -288,7 +554,7 @@
           den Server unseres Hosting-Anbieters übertragen und dort von einem PHP-Skript
           verarbeitet. Das Skript prüft die Angaben auf Vollständigkeit und versendet
           sie anschließend als E-Mail an unser Postfach. Eine dauerhafte Speicherung in
-          einer Datenbank findet nicht statt – die Anfrage liegt danach ausschließlich
+          einer Datenbank findet nicht statt. Die Anfrage liegt danach ausschließlich
           in unserem E-Mail-Postfach.
         </p>
         <p>
@@ -316,7 +582,7 @@
         <p>
           Die von Ihnen an uns übersandten Daten verbleiben bei uns, bis Sie uns zur
           Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck
-          für die Datenspeicherung entfällt – zum Beispiel nach abgeschlossener Bearbeitung
+          für die Datenspeicherung entfällt, zum Beispiel nach abgeschlossener Bearbeitung
           Ihres Anliegens. Zwingende gesetzliche Bestimmungen, insbesondere gesetzliche
           Aufbewahrungsfristen, bleiben unberührt.
         </p>
@@ -325,7 +591,7 @@
           <p>
             <strong>Hinweis für den Betreiber:</strong> Der Formularversand läuft über
             das PHP-Skript <code>kontakt.php</code> auf dem eigenen Webspace. Es wird
-            kein externer Formulardienst eingesetzt – daher ist hier auch keiner zu
+            kein externer Formulardienst eingesetzt, daher ist hier auch keiner zu
             benennen. Wird später ein Dienst wie Formspree oder ein externer
             SMTP-Anbieter eingebunden, muss dieser Abschnitt ergänzt und ein
             Auftragsverarbeitungsvertrag geschlossen werden.
@@ -365,7 +631,7 @@
         <p>
           Da darüber hinaus keine einwilligungspflichtigen Cookies zum Einsatz kommen,
           benötigt diese Website kein Cookie-Banner. Sollte sich dies künftig ändern,
-          informieren wir Sie an dieser Stelle und holen – soweit erforderlich – vorab
+          informieren wir Sie an dieser Stelle und holen, soweit erforderlich, vorab
           Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit § 25
           Abs. 1 TDDDG ein.
         </p>
@@ -398,13 +664,23 @@
           IP-Adresse an einen Kartenanbieter statt.
         </p>
 
-        <div class="note">
-          <p>
-            <strong>Hinweis für den Betreiber:</strong> Falls später eine Karte, ein
-            Video oder ein Bewertungs-Widget eingebunden wird, muss dieser Abschnitt
-            ergänzt und – je nach Dienst – eine Einwilligungslösung vorgeschaltet werden.
-          </p>
-        </div>
+        <h3>NIBE-Produktkatalog (iframe)</h3>
+        <p>
+          Auf der Unterseite „Unsere Wärmepumpen von NIBE" binden wir Inhalte unseres
+          Herstellerpartners <strong>NIBE Systemtechnik GmbH</strong>, Am Reiherpfahl 3,
+          29223 Celle, per iframe ein. Diese Unterseite rufen Sie nur auf, wenn Sie auf der
+          Seite „Energien" aktiv auf den Button „Zu unseren Wärmepumpen" klicken. Auf allen
+          übrigen Seiten wird <strong>keine Verbindung zu NIBE aufgebaut</strong>. Beim Aufruf
+          der Unterseite werden Ihre IP-Adresse und weitere technische Daten (z. B. Browsertyp,
+          aufgerufene Inhalte) an NIBE übertragen und dort ggf. in Server-Logfiles verarbeitet.
+          Auf Inhalt und Umfang dieser Datenverarbeitung haben wir keinen Einfluss.
+        </p>
+        <p>
+          Rechtsgrundlage ist Ihre Einwilligung durch den aktiven Aufruf dieser Unterseite
+          (Art. 6 Abs. 1 lit. a DSGVO). Weitere Informationen zur Datenverarbeitung durch NIBE
+          entnehmen Sie bitte den Datenschutzhinweisen des Anbieters unter
+          <a href="https://www.nibe.eu/de-de/datenschutz-emails" target="_blank" rel="noopener">www.nibe.eu/de-de/datenschutz-emails</a>.
+        </p>
       </section>
 
       <!-- 8 -->
@@ -416,7 +692,7 @@
           für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen
           geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden
           Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für
-          die Speicherung haben – zum Beispiel steuer- oder handelsrechtliche
+          die Speicherung haben, zum Beispiel steuer- oder handelsrechtliche
           Aufbewahrungsfristen. Im letztgenannten Fall erfolgt die Löschung nach Fortfall
           dieser Gründe.
         </p>
@@ -427,7 +703,7 @@
         <h2>9 · Empfänger von personenbezogenen Daten</h2>
         <p>
           Im Rahmen unserer Geschäftstätigkeit arbeiten wir mit verschiedenen externen
-          Stellen zusammen – etwa Hosting-Anbietern, Lieferanten, weiteren Handwerks­betrieben
+          Stellen zusammen, etwa Hosting-Anbietern, Lieferanten, weiteren Handwerks­betrieben
           oder unserem Steuerbüro. Dabei ist teilweise auch eine Übermittlung von
           personenbezogenen Daten an diese Stellen erforderlich.
         </p>
@@ -458,7 +734,7 @@
           Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger
           und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Hierzu sowie
           zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns
-          wenden – die Kontaktdaten finden Sie unter Abschnitt 2.
+          wenden. Die Kontaktdaten finden Sie unter Abschnitt 2.
         </p>
 
         <h3>Recht auf Einschränkung der Verarbeitung</h3>
@@ -487,7 +763,7 @@
         </ul>
         <p>
           Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten eingeschränkt haben,
-          dürfen diese Daten – von ihrer Speicherung abgesehen – nur mit Ihrer Einwilligung
+          dürfen diese Daten, von ihrer Speicherung abgesehen, nur mit Ihrer Einwilligung
           oder zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder
           zum Schutz der Rechte einer anderen natürlichen oder juristischen Person oder
           aus Gründen eines wichtigen öffentlichen Interesses verarbeitet werden.
@@ -568,7 +844,7 @@
         <p>
           Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den
           aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer
-          Leistungen in der Datenschutzerklärung umzusetzen – zum Beispiel bei der
+          Leistungen in der Datenschutzerklärung umzusetzen, zum Beispiel bei der
           Einführung neuer Funktionen auf dieser Website. Für Ihren erneuten Besuch gilt
           dann die neue Datenschutzerklärung.
         </p>
@@ -592,9 +868,9 @@
 <footer class="site-footer">
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="index.html" class="footer-logo" aria-label="R. Ruge – Startseite">
-        <img src="assets/logo-ruge.png" width="712" height="424"
-             alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" loading="lazy" />
+      <a href="index.html" class="footer-logo" aria-label="Zur Startseite von R. Ruge">
+        <img src="logo-ruge.png" width="712" height="424"
+             alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" loading="lazy" />
       </a>
       <p>
         Inhabergeführter Meisterbetrieb für Sanitär, Heizung, regenerative
@@ -607,7 +883,7 @@
       <ul>
         <li><a href="index.html#leistungen">Heizung &amp; Brennwerttechnik</a></li>
         <li><a href="index.html#leistungen">Sanitär &amp; Badumbau</a></li>
-        <li><a href="index.html#energien">Regenerative Energien</a></li>
+        <li><a href="energien.html">Regenerative Energien</a></li>
         <li><a href="index.html#leistungen">Flaschnerei</a></li>
         <li><a href="index.html#leistungen">Wartung &amp; Kundendienst</a></li>
         <li><a href="index.html#leistungen">Trinkwasserhygiene</a></li>
@@ -655,6 +931,44 @@
   </a>
 </div>
 
-<script src="assets/app.js" defer></script>
+<script>
+  var glow = document.getElementById('cursorGlow');
+  if (glow && window.matchMedia('(pointer:fine)').matches) {
+    document.addEventListener('mousemove', function (e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top  = e.clientY + 'px';
+    });
+  }
+
+  var burger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  function setNav(open) {
+    mobileNav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  }
+  if (burger && mobileNav) {
+    burger.addEventListener('click', function () { setNav(!mobileNav.classList.contains('open')); });
+    mobileNav.addEventListener('click', function (e) { if (e.target.closest('a')) setNav(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setNav(false); });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href');
+      if (!id || id === '#') return;
+      var t = document.querySelector(id);
+      if (!t) return;
+      e.preventDefault();
+      var headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'), 10) || 86;
+      var top = t.getBoundingClientRect().top + window.pageYOffset - headerH - 10;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      setNav && setNav(false);
+    });
+  });
+
+  document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+</script>
 </body>
 </html>
+
