@@ -396,7 +396,7 @@ header('X-Content-Type-Options: nosniff');
 <meta name="theme-color" content="#01328F" />
 <link rel="icon" type="image/png" href="favicon.ruge.png" />
 <link rel="apple-touch-icon" href="favicon.ruge.png" />
-<meta name="robots" content="<?php echo $erfolgreich ? 'noindex,follow' : 'index,follow'; ?>" />
+<meta name="robots" content="noindex,follow" />
 
 <link rel="preload" href="inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -717,6 +717,7 @@ header('X-Content-Type-Options: nosniff');
   }
 </style>
 <link rel="stylesheet" href="motion.css" />
+<link rel="stylesheet" href="motion.v2.css" />
 </head>
 
 <body>
@@ -1160,6 +1161,6 @@ header('X-Content-Type-Options: nosniff');
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 </script>
 <script src="motion.js" defer></script>
+<script src="motion.v2.js" defer></script>
 </body>
 </html>
-

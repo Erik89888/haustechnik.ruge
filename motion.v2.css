@@ -1,0 +1,74 @@
+/* ════════════════════════════════════════════════════════════════════
+   motion.v2.css · Ergänzung zu motion.css für die v2-Unterseiten.
+   Deckt nur die Bausteine ab, die es nur in v2 gibt:
+   Fotobanner mit Titel (.svc-banner / .bereich-media), Umriss-Nummer,
+   Text-/Kachel-Split (.svc-tile / .bereich-tile) und den schlichten
+   Seitenkopf der NIBE-Seite. Alle übrigen Animationen kommen aus
+   motion.css, damit sie auf allen Versionen identisch sind.
+   Gegenstück: motion.v2.js.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── Fotobanner: Bild zoomt beim Hineinscrollen zurück, danach Parallax ── */
+.js .svc-banner > img, .js .svc-banner > video, .js .bereich-media > img {
+  transition: transform 1.6s cubic-bezier(0.2,0.7,0.2,1);
+}
+.js .svc-banner:not(.m-in) > img, .js .svc-banner:not(.m-in) > video,
+.js .bereich-media:not(.m-in) > img { transform: scale(1.16); }
+/* Kein Clip wie in der alten Bereiche-Seite: hier steht der Titel im Bild */
+.js .bereich-media, .js .bereich-media.m-in { clip-path: none; }
+/* Parallax: Bild etwas höher als der Banner, damit beim Verschieben nie eine Kante sichtbar wird */
+.js-parallax .svc-banner > img, .js-parallax .svc-banner > video, .js-parallax .bereich-media > img {
+  position: relative; top: -10%; height: 120%; will-change: translate;
+}
+
+/* ── Umriss-Nummer gleitet von der Seite herein ── */
+.js .svc-banner .svc-num-bg, .js .bereich-media .bereich-num-bg {
+  transition: opacity 1.2s ease 0.35s, translate 1.5s cubic-bezier(0.2,0.7,0.2,1) 0.35s;
+}
+.js .svc-banner:not(.m-in) .svc-num-bg, .js .bereich-media:not(.m-in) .bereich-num-bg { opacity: 0; translate: 90px 0; }
+.js .svc-section.flip .svc-banner:not(.m-in) .svc-num-bg,
+.js .bereich-section.alt .bereich-media:not(.m-in) .bereich-num-bg { translate: -90px 0; }
+
+/* ── Titel im Banner: Linie der Eyebrow zeichnet sich, Wörter steigen auf,
+      orange Linie unter der Überschrift fährt aus ── */
+.svc-eyebrow::before, .bereich-eyebrow::before {
+  transform-origin: left center; transition: transform 0.8s cubic-bezier(0.2,0.7,0.2,1) 0.2s;
+}
+.js .reveal:not(.visible) > .svc-eyebrow::before,
+.js .reveal:not(.visible) > .bereich-eyebrow::before { transform: scaleX(0); }
+.svc-title h2::after, .bereich-title h2::after {
+  transform-origin: left center; transition: transform 0.9s cubic-bezier(0.2,0.7,0.2,1) 0.55s;
+}
+.svc-section.flip .svc-title h2::after, .bereich-section.alt .bereich-title h2::after { transform-origin: right center; }
+.js .reveal:not(.visible) > h2::after { transform: scaleX(0); }
+
+/* ── Kacheln: gleiten nacheinander von rechts herein,
+      Akzentbalken wächst, Icon ploppt auf ── */
+.svc-tile.reveal-item, .bereich-tile.reveal-item { transform: translateX(28px); }
+.svc-tile::before, .bereich-tile::before {
+  transform-origin: 50% 50%;
+  transition: top 0.3s, bottom 0.3s, transform 0.6s cubic-bezier(0.2,0.7,0.2,1) 0.25s;
+}
+.svc-tile.reveal-item::before, .bereich-tile.reveal-item::before { transform: scaleY(0); }
+.svc-tile.reveal-item.visible::before, .bereich-tile.reveal-item.visible::before { transform: none; }
+.svc-tile.reveal-item.visible .svc-tile-icon { animation: iconPop 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.15s both; }
+
+/* ── NIBE-Seite: schlichter Seitenkopf blendet gestaffelt ein ── */
+.page-head-inner > .section-eyebrow { animation: fadeUpIn 0.8s cubic-bezier(0.2,0.7,0.2,1) 0.15s both; }
+.page-head-inner > p { animation: fadeUpIn 0.8s cubic-bezier(0.2,0.7,0.2,1) 0.6s both; }
+.page-head-inner > .btn-outline { animation: fadeUpIn 0.8s cubic-bezier(0.2,0.7,0.2,1) 0.75s both; }
+.nibe-frame { animation: fadeUpIn 0.9s cubic-bezier(0.2,0.7,0.2,1) 0.9s both; }
+
+/* ── Touch: Kachel in der Bildschirmmitte zeigt ihren Hover-Zustand ── */
+@media (hover: none) {
+  .svc-tile.in-view, .bereich-tile.in-view { border-color: rgba(255,107,53,0.35); transform: translateX(4px); }
+  .svc-tile.in-view::before, .bereich-tile.in-view::before { top: 0; bottom: 0; }
+  .svc-tile.in-view .svc-tile-icon { background: var(--orange); border-color: var(--orange); }
+  .svc-tile.in-view .svc-tile-icon svg { stroke: #fff; }
+}
+
+/* ── Mobil: Flip-Banner stehen dort links → Linie wächst auch von links ── */
+@media (max-width: 768px) {
+  .svc-section.flip .svc-title h2::after, .bereich-section.alt .bereich-title h2::after { transform-origin: left center; }
+  .js .svc-section.flip .svc-banner:not(.m-in) .svc-num-bg { translate: 90px 0; }
+}
