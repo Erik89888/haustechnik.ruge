@@ -6,18 +6,19 @@
 <title>Referenzen: Ausgeführte Projekte | R. Ruge Sanitär Heizung Regenerative Energien</title>
 <meta name="description" content="Ausgeführte Projekte von R. Ruge im Detail: Badumbau und Dachgeschoss-Bad in Oberstenfeld, Heizungstausch mit Wärmepumpe in Steinheim, mit Bildergalerie aus jedem Projekt." />
 <meta name="theme-color" content="#01328F" />
-<link rel="icon" type="image/png" href="favicon.ruge.png" />
-<link rel="apple-touch-icon" href="favicon.ruge.png" />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/png" href="../favicon.ruge.png" />
+<link rel="apple-touch-icon" href="../favicon.ruge.png" />
 
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="de_DE" />
 <meta property="og:title" content="Referenzen: Ausgeführte Projekte | R. Ruge" />
 <meta property="og:description" content="Badumbau, Heizungstausch, Wärmepumpe: abgeschlossene Projekte Schritt für Schritt in Bildern." />
-<meta property="og:image" content="ref-dachgeschoss-oberstenfeld-02.jpg" />
+<meta property="og:image" content="../ref-dachgeschoss-oberstenfeld-02.jpg" />
 
-<link rel="preload" href="inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="fonts.css" />
+<link rel="preload" href="../inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="../fonts.css" />
 <script>document.documentElement.classList.add('js');</script>
 
 <style>
@@ -541,8 +542,122 @@
     .b-content { padding: 1.5rem; }
     .b-title { min-height: 0; }
   }
-</style>
-<link rel="stylesheet" href="motion.css" />
+
+  /* ══ v2: Titelbild-Banner mit Überschrift, Text links + Kacheln rechts ══ */
+  .svc-section.has-banner { padding: 0; }
+  .svc-body { padding: 3rem 6% 4.5rem; }
+  .svc-banner { position: relative; width: 100%; height: clamp(380px, 44vw, 600px); overflow: hidden; background: #0a1929; }
+  .svc-banner img, .svc-banner video { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.72); transition: transform 1.2s cubic-bezier(0.4,0,0.2,1); }
+  .svc-section:hover .svc-banner img, .svc-section:hover .svc-banner video { transform: scale(1.04); }
+  .svc-banner::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(to bottom, rgba(5,6,9,0) 30%, rgba(5,6,9,0.7) 72%, rgba(5,6,9,1) 100%),
+      linear-gradient(to right, rgba(5,6,9,0.55) 0%, rgba(5,6,9,0) 55%);
+  }
+  .svc-section.flip .svc-banner::after {
+    background:
+      linear-gradient(to bottom, rgba(5,6,9,0) 30%, rgba(5,6,9,0.7) 72%, rgba(5,6,9,1) 100%),
+      linear-gradient(to left, rgba(5,6,9,0.55) 0%, rgba(5,6,9,0) 55%);
+  }
+  .svc-title { position: absolute; left: 0; right: 0; bottom: clamp(2rem, 4vw, 3.4rem); z-index: 2; padding-inline: 6%; }
+  .svc-title-inner { max-width: 1180px; margin-inline: auto; }
+  .svc-title-inner > * { max-width: 58%; }
+  .svc-section.flip .svc-title-inner { text-align: right; }
+  .svc-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #fff;
+  }
+  .svc-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--orange); }
+  .svc-eyebrow b { color: var(--orange); font-family: 'Montserrat', sans-serif; font-weight: 800; }
+  .svc-title h2 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.05;
+    letter-spacing: -1px; text-shadow: 0 4px 30px rgba(0,0,0,0.45);
+  }
+  .svc-title h2::after {
+    content: ''; display: block; width: 64px; height: 3px; border-radius: 2px;
+    background: var(--orange); margin-top: 1.2rem;
+  }
+  .svc-section.flip .svc-title h2 { margin-left: auto; }
+  .svc-section.flip .svc-title h2::after { margin-left: auto; }
+  /* Umriss-Nummer: SVG-Filter #num-outline zeichnet nur den echten Außenrand */
+  .svc-num-bg {
+    position: absolute; right: 5%; left: auto; top: 50%; transform: translateY(-58%); z-index: 1;
+    font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(8rem, 18vw, 16rem);
+    line-height: 1; letter-spacing: 0.08em; color: #fff;
+    filter: url(#num-outline); opacity: 0.24;
+    pointer-events: none; user-select: none;
+  }
+  .svc-section.flip .svc-num-bg { right: auto; left: 5%; }
+
+  .svc-split { display: grid; grid-template-columns: 6fr 5fr; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: start; margin-bottom: 3rem; }
+  .svc-text p { color: var(--text-secondary); font-size: 0.97rem; margin-bottom: 1.4rem; max-width: none; }
+  .svc-text p.svc-intro, .svc-body .svc-intro { color: #D3DBEF; font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.4rem; }
+  .svc-text .btn-outline { margin-top: 0.4rem; }
+  .svc-text .svc-facts { margin-bottom: 1.6rem; }
+  .svc-tiles { display: grid; gap: 1rem; }
+  .svc-tile {
+    position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 42px 1fr; gap: 1.1rem; align-items: center;
+    padding: 1.2rem 1.5rem 1.2rem 1.7rem; border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0.02) 100%);
+    border: 1px solid var(--border);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .svc-tile::before {
+    content: ''; position: absolute; left: 0; top: 1.2rem; bottom: 1.2rem; width: 3px;
+    border-radius: 0 3px 3px 0; background: var(--orange); transition: top 0.3s, bottom 0.3s;
+  }
+  .svc-tile:hover { border-color: rgba(255,107,53,0.35); transform: translateX(4px); }
+  .svc-tile:hover::before { top: 0; bottom: 0; }
+  .svc-tile-icon {
+    width: 42px; height: 42px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255,107,53,0.3); background: rgba(255,107,53,0.07);
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .svc-tile-icon svg { width: 19px; height: 19px; stroke: var(--orange); transition: stroke 0.3s; }
+  .svc-tile:hover .svc-tile-icon { background: var(--orange); border-color: var(--orange); }
+  .svc-tile:hover .svc-tile-icon svg { stroke: #fff; }
+  .svc-tile p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.55; margin: 0; }
+  .svc-tile p strong { color: #fff; font-weight: 700; }
+  /* viele Punkte: kompaktere Kacheln */
+  .svc-tiles.is-long { gap: 0.65rem; }
+  .svc-tiles.is-long .svc-tile { padding: 0.8rem 1.2rem 0.8rem 1.4rem; grid-template-columns: 36px 1fr; gap: 0.9rem; }
+  .svc-tiles.is-long .svc-tile::before { top: 0.8rem; bottom: 0.8rem; }
+  .svc-tiles.is-long .svc-tile-icon { width: 36px; height: 36px; }
+  .svc-tiles.is-long .svc-tile-icon svg { width: 16px; height: 16px; }
+  .svc-gallery.gal-two { grid-template-columns: repeat(2, 1fr); max-width: 620px; }
+
+  /* Info-Band: dezent im Blau der Menüleiste statt Orange */
+  .info-band {
+    background: linear-gradient(100deg, var(--brand-blue) 0%, var(--brand-blue-d) 100%);
+    border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .info-band::before { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.035), transparent); }
+  .info-item svg { stroke: var(--orange); }
+  .info-item span { color: var(--text-secondary); opacity: 1; }
+  .info-item strong { color: #fff; }
+  .info-div { background: rgba(255,255,255,0.12); }
+
+  @media (max-width: 900px) {
+    .svc-split { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  @media (max-width: 768px) {
+    .svc-body { padding: 1.8rem 6% 3.6rem; }
+    .svc-num-bg { display: none; }
+    .svc-banner { height: clamp(300px, 85vw, 420px); }
+    .svc-title-inner > * { max-width: none; }
+    .svc-section.flip .svc-title-inner { text-align: left; }
+    .svc-section.flip .svc-title h2 { margin-left: 0; }
+    .svc-section.flip .svc-title h2::after { margin-left: 0; }
+    .svc-section.flip .svc-banner::after {
+      background: linear-gradient(to bottom, rgba(5,6,9,0) 30%, rgba(5,6,9,0.7) 72%, rgba(5,6,9,1) 100%);
+    }
+    .svc-text p.svc-intro, .svc-body .svc-intro { font-size: 1.05rem; }
+  }</style>
+<link rel="stylesheet" href="../motion.css" />
+<link rel="stylesheet" href="motion.v2.css" />
 </head>
 
 <body>
@@ -551,14 +666,14 @@
 
 <!-- ══ MOBILE NAV ══ -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
-  <a href="leistungen.html">Leistungen</a>
-  <a href="energien.html">Regenerative Energien</a>
-  <a href="bereiche.html">Bereiche</a>
-  <a href="referenzen.html">Referenzen</a>
-  <a href="ueber-uns.html">Über uns</a>
-  <a href="kontakt.php">Kontakt</a>
+  <a href="leistungen.v2.html">Leistungen</a>
+  <a href="energien.v2.html">Regenerative Energien</a>
+  <a href="bereiche.v2.html">Bereiche</a>
+  <a href="referenzen.v2.html">Referenzen</a>
+  <a href="ueber-uns.v2.html">Über uns</a>
+  <a href="kontakt.v2.php">Kontakt</a>
   <div class="mobile-actions">
-    <a href="kontakt.php" class="btn-primary">Anfrage senden</a>
+    <a href="kontakt.v2.php" class="btn-primary">Anfrage senden</a>
     <a href="tel:+4971443345604" class="btn-outline">07144 3345604</a>
   </div>
   <div class="mobile-meta">
@@ -570,34 +685,43 @@
 <!-- ══ HEADER ══ -->
 <header class="site-header" id="header">
   <div class="header-inner">
-    <a href="index.html" class="logo" aria-label="Zur Startseite von R. Ruge">
-      <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" />
+    <a href="index.v2.html" class="logo" aria-label="Zur Startseite von R. Ruge">
+      <img src="../logo-ruge.png" width="712" height="424" alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" />
     </a>
     <nav class="header-nav" aria-label="Hauptnavigation">
-      <a href="leistungen.html">Leistungen</a>
-      <a href="energien.html">Energien</a>
-      <a href="bereiche.html">Bereiche</a>
-      <a href="referenzen.html" aria-current="page">Referenzen</a>
-      <a href="ueber-uns.html">Über uns</a>
-      <a href="kontakt.php">Kontakt</a>
+      <a href="leistungen.v2.html">Leistungen</a>
+      <a href="energien.v2.html">Energien</a>
+      <a href="bereiche.v2.html">Bereiche</a>
+      <a href="referenzen.v2.html" aria-current="page">Referenzen</a>
+      <a href="ueber-uns.v2.html">Über uns</a>
+      <a href="kontakt.v2.php">Kontakt</a>
     </nav>
-    <a href="kontakt.php" class="btn-primary">Anfrage senden</a>
+    <a href="kontakt.v2.php" class="btn-primary">Anfrage senden</a>
     <button class="hamburger" id="hamburger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileNav">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
+<!-- Filter für die Umriss-Nummern: nur der Außenrand, keine inneren Konturen -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="num-outline" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+    <feMorphology in="SourceAlpha" operator="dilate" radius="1.5" result="grown" />
+    <feComposite in="grown" in2="SourceAlpha" operator="out" result="ring" />
+    <feFlood flood-color="#ffffff" />
+    <feComposite in2="ring" operator="in" />
+  </filter>
+</svg>
 <main id="main">
 
 <!-- ══ SEITEN-HERO ══ -->
 <!-- Video läuft ab 769px, darunter greift das Poster-Foto (siehe .svc-hero-media) -->
 <section class="svc-hero" id="hero">
   <div class="svc-hero-media">
-    <video autoplay muted loop playsinline preload="auto" poster="ref-dachgeschoss-oberstenfeld-02.jpg" aria-hidden="true">
-      <source media="(min-width: 769px)" src="referenzen-hero.mp4" type="video/mp4" />
+    <video autoplay muted loop playsinline preload="auto" poster="../ref-dachgeschoss-oberstenfeld-02.jpg" aria-hidden="true">
+      <source media="(min-width: 769px)" src="../referenzen-hero.mp4" type="video/mp4" />
     </video>
-    <img class="svc-hero-photo" src="ref-dachgeschoss-oberstenfeld-02.jpg" width="1600" height="902" fetchpriority="high"
+    <img class="svc-hero-photo" src="../ref-dachgeschoss-oberstenfeld-02.jpg" width="1600" height="902" fetchpriority="high"
          alt="Dachgeschossbad mit freistehender Dusche, Wand-WC und Waschtisch mit Holzfront" />
   </div>
   <div class="svc-hero-scrim"></div>
@@ -665,7 +789,7 @@
 
     <div class="ref-grid">
       <a href="#bad-oberstenfeld" class="b-card reveal reveal-d1">
-        <div class="b-bg"><img src="ref-bad-oberstenfeld-waschtisch.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Doppelwaschtisch mit Aufsatzbecken auf einer Glasablage vor dunkler Glasfliesenwand" /></div>
+        <div class="b-bg"><img src="../ref-bad-oberstenfeld-waschtisch.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Doppelwaschtisch mit Aufsatzbecken auf einer Glasablage vor dunkler Glasfliesenwand" /></div>
         <div class="b-overlay"></div>
         <div class="b-num">01</div>
         <div class="b-content">
@@ -677,7 +801,7 @@
       </a>
 
       <a href="#heizung-steinheim" class="b-card reveal reveal-d2">
-        <div class="b-bg"><img src="ref-p2-aussen.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Außeneinheit einer Wärmepumpe auf einem verzinkten Stahlgestell an einem Wohnhaus" /></div>
+        <div class="b-bg"><img src="../ref-p2-aussen.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Außeneinheit einer Wärmepumpe auf einem verzinkten Stahlgestell an einem Wohnhaus" /></div>
         <div class="b-overlay"></div>
         <div class="b-num">02</div>
         <div class="b-content">
@@ -689,7 +813,7 @@
       </a>
 
       <a href="#dachgeschoss-oberstenfeld" class="b-card reveal reveal-d3">
-        <div class="b-bg"><img src="ref-dachgeschoss-oberstenfeld-04.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Freistehende Dusche mit Glasabtrennung und gemauerter Sitzbank in einem Dachgeschossbad" /></div>
+        <div class="b-bg"><img src="../ref-dachgeschoss-oberstenfeld-04.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Freistehende Dusche mit Glasabtrennung und gemauerter Sitzbank in einem Dachgeschossbad" /></div>
         <div class="b-overlay"></div>
         <div class="b-num">03</div>
         <div class="b-content">
@@ -704,113 +828,32 @@
 </section>
 
 <!-- 1 · BADUMBAU OBERSTENFELD -->
-<section class="svc-section alt" id="bad-oberstenfeld">
-  <div class="svc-inner">
-    <div class="svc-head reveal">
-      <div class="svc-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.09 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
+<section class="svc-section alt has-banner" id="bad-oberstenfeld">
+  <div class="svc-banner">
+    <img src="../ref-bad-oberstenfeld-gesamt.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Fertiges Bad in Oberstenfeld mit Doppelwaschtisch, Lichtspiegel und dunklen Glasfliesen" style="object-position: center 45%;" />
+    <span class="svc-num-bg" aria-hidden="true">01</span>
+    <div class="svc-title">
+      <div class="svc-title-inner reveal">
+        <p class="svc-eyebrow"><b>01</b> Sanitär &amp; Bad</p>
+        <h2>Badumbau in Oberstenfeld</h2>
       </div>
-      <h2>Badumbau in Oberstenfeld</h2>
-      <span class="svc-num-bg">01</span>
     </div>
-
-    <ul class="svc-facts reveal">
+  </div>
+  <div class="svc-body">
+  <div class="svc-inner">
+    <div class="svc-split">
+      <div class="svc-text reveal">
+        <ul class="svc-facts">
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Oberstenfeld</li>
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Komplettbad</li>
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M8 4a4 4 0 0 1 8 0"/><line x1="8" y1="16" x2="8" y2="18"/><line x1="12" y1="16" x2="12" y2="19"/><line x1="16" y1="16" x2="16" y2="18"/></svg>Bestandsanschlüsse erhalten</li>
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Abgehängte Decke mit LED</li>
     </ul>
-
-    <p class="svc-intro reveal">
-      Ein Bad, das komplett neu gedacht wurde, ohne einen einzigen Anschluss zu verlegen.
+        <p class="svc-intro">Ein Bad, das komplett neu gedacht wurde, ohne einen einzigen Anschluss zu verlegen.
       Dusche, Wanne, WC und Waschtisch blieben genau dort, wo sie vorher waren. Verändert
       hat sich alles andere: Dunkle Glasfliesen setzen ruhige, tiefe Flächen gegen den hellen
       Rest des Raums, die Decke wurde abgehängt und nimmt ein umlaufendes LED-Lichtband auf.
-      Das Ergebnis wirkt deutlich großzügiger als vorher, und das bei unverändertem Grundriss.
-    </p>
-
-    <div class="svc-gallery reveal" data-gallery="bad-oberstenfeld">
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-waschtisch.jpg" data-caption="Doppelwaschtisch auf maßgefertigter Glasablage">
-        <img src="ref-bad-oberstenfeld-waschtisch.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Doppelwaschtisch mit zwei Aufsatzbecken auf einer Glasablage vor dunkler Glasfliesenwand" />
-        <span class="gal-cap">Doppelwaschtisch auf maßgefertigter Glasablage</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-wanne.jpg" data-caption="Freistehende Wanne mit bodenstehender Armatur">
-        <img src="ref-bad-oberstenfeld-wanne.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Freistehende weiße Badewanne mit bodenstehender Chromarmatur vor dunkler Fliesenwand" />
-        <span class="gal-cap">Freistehende Wanne mit bodenstehender Armatur</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-wanne-fenster.jpg" data-caption="Freistehende Wanne vor der Fensterfront">
-        <img src="ref-bad-oberstenfeld-wanne-fenster.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Freistehende Badewanne vor einem Fenster im fertigen Badezimmer" />
-        <span class="gal-cap">Freistehende Wanne vor der Fensterfront</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-gesamt.jpg" data-caption="Blick über Waschtisch und Wanne">
-        <img src="ref-bad-oberstenfeld-gesamt.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Gesamtansicht des Badezimmers mit Waschtisch, Spiegelfläche und Badewanne" />
-        <span class="gal-cap">Blick über Waschtisch und Wanne</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-lichtband.jpg" data-caption="Abgehängte Decke mit umlaufendem LED-Lichtband">
-        <img src="ref-bad-oberstenfeld-lichtband.jpg" width="2448" height="2448" loading="lazy" decoding="async" alt="Abgehängte Badezimmerdecke mit umlaufendem LED-Lichtband, gespiegelt in der Spiegelfläche" />
-        <span class="gal-cap">Abgehängte Decke mit umlaufendem LED-Lichtband</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-waschtisch-detail.jpg" data-caption="Spiegelfläche mit seitlichen Glasschränken">
-        <img src="ref-bad-oberstenfeld-waschtisch-detail.jpg" width="1728" height="1152" loading="lazy" decoding="async" alt="Waschtischbereich mit großer Spiegelfläche und seitlichen Glasschränken" />
-        <span class="gal-cap">Spiegelfläche mit seitlichen Glasschränken</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-tageslicht.jpg" data-caption="Das fertige Bad bei Tageslicht">
-        <img src="ref-bad-oberstenfeld-tageslicht.jpg" width="1152" height="1728" loading="lazy" decoding="async" alt="Fertiges Badezimmer bei Tageslicht mit Waschtisch, Spiegel und Badewanne am Fenster" />
-        <span class="gal-cap">Das fertige Bad bei Tageslicht</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-dusche.jpg" data-caption="Bodengleiche Dusche mit Linienentwässerung">
-        <img src="ref-bad-oberstenfeld-dusche.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Bodengleiche Dusche mit Linienentwässerung und dunkler Glasfliesenfläche" />
-        <span class="gal-cap">Bodengleiche Dusche mit Linienentwässerung</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-wc.jpg" data-caption="Wand-WC auf neuer Vorwandinstallation">
-        <img src="ref-bad-oberstenfeld-wc.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Wandhängendes WC vor weißer Fliesenwand mit dunklen Glasfliesen am Boden" />
-        <span class="gal-cap">Wand-WC auf neuer Vorwandinstallation</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-dusche-detail.jpg" data-caption="Die Dusche im täglichen Gebrauch">
-        <img src="ref-bad-oberstenfeld-dusche-detail.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Duschbereich mit Handbrause, Brausestange und Ablage im täglichen Gebrauch" />
-        <span class="gal-cap">Die Dusche im täglichen Gebrauch</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-bad-oberstenfeld-regendusche.jpg" data-caption="Deckenbündige Regendusche">
-        <img src="ref-bad-oberstenfeld-regendusche.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Große deckenbündige Regenbrause in der abgehängten Decke, daneben das umlaufende LED-Lichtband" />
-        <span class="gal-cap">Deckenbündige Regendusche</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-decke-dusche.jpg" data-caption="Lichtband über dem Duschbereich">
-        <img src="ref-bad-oberstenfeld-decke-dusche.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Umlaufendes LED-Lichtband der abgehängten Decke über dem Duschbereich mit dunklen Glasfliesen" />
-        <span class="gal-cap">Lichtband über dem Duschbereich</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-bad-oberstenfeld-decke-gesamt.jpg" data-caption="Die abgehängte Decke im Detail">
-        <img src="ref-bad-oberstenfeld-decke-gesamt.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Abgehängte Badezimmerdecke mit umlaufend eingelassenem LED-Lichtband" />
-        <span class="gal-cap">Die abgehängte Decke im Detail</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-    </div>
-
-    <div class="svc-details">
-      <div class="reveal-left">
-        <h3>Das haben wir gemacht</h3>
-        <ul class="svc-check-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Kompletter Rückbau und Neuaufbau, <strong>Sanitärobjekte an den bestehenden Standorten</strong></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M8 4a4 4 0 0 1 8 0"/><line x1="8" y1="16" x2="8" y2="18"/><line x1="12" y1="16" x2="12" y2="19"/><line x1="16" y1="16" x2="16" y2="18"/></svg><strong>Bodengleiche Dusche</strong> mit Linienentwässerung</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg><strong>Freistehende Badewanne</strong> mit bodenstehender Armatur</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="7" rx="1"/><path d="M7 10v5a4 4 0 0 0 4 4h2"/></svg><strong>Wand-WC</strong> mit neuer Vorwandinstallation</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg><strong>Doppelwaschtisch</strong> mit Aufsatzbecken auf extern gefertigter Glasablage</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><strong>Abgehängte Decke</strong> mit umlaufendem LED-Lichtband</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="12" y1="4" x2="12" y2="20"/></svg><strong>Dunkle Glasfliesen</strong> als Akzentflächen, Koordination der Fliesenarbeiten</li>
-        </ul>
-      </div>
-      <div class="svc-text-col reveal-right">
+      Das Ergebnis wirkt deutlich großzügiger als vorher, und das bei unverändertem Grundriss.</p>
         <p>
           Weil die Anschlusspunkte erhalten blieben, war der Eingriff in die Bausubstanz
           gering. Der Umbau lief planbar und ohne böse Überraschungen.
@@ -820,74 +863,131 @@
           tiefe, glänzende Flächen gegen matte helle Fliesen, dazu eine Decke, die den
           ganzen Raum gleichmäßig ausleuchtet.
         </p>
-        <a href="kontakt.php" class="btn-outline">
+        <a href="kontakt.v2.php" class="btn-outline">
           Ähnliches Projekt anfragen
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
+      <div class="svc-tiles is-long reveal">
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+          <p>Kompletter Rückbau und Neuaufbau, <strong>Sanitärobjekte an den bestehenden Standorten</strong></p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M8 4a4 4 0 0 1 8 0"/><line x1="8" y1="16" x2="8" y2="18"/><line x1="12" y1="16" x2="12" y2="19"/><line x1="16" y1="16" x2="16" y2="18"/></svg></span>
+          <p><strong>Bodengleiche Dusche</strong> mit Linienentwässerung</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg></span>
+          <p><strong>Freistehende Badewanne</strong> mit bodenstehender Armatur</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="7" rx="1"/><path d="M7 10v5a4 4 0 0 0 4 4h2"/></svg></span>
+          <p><strong>Wand-WC</strong> mit neuer Vorwandinstallation</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg></span>
+          <p><strong>Doppelwaschtisch</strong> mit Aufsatzbecken auf extern gefertigter Glasablage</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>
+          <p><strong>Abgehängte Decke</strong> mit umlaufendem LED-Lichtband</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="12" y1="4" x2="12" y2="20"/></svg></span>
+          <p><strong>Dunkle Glasfliesen</strong> als Akzentflächen, Koordination der Fliesenarbeiten</p>
+        </div>
+      </div>
     </div>
+    <div class="svc-gallery reveal" data-gallery="bad-oberstenfeld">
+      <button class="gal-item gal-span-2" type="button" data-full="../ref-bad-oberstenfeld-wanne.jpg" data-caption="Freistehende Wanne mit bodenstehender Armatur">
+        <img src="../ref-bad-oberstenfeld-wanne.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Freistehende weiße Badewanne mit bodenstehender Chromarmatur vor dunkler Fliesenwand" />
+        <span class="gal-cap">Freistehende Wanne mit bodenstehender Armatur</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="../ref-bad-oberstenfeld-wanne-fenster.jpg" data-caption="Freistehende Wanne vor der Fensterfront">
+        <img src="../ref-bad-oberstenfeld-wanne-fenster.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Freistehende Badewanne vor einem Fenster im fertigen Badezimmer" />
+        <span class="gal-cap">Freistehende Wanne vor der Fensterfront</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="../ref-bad-oberstenfeld-lichtband.jpg" data-caption="Abgehängte Decke mit umlaufendem LED-Lichtband">
+        <img src="../ref-bad-oberstenfeld-lichtband.jpg" width="2448" height="2448" loading="lazy" decoding="async" alt="Abgehängte Badezimmerdecke mit umlaufendem LED-Lichtband, gespiegelt in der Spiegelfläche" />
+        <span class="gal-cap">Abgehängte Decke mit umlaufendem LED-Lichtband</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="../ref-bad-oberstenfeld-waschtisch-detail.jpg" data-caption="Spiegelfläche mit seitlichen Glasschränken">
+        <img src="../ref-bad-oberstenfeld-waschtisch-detail.jpg" width="1728" height="1152" loading="lazy" decoding="async" alt="Waschtischbereich mit großer Spiegelfläche und seitlichen Glasschränken" />
+        <span class="gal-cap">Spiegelfläche mit seitlichen Glasschränken</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="../ref-bad-oberstenfeld-tageslicht.jpg" data-caption="Das fertige Bad bei Tageslicht">
+        <img src="../ref-bad-oberstenfeld-tageslicht.jpg" width="1152" height="1728" loading="lazy" decoding="async" alt="Fertiges Badezimmer bei Tageslicht mit Waschtisch, Spiegel und Badewanne am Fenster" />
+        <span class="gal-cap">Das fertige Bad bei Tageslicht</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="../ref-bad-oberstenfeld-dusche.jpg" data-caption="Bodengleiche Dusche mit Linienentwässerung">
+        <img src="../ref-bad-oberstenfeld-dusche.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Bodengleiche Dusche mit Linienentwässerung und dunkler Glasfliesenfläche" />
+        <span class="gal-cap">Bodengleiche Dusche mit Linienentwässerung</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="../ref-bad-oberstenfeld-wc.jpg" data-caption="Wand-WC auf neuer Vorwandinstallation">
+        <img src="../ref-bad-oberstenfeld-wc.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Wandhängendes WC vor weißer Fliesenwand mit dunklen Glasfliesen am Boden" />
+        <span class="gal-cap">Wand-WC auf neuer Vorwandinstallation</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="../ref-bad-oberstenfeld-dusche-detail.jpg" data-caption="Die Dusche im täglichen Gebrauch">
+        <img src="../ref-bad-oberstenfeld-dusche-detail.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Duschbereich mit Handbrause, Brausestange und Ablage im täglichen Gebrauch" />
+        <span class="gal-cap">Die Dusche im täglichen Gebrauch</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="../ref-bad-oberstenfeld-regendusche.jpg" data-caption="Deckenbündige Regendusche">
+        <img src="../ref-bad-oberstenfeld-regendusche.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Große deckenbündige Regenbrause in der abgehängten Decke, daneben das umlaufende LED-Lichtband" />
+        <span class="gal-cap">Deckenbündige Regendusche</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="../ref-bad-oberstenfeld-decke-dusche.jpg" data-caption="Lichtband über dem Duschbereich">
+        <img src="../ref-bad-oberstenfeld-decke-dusche.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Umlaufendes LED-Lichtband der abgehängten Decke über dem Duschbereich mit dunklen Glasfliesen" />
+        <span class="gal-cap">Lichtband über dem Duschbereich</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="../ref-bad-oberstenfeld-decke-gesamt.jpg" data-caption="Die abgehängte Decke im Detail">
+        <img src="../ref-bad-oberstenfeld-decke-gesamt.jpg" width="3264" height="2448" loading="lazy" decoding="async" alt="Abgehängte Badezimmerdecke mit umlaufend eingelassenem LED-Lichtband" />
+        <span class="gal-cap">Die abgehängte Decke im Detail</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+    </div>
+  </div>
   </div>
 </section>
 
 <!-- 2 · HEIZUNGSTAUSCH STEINHEIM -->
-<section class="svc-section" id="heizung-steinheim">
-  <div class="svc-inner">
-    <div class="svc-head reveal">
-      <div class="svc-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+<section class="svc-section has-banner flip" id="heizung-steinheim">
+  <div class="svc-banner">
+    <img src="../banner-waermepumpe-ref.jpg" width="2400" height="1600" loading="lazy" decoding="async" alt="Moderne Luft-Wasser-Wärmepumpe im Garten vor einem Wohnhaus" style="object-position: center 55%;" />
+    <span class="svc-num-bg" aria-hidden="true">02</span>
+    <div class="svc-title">
+      <div class="svc-title-inner reveal">
+        <p class="svc-eyebrow"><b>02</b> Heizung &amp; Energie</p>
+        <h2>Heizungstausch in Steinheim</h2>
       </div>
-      <h2>Heizungstausch in Steinheim</h2>
-      <span class="svc-num-bg">02</span>
     </div>
-
-    <ul class="svc-facts reveal">
+  </div>
+  <div class="svc-body">
+  <div class="svc-inner">
+    <div class="svc-split">
+      <div class="svc-text reveal">
+        <ul class="svc-facts">
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Steinheim</li>
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>Öl raus, Wärmepumpe rein</li>
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Solaranlage eingebunden</li>
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Mit PV verbunden</li>
     </ul>
-
-    <p class="svc-intro reveal">
-      Raus mit dem Öl, rein mit der Wärmepumpe, und zwar so, dass nichts Vorhandenes
+        <p class="svc-intro">Raus mit dem Öl, rein mit der Wärmepumpe, und zwar so, dass nichts Vorhandenes
       verloren geht. Die bereits installierte Solaranlage haben wir nicht stillgelegt,
       sondern in die neue Wärmepumpenanlage eingebunden; ebenso die Fotovoltaik, die der
       Eigentümer aufs Dach gebracht hat. Für die Außeneinheit war am Boden kein Platz.
       Die Lösung kam vom Schlosser: ein passgenau gebautes Stahlgestell, auf dem die
-      Einheit über dem Kellerabgang steht, ohne einen Quadratmeter Hoffläche zu belegen.
-    </p>
-
-    <div class="svc-gallery gal-portrait reveal" data-gallery="heizung-steinheim">
-      <button class="gal-item" type="button" data-full="ref-p2-aussen.jpg" data-caption="Außeneinheit auf dem maßgebauten Stahlgestell">
-        <img src="ref-p2-aussen.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Außeneinheit einer Luft-Wasser-Wärmepumpe auf einem verzinkten Stahlgestell über dem Kellerabgang eines Wohnhauses" />
-        <span class="gal-cap">Außeneinheit auf dem maßgebauten Stahlgestell</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-p2-innen.jpg" data-caption="Innengerät mit neuer Rohranbindung">
-        <img src="ref-p2-innen.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Innengerät der Wärmepumpe im Technikraum mit gedämmten Rohrleitungen und Absperrarmaturen" />
-        <span class="gal-cap">Innengerät mit neuer Rohranbindung</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-p2-anbindung.jpg" data-caption="Armaturen, Pumpengruppe und Schlammabscheider">
-        <img src="ref-p2-anbindung.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Detailansicht der Rohranbindung über dem Innengerät mit Absperrhähnen, Pumpengruppe und Schlammabscheider" />
-        <span class="gal-cap">Armaturen, Pumpengruppe und Schlammabscheider</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-    </div>
-
-    <div class="svc-details">
-      <div class="reveal-left">
-        <h3>Das haben wir gemacht</h3>
-        <ul class="svc-check-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>Ausbau der alten <strong>Ölheizung</strong> und Umstellung auf eine <strong>Wärmepumpe</strong></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Einbindung der <strong>bestehenden Solaranlage</strong> in die neue Anlage</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Verbindung der Wärmepumpe mit der bauseits montierten <strong>Fotovoltaikanlage</strong></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><line x1="9" y1="21" x2="9" y2="12"/><line x1="15" y1="21" x2="15" y2="12"/></svg>Aufstellung der Außeneinheit auf einem <strong>maßgebauten Stahlgestell</strong> (Schlosserarbeit)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v8a4 4 0 0 0 4 4h12"/><polyline points="16 12 20 16 16 20"/></svg>Komplette <strong>Rohranbindung</strong> im Technikraum, gedämmt und abgesperrt</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5-2-1.6-3.5-4-4-6.5-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>Einbau von <strong>Pumpengruppe und Schlammabscheider</strong> zum Schutz der Anlage</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><strong>Inbetriebnahme</strong> und Einregulierung der gesamten Anlage</li>
-        </ul>
-      </div>
-      <div class="svc-text-col reveal-right">
+      Einheit über dem Kellerabgang steht, ohne einen Quadratmeter Hoffläche zu belegen.</p>
         <p>
           Wärmepumpe, Solarthermie und Fotovoltaik arbeiten hier nicht nebeneinander her,
           sondern als eine Anlage. Was die Sonne liefert, wird zuerst genutzt, zugekauft
@@ -898,109 +998,86 @@
           Außeneinheit irgendwo hinzuquetschen, haben wir sie zusammen mit einem Schlosser
           nach oben verlegt. Der Hof ist frei geblieben.
         </p>
-        <a href="kontakt.php" class="btn-outline">
+        <a href="kontakt.v2.php" class="btn-outline">
           Heizungstausch anfragen
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
+      <div class="svc-tiles is-long reveal">
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></span>
+          <p>Ausbau der alten <strong>Ölheizung</strong> und Umstellung auf eine <strong>Wärmepumpe</strong></p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>
+          <p>Einbindung der <strong>bestehenden Solaranlage</strong> in die neue Anlage</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+          <p>Verbindung der Wärmepumpe mit der bauseits montierten <strong>Fotovoltaikanlage</strong></p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><line x1="9" y1="21" x2="9" y2="12"/><line x1="15" y1="21" x2="15" y2="12"/></svg></span>
+          <p>Aufstellung der Außeneinheit auf einem <strong>maßgebauten Stahlgestell</strong> (Schlosserarbeit)</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v8a4 4 0 0 0 4 4h12"/><polyline points="16 12 20 16 16 20"/></svg></span>
+          <p>Komplette <strong>Rohranbindung</strong> im Technikraum, gedämmt und abgesperrt</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5-2-1.6-3.5-4-4-6.5-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></span>
+          <p>Einbau von <strong>Pumpengruppe und Schlammabscheider</strong> zum Schutz der Anlage</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+          <p><strong>Inbetriebnahme</strong> und Einregulierung der gesamten Anlage</p>
+        </div>
+      </div>
     </div>
+    <div class="svc-gallery gal-two gal-portrait reveal" data-gallery="heizung-steinheim">
+      <button class="gal-item" type="button" data-full="../ref-p2-innen.jpg" data-caption="Innengerät mit neuer Rohranbindung">
+        <img src="../ref-p2-innen.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Innengerät der Wärmepumpe im Technikraum mit gedämmten Rohrleitungen und Absperrarmaturen" />
+        <span class="gal-cap">Innengerät mit neuer Rohranbindung</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="../ref-p2-anbindung.jpg" data-caption="Armaturen, Pumpengruppe und Schlammabscheider">
+        <img src="../ref-p2-anbindung.jpg" width="900" height="1600" loading="lazy" decoding="async" alt="Detailansicht der Rohranbindung über dem Innengerät mit Absperrhähnen, Pumpengruppe und Schlammabscheider" />
+        <span class="gal-cap">Armaturen, Pumpengruppe und Schlammabscheider</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+    </div>
+  </div>
   </div>
 </section>
 
 <!-- 3 · DACHGESCHOSS-BAD OBERSTENFELD -->
-<section class="svc-section alt" id="dachgeschoss-oberstenfeld">
-  <div class="svc-inner">
-    <div class="svc-head reveal">
-      <div class="svc-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<section class="svc-section alt has-banner" id="dachgeschoss-oberstenfeld">
+  <div class="svc-banner">
+    <img src="../ref-dachgeschoss-oberstenfeld-08.jpg" width="1600" height="902" loading="lazy" decoding="async" alt="Dachgeschossbad in Oberstenfeld mit Glasdusche, Holzdecke und LED-Lichtband" style="object-position: center 50%;" />
+    <span class="svc-num-bg" aria-hidden="true">03</span>
+    <div class="svc-title">
+      <div class="svc-title-inner reveal">
+        <p class="svc-eyebrow"><b>03</b> Sanitär &amp; Bad</p>
+        <h2>Dachgeschoss-Bad in Oberstenfeld</h2>
       </div>
-      <h2>Dachgeschoss-Bad in Oberstenfeld</h2>
-      <span class="svc-num-bg">03</span>
     </div>
-
-    <ul class="svc-facts reveal">
+  </div>
+  <div class="svc-body">
+  <div class="svc-inner">
+    <div class="svc-split">
+      <div class="svc-text reveal">
+        <ul class="svc-facts">
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Oberstenfeld</li>
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Dachgeschoss</li>
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M14 7h7M3 17h7"/></svg>Grundriss neu geordnet</li>
       <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M8 4a4 4 0 0 1 8 0"/><line x1="8" y1="16" x2="8" y2="18"/><line x1="12" y1="16" x2="12" y2="19"/><line x1="16" y1="16" x2="16" y2="18"/></svg>Freistehende Dusche mit Sitzbank</li>
     </ul>
-
-    <p class="svc-intro reveal">
-      Unter der Dachschräge ist jeder Zentimeter Verhandlungssache. Damit das Bad wirklich
+        <p class="svc-intro">Unter der Dachschräge ist jeder Zentimeter Verhandlungssache. Damit das Bad wirklich
       nutzbar wird, haben wir Teile der Aufteilung neu geordnet, statt den alten Grundriss
       einfach zu übernehmen. Herzstück ist die freistehende Dusche: rundum verglast, mit
       Regenbrause und einer fest gemauerten Sitzbank. Das ist Komfort, den man in einem Dachbad
       selten erwartet. Holzverkleidete Schräge und Fliesen in Holzoptik halten den Raum warm,
-      während hell gefliste Wände das wenige Tageslicht weiterreichen.
-    </p>
-
-    <div class="svc-gallery reveal" data-gallery="dachgeschoss-oberstenfeld">
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-04.jpg" data-caption="Freistehende Dusche mit gemauerter Sitzbank">
-        <img src="ref-dachgeschoss-oberstenfeld-04.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Freistehende Dusche mit umlaufender Glasabtrennung, Regenbrause und gemauerter Sitzbank in einem Dachgeschossbad" />
-        <span class="gal-cap">Freistehende Dusche mit gemauerter Sitzbank</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-02.jpg" data-caption="Blick über Dusche, WC und Waschtisch">
-        <img src="ref-dachgeschoss-oberstenfeld-02.jpg" width="1600" height="902" loading="lazy" decoding="async" alt="Dachgeschossbad mit freistehender Dusche, Wand-WC, Handtuchheizkörper und Waschtisch mit Holzfront" />
-        <span class="gal-cap">Blick über Dusche, WC und Waschtisch</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-dachgeschoss-oberstenfeld-01.jpg" data-caption="Das Bad unter der Dachschräge">
-        <img src="ref-dachgeschoss-oberstenfeld-01.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Dachgeschossbad mit holzverkleideter Dachschräge, Fliesen in Holzoptik und freistehender Dusche" />
-        <span class="gal-cap">Das Bad unter der Dachschräge</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-dachgeschoss-oberstenfeld-10.jpg" data-caption="Regenbrause über der Duschfläche">
-        <img src="ref-dachgeschoss-oberstenfeld-10.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Deckenmontierte Regenbrause über der flachen Duschwanne, dahinter Fenster und Wand-WC" />
-        <span class="gal-cap">Regenbrause über der Duschfläche</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-dachgeschoss-oberstenfeld-05.jpg" data-caption="WC und Heizkörper am Fenster">
-        <img src="ref-dachgeschoss-oberstenfeld-05.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Wand-WC und Flachheizkörper unter dem Fenster, daneben die verglaste Dusche" />
-        <span class="gal-cap">WC und Heizkörper am Fenster</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item" type="button" data-full="ref-dachgeschoss-oberstenfeld-09.jpg" data-caption="Waschtisch mit Handtuchheizkörper">
-        <img src="ref-dachgeschoss-oberstenfeld-09.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Waschtischbereich mit Spiegelleuchte und Handtuchheizkörper neben der Tür" />
-        <span class="gal-cap">Waschtisch mit Handtuchheizkörper</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-07.jpg" data-caption="Indirektes Lichtband an der Dachschräge">
-        <img src="ref-dachgeschoss-oberstenfeld-07.jpg" width="1600" height="902" loading="lazy" decoding="async" alt="Umlaufendes LED-Lichtband entlang der holzverkleideten Dachschräge über dem Sideboard" />
-        <span class="gal-cap">Indirektes Lichtband an der Dachschräge</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-08.jpg" data-caption="Dusche, Waschtisch und Stauraum auf einen Blick">
-        <img src="ref-dachgeschoss-oberstenfeld-08.jpg" width="1600" height="902" loading="lazy" decoding="async" alt="Dachgeschossbad mit verglaster Dusche, Waschtisch mit Spiegelschrank und Sideboard in Eiche" />
-        <span class="gal-cap">Dusche, Waschtisch und Stauraum auf einen Blick</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-06.jpg" data-caption="Blick aus der Dusche in den Raum">
-        <img src="ref-dachgeschoss-oberstenfeld-06.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Blick über die Duschfläche auf Waschtisch und Sideboard unter der Dachschräge" />
-        <span class="gal-cap">Blick aus der Dusche in den Raum</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-      <button class="gal-item gal-span-2" type="button" data-full="ref-dachgeschoss-oberstenfeld-03.jpg" data-caption="Waschtisch mit großem Spiegel">
-        <img src="ref-dachgeschoss-oberstenfeld-03.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Wandhängender Waschtisch mit Holzfront und großflächigem Spiegel unter der Dachschräge" />
-        <span class="gal-cap">Waschtisch mit großem Spiegel</span>
-        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
-      </button>
-    </div>
-
-    <div class="svc-details">
-      <div class="reveal-left">
-        <h3>Das haben wir gemacht</h3>
-        <ul class="svc-check-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Bad im <strong>Dachgeschoss</strong> komplett umgebaut, <strong>Aufteilung teilweise neu geordnet</strong></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="12" x2="20" y2="12"/></svg><strong>Freistehende Dusche</strong> mit umlaufender Glasabtrennung</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18v7H3z"/><path d="M6 12V8h12v4"/></svg>Fest gemauerte <strong>Sitzbank</strong> in der Dusche</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M8 4a4 4 0 0 1 8 0"/><line x1="8" y1="16" x2="8" y2="18"/><line x1="12" y1="16" x2="12" y2="19"/><line x1="16" y1="16" x2="16" y2="18"/></svg><strong>Regenbrause</strong> und separate Handbrause mit Unterputz-Armaturen</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="7" rx="1"/><path d="M7 10v5a4 4 0 0 0 4 4h2"/></svg><strong>Wand-WC</strong> mit Vorwandinstallation</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg><strong>Waschtisch</strong> mit Unterschrank und beleuchtetem Spiegel</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="8" y1="4" x2="8" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="16" y1="4" x2="16" y2="20"/></svg><strong>Handtuchheizkörper</strong> und Anbindung an die bestehende Heizung</li>
-        </ul>
-      </div>
-      <div class="svc-text-col reveal-right">
+      während hell gefliste Wände das wenige Tageslicht weiterreichen.</p>
         <p>
           Der eigentliche Gewinn liegt hier nicht im Material, sondern im Zuschnitt: Weil wir
           die Aufteilung angefasst haben, steht die Dusche heute dort, wo die Raumhöhe es
@@ -1010,12 +1087,80 @@
           Die gemauerte Sitzbank kostet kaum Fläche und macht die Dusche im Alltag spürbar
           bequemer, auch mit Blick auf später.
         </p>
-        <a href="kontakt.php" class="btn-outline">
+        <a href="kontakt.v2.php" class="btn-outline">
           Dachbad anfragen
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
+      <div class="svc-tiles is-long reveal">
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+          <p>Bad im <strong>Dachgeschoss</strong> komplett umgebaut, <strong>Aufteilung teilweise neu geordnet</strong></p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="12" x2="20" y2="12"/></svg></span>
+          <p><strong>Freistehende Dusche</strong> mit umlaufender Glasabtrennung</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18v7H3z"/><path d="M6 12V8h12v4"/></svg></span>
+          <p>Fest gemauerte <strong>Sitzbank</strong> in der Dusche</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M8 4a4 4 0 0 1 8 0"/><line x1="8" y1="16" x2="8" y2="18"/><line x1="12" y1="16" x2="12" y2="19"/><line x1="16" y1="16" x2="16" y2="18"/></svg></span>
+          <p><strong>Regenbrause</strong> und separate Handbrause mit Unterputz-Armaturen</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="7" rx="1"/><path d="M7 10v5a4 4 0 0 0 4 4h2"/></svg></span>
+          <p><strong>Wand-WC</strong> mit Vorwandinstallation</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg></span>
+          <p><strong>Waschtisch</strong> mit Unterschrank und beleuchtetem Spiegel</p>
+        </div>
+        <div class="svc-tile">
+          <span class="svc-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="8" y1="4" x2="8" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="16" y1="4" x2="16" y2="20"/></svg></span>
+          <p><strong>Handtuchheizkörper</strong> und Anbindung an die bestehende Heizung</p>
+        </div>
+      </div>
     </div>
+    <div class="svc-gallery reveal" data-gallery="dachgeschoss-oberstenfeld">
+      <button class="gal-item gal-span-2" type="button" data-full="../ref-dachgeschoss-oberstenfeld-01.jpg" data-caption="Das Bad unter der Dachschräge">
+        <img src="../ref-dachgeschoss-oberstenfeld-01.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Dachgeschossbad mit holzverkleideter Dachschräge, Fliesen in Holzoptik und freistehender Dusche" />
+        <span class="gal-cap">Das Bad unter der Dachschräge</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="../ref-dachgeschoss-oberstenfeld-10.jpg" data-caption="Regenbrause über der Duschfläche">
+        <img src="../ref-dachgeschoss-oberstenfeld-10.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Deckenmontierte Regenbrause über der flachen Duschwanne, dahinter Fenster und Wand-WC" />
+        <span class="gal-cap">Regenbrause über der Duschfläche</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="../ref-dachgeschoss-oberstenfeld-05.jpg" data-caption="WC und Heizkörper am Fenster">
+        <img src="../ref-dachgeschoss-oberstenfeld-05.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Wand-WC und Flachheizkörper unter dem Fenster, daneben die verglaste Dusche" />
+        <span class="gal-cap">WC und Heizkörper am Fenster</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item" type="button" data-full="../ref-dachgeschoss-oberstenfeld-09.jpg" data-caption="Waschtisch mit Handtuchheizkörper">
+        <img src="../ref-dachgeschoss-oberstenfeld-09.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Waschtischbereich mit Spiegelleuchte und Handtuchheizkörper neben der Tür" />
+        <span class="gal-cap">Waschtisch mit Handtuchheizkörper</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="../ref-dachgeschoss-oberstenfeld-07.jpg" data-caption="Indirektes Lichtband an der Dachschräge">
+        <img src="../ref-dachgeschoss-oberstenfeld-07.jpg" width="1600" height="902" loading="lazy" decoding="async" alt="Umlaufendes LED-Lichtband entlang der holzverkleideten Dachschräge über dem Sideboard" />
+        <span class="gal-cap">Indirektes Lichtband an der Dachschräge</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="../ref-dachgeschoss-oberstenfeld-06.jpg" data-caption="Blick aus der Dusche in den Raum">
+        <img src="../ref-dachgeschoss-oberstenfeld-06.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Blick über die Duschfläche auf Waschtisch und Sideboard unter der Dachschräge" />
+        <span class="gal-cap">Blick aus der Dusche in den Raum</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+      <button class="gal-item gal-span-2" type="button" data-full="../ref-dachgeschoss-oberstenfeld-03.jpg" data-caption="Waschtisch mit großem Spiegel">
+        <img src="../ref-dachgeschoss-oberstenfeld-03.jpg" width="902" height="1600" loading="lazy" decoding="async" alt="Wandhängender Waschtisch mit Holzfront und großflächigem Spiegel unter der Dachschräge" />
+        <span class="gal-cap">Waschtisch mit großem Spiegel</span>
+        <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      </button>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -1026,7 +1171,7 @@
     <h2>Jetzt kostenlos<br>anfragen</h2>
     <p>Erzählen Sie uns, was Sie vorhaben. Wir sagen Ihnen ehrlich, was sich umsetzen lässt.</p>
     <div class="cta-actions">
-      <a href="kontakt.php" class="btn-primary">
+      <a href="kontakt.v2.php" class="btn-primary">
         Kostenlos anfragen
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -1040,8 +1185,8 @@
 <footer class="site-footer">
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="index.html" class="footer-logo" aria-label="Zur Startseite von R. Ruge">
-        <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" loading="lazy" />
+      <a href="index.v2.html" class="footer-logo" aria-label="Zur Startseite von R. Ruge">
+        <img src="../logo-ruge.png" width="712" height="424" alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" loading="lazy" />
       </a>
       <p>Inhabergeführter Meisterbetrieb für Sanitär, Heizung, regenerative Energien und Flaschnerei in Steinheim an der Murr.</p>
     </div>
@@ -1049,12 +1194,12 @@
     <div class="footer-col">
       <h4>Leistungen</h4>
       <ul>
-        <li><a href="leistungen.html#heizung">Heizung &amp; Brennwerttechnik</a></li>
-        <li><a href="leistungen.html#sanitaer">Sanitär &amp; Badumbau</a></li>
-        <li><a href="leistungen.html#energien">Regenerative Energien</a></li>
-        <li><a href="leistungen.html#flaschnerei">Flaschnerei</a></li>
-        <li><a href="leistungen.html#wartung">Wartung &amp; Kundendienst</a></li>
-        <li><a href="leistungen.html#trinkwasser">Trinkwasserhygiene</a></li>
+        <li><a href="leistungen.v2.html#heizung">Heizung &amp; Brennwerttechnik</a></li>
+        <li><a href="leistungen.v2.html#sanitaer">Sanitär &amp; Badumbau</a></li>
+        <li><a href="leistungen.v2.html#energien">Regenerative Energien</a></li>
+        <li><a href="leistungen.v2.html#flaschnerei">Flaschnerei</a></li>
+        <li><a href="leistungen.v2.html#wartung">Wartung &amp; Kundendienst</a></li>
+        <li><a href="leistungen.v2.html#trinkwasser">Trinkwasserhygiene</a></li>
       </ul>
     </div>
 
@@ -1080,9 +1225,9 @@
   <div class="footer-bottom">
     <p>© <span data-year>2026</span> R. Ruge Sanitär Heizung Regenerative Energien</p>
     <nav aria-label="Rechtliches" class="footer-bottom-links">
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-      <a href="kontakt.php">Kontakt</a>
+      <a href="../impressum.html">Impressum</a>
+      <a href="../datenschutz.html">Datenschutz</a>
+      <a href="kontakt.v2.php">Kontakt</a>
     </nav>
   </div>
 </footer>
@@ -1093,7 +1238,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.44 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.88-1.88a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
     Anrufen
   </a>
-  <a class="ab-mail" href="kontakt.php">
+  <a class="ab-mail" href="kontakt.v2.php">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
     Anfragen
   </a>
@@ -1255,9 +1400,11 @@
   // Aktuelles Jahr im Footer
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 </script>
-<script src="motion.js" defer></script>
+<script src="../motion.js" defer></script>
+<script src="motion.v2.js" defer></script>
 </body>
 </html>
+
 
 
 
