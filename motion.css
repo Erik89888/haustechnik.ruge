@@ -1,0 +1,276 @@
+/* ════════════════════════════════════════════════════════════════════
+   motion.css · Animationen & Mobil-Feinschliff für die Unterseiten
+   (leistungen, energien, bereiche, referenzen, ueber-uns).
+   Wird NACH dem Inline-<style> jeder Seite geladen und ergänzt ihn nur:
+   Farben, Abstände und Layouts der Seiten bleiben unverändert.
+   Gegenstück: motion.js. index.html hat dieselben Effekte inline.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── Scroll-Fortschritt ── */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 1002;
+  background: linear-gradient(90deg, var(--orange-dark), var(--orange) 60%, #FFB08A);
+  box-shadow: 0 0 12px var(--orange-glow);
+  transform: scaleX(0); transform-origin: 0 50%; pointer-events: none;
+}
+
+/* ── Header: fährt beim Laden ein, auf Mobil beim Runterscrollen weg ── */
+header.site-header {
+  animation: headerIn 0.9s cubic-bezier(0.2,0.7,0.2,1);
+  transition: background 0.4s ease, box-shadow 0.3s ease, border-color 0.4s ease, backdrop-filter 0.4s ease,
+              transform 0.45s cubic-bezier(0.2,0.7,0.2,1);
+}
+header.site-header.hide { transform: translateY(-100%); }
+@keyframes headerIn { from { transform: translateY(-100%); opacity: 0; } }
+
+/* Sprungmarken-Leiste rückt nach, wenn der Header weg ist */
+.svc-subnav { transition: top 0.45s cubic-bezier(0.2,0.7,0.2,1); }
+.header-hidden .svc-subnav { top: 0; }
+
+/* ── Seiten-Hero ── */
+.svc-hero-content .hero-eyebrow::before { transform-origin: left center; animation: lineGrow 0.9s cubic-bezier(0.2,0.7,0.2,1) 0.35s both; }
+@keyframes lineGrow { from { transform: scaleX(0); } }
+.svc-hero-content h1.is-split { opacity: 1; transform: none; animation: none; }
+.svc-hero-content h1 .split-word { animation: wordIn 0.9s cubic-bezier(0.2,0.7,0.2,1) both; animation-delay: calc(0.25s + var(--wi, 0) * 0.08s); }
+@keyframes wordIn {
+  from { opacity: 0; transform: translateY(0.45em) rotate(2deg); filter: blur(8px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+.svc-hero-content .hero-chips .chip { animation: chipIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both; }
+.svc-hero-content .hero-chips .chip:nth-child(1) { animation-delay: 0.85s; }
+.svc-hero-content .hero-chips .chip:nth-child(2) { animation-delay: 0.95s; }
+.svc-hero-content .hero-chips .chip:nth-child(3) { animation-delay: 1.05s; }
+@keyframes chipIn { from { opacity: 0; transform: translateY(12px) scale(0.9); } }
+.js-parallax .svc-hero-media, .js-parallax .svc-hero-content { will-change: transform; }
+
+/* ── Überschriften: Wörter steigen gestaffelt aus der Unschärfe auf ── */
+.split-word {
+  display: inline-block; opacity: 0; transform: translateY(0.5em); filter: blur(6px);
+  transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2,0.7,0.2,1), filter 0.7s ease;
+  transition-delay: calc(0.12s + var(--wi, 0) * 0.06s);
+}
+.visible .split-word { opacity: 1; transform: none; filter: none; }
+
+/* ── Weichere Reveal-Kurve ── */
+.reveal, .reveal-left, .reveal-right {
+  transition-duration: 0.8s, 0.9s;
+  transition-timing-function: ease, cubic-bezier(0.2,0.7,0.2,1);
+}
+
+/* ── Sektionsköpfe: Icon ploppt auf, große Nummer gleitet herein ── */
+.svc-head.visible .svc-icon,
+.bereich-head.visible .bereich-icon { animation: iconPop 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.1s both; }
+@keyframes iconPop { from { opacity: 0; transform: scale(0.4) rotate(-25deg); } }
+.svc-head .svc-num-bg, .bereich-head .bereich-num-bg {
+  opacity: 0; translate: 60px 0;
+  transition: opacity 1s ease 0.2s, translate 1.2s cubic-bezier(0.2,0.7,0.2,1) 0.2s;
+}
+.svc-head.visible .svc-num-bg, .bereich-head.visible .bereich-num-bg { opacity: 1; translate: 0 0; }
+
+/* ── Galerien: Kacheln erscheinen nacheinander ── */
+.js .svc-gallery.reveal .gal-item {
+  opacity: 0; transform: translateY(26px) scale(0.96);
+  transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.2,0.7,0.2,1);
+  transition-delay: calc(0.1s + var(--gi, 0) * 0.07s);
+}
+.js .svc-gallery.reveal.visible .gal-item { opacity: 1; transform: none; }
+
+/* ── Gestaffelte Einzel-Elemente (Listen, Details, Infoband, Footer) ── */
+.reveal-item {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.2,0.7,0.2,1);
+}
+.svc-check-list li.reveal-item, .nibe-list li.reveal-item { transform: translateX(-20px); }
+.svc-facts li.reveal-item { transform: translateY(10px) scale(0.92); }
+.reveal-item.visible { opacity: 1; transform: none; }
+
+/* ── Bild-Karten (Referenzen): Bild wird von unten aufgezogen ── */
+.js .b-card.reveal {
+  clip-path: inset(14% 0 0 0 round 14px);
+  transition-property: opacity, transform, clip-path;
+  transition-duration: 0.8s, 0.9s, 1.1s;
+  transition-timing-function: ease, cubic-bezier(0.2,0.7,0.2,1), cubic-bezier(0.2,0.7,0.2,1);
+}
+.js .b-card.reveal.visible { clip-path: inset(0 0 0 0 round 14px); }
+.js .b-card.reveal .b-bg img { transition: transform 1.3s cubic-bezier(0.2,0.7,0.2,1), filter 0.4s; }
+.js .b-card.reveal:not(.visible) .b-bg img { transform: scale(1.2); }
+
+/* ── Service-Videos: öffnen sich wie ein Vorhang ── */
+.js .svc-video.reveal { clip-path: inset(0 0 100% 0 round 12px); transition-property: opacity, transform, clip-path; transition-duration: 0.8s, 0.9s, 1.2s; }
+.js .svc-video.reveal.visible { clip-path: inset(0 0 0 0 round 12px); }
+
+/* ── Bereiche: Titelbild zoomt beim Einblenden zurück, Etikett gleitet herein ── */
+.js .bereich-media { clip-path: inset(0 0 12% 0); transition: clip-path 1.2s cubic-bezier(0.2,0.7,0.2,1); }
+.js .bereich-media.m-in { clip-path: inset(0 0 0 0); }
+.js .bereich-media:not(.m-in) img { transform: scale(1.18); }
+.js .bereich-media .bereich-media-tag {
+  opacity: 0; translate: -30px 0;
+  transition: opacity 0.7s ease 0.5s, translate 0.9s cubic-bezier(0.2,0.7,0.2,1) 0.5s;
+}
+.js .bereich-media.m-in .bereich-media-tag { opacity: 1; translate: 0 0; }
+.bereich-media-tag::before { transform-origin: left center; transition: transform 0.8s cubic-bezier(0.2,0.7,0.2,1) 0.8s; }
+.js .bereich-media:not(.m-in) .bereich-media-tag::before { transform: scaleX(0); }
+
+/* ── Parallax-Bildbänder (Energien: Überblick, NIBE, Förderung) ── */
+.js-parallax .nibe-media, .js-parallax .funding-media, .js-parallax .ov-media { inset: -14% 0; will-change: transform; }
+
+/* NIBE-Badge schwebt, Akzentwort schimmert */
+.nibe-badge { animation: floatY 5s ease-in-out infinite; }
+.nibe-copy h2 .word-accent {
+  background: linear-gradient(100deg, var(--orange) 0%, var(--orange) 40%, #FFD2BC 50%, var(--orange) 60%, var(--orange) 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: accentShine 5.5s ease-in-out infinite;
+}
+@keyframes accentShine { 0%, 55% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+
+/* ── Über uns: Bild öffnet sich wie ein Vorhang, Karte schwebt ── */
+.js .ueber-visual.reveal-left .ueber-box {
+  clip-path: inset(0 100% 0 0 round 14px);
+  transition: clip-path 1.3s cubic-bezier(0.77,0,0.175,1) 0.15s;
+}
+.js .ueber-visual.reveal-left.visible .ueber-box { clip-path: inset(0 0 0 0 round 14px); }
+.ueber-visual .ueber-box > img { transition: transform 1.6s cubic-bezier(0.2,0.7,0.2,1); }
+.js .ueber-visual:not(.visible) .ueber-box > img { transform: scale(1.18); }
+.ueber-float { animation: floatY 5s ease-in-out infinite; }
+@keyframes floatY { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+
+/* ── Karten mit 3D-Neigung + Lichtreflex (Desktop) ── */
+.q-card::after {
+  content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255,255,255,0.09), transparent 45%);
+  opacity: 0; transition: opacity 0.4s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .q-card:not(.reveal) { transition: transform 0.25s ease-out, border-color 0.4s, box-shadow 0.4s; }
+  .q-card:not(.reveal):hover {
+    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-6px);
+  }
+  .q-card:hover::after { opacity: 1; }
+}
+
+/* ── FAQ: weich auf die echte Höhe aufklappen (keine abgeschnittenen Antworten) ── */
+.faq-a {
+  max-height: none; display: grid; grid-template-rows: 0fr; overflow: hidden;
+  transition: grid-template-rows 0.5s cubic-bezier(0.2,0.7,0.2,1);
+}
+.faq-item.open .faq-a { max-height: none; grid-template-rows: 1fr; }
+.faq-a p { min-height: 0; overflow: hidden; opacity: 0; transform: translateY(-8px); transition: opacity 0.35s ease, transform 0.45s ease; }
+.faq-item.open .faq-a p { opacity: 1; transform: none; transition-delay: 0.1s; }
+
+/* ── CTA: Hintergrundwort driftet mit dem Scroll, Glow atmet ── */
+.cta-section::before { transform: translate(calc(-50% + var(--cta-x, 0px)), -50%); }
+.cta-section::after { animation: ctaGlow 7s ease-in-out infinite; }
+@keyframes ctaGlow {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.8; }
+  50%      { transform: translate(-50%, -50%) scale(1.18); opacity: 1; }
+}
+
+/* ── Lightbox: blendet weich ein, Bild zoomt herein, beim Blättern neu ── */
+.lightbox:not([hidden]) { animation: lbFade 0.3s ease; }
+.lb-stage img.lb-anim { animation: lbZoom 0.45s cubic-bezier(0.2,0.7,0.2,1); }
+@keyframes lbFade { from { opacity: 0; } }
+@keyframes lbZoom { from { opacity: 0; transform: scale(0.94); } }
+
+/* ── Klick-/Tap-Welle auf Buttons ── */
+.btn-outline, .action-bar a { position: relative; overflow: hidden; }
+.ripple {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  background: rgba(255,255,255,0.32); transform: scale(0);
+  animation: ripple 0.65s ease-out forwards;
+}
+@keyframes ripple { to { transform: scale(1); opacity: 0; } }
+
+/* ── Mobile Navigation: Einträge fahren gestaffelt ein ── */
+.mobile-nav > * {
+  opacity: 0; transform: translateX(40px);
+  transition: opacity 0.4s ease, transform 0.55s cubic-bezier(0.2,0.7,0.2,1);
+}
+.mobile-nav.open > * { opacity: 1; transform: none; }
+.mobile-nav.open > :nth-child(1) { transition-delay: 0.14s; }
+.mobile-nav.open > :nth-child(2) { transition-delay: 0.19s; }
+.mobile-nav.open > :nth-child(3) { transition-delay: 0.24s; }
+.mobile-nav.open > :nth-child(4) { transition-delay: 0.29s; }
+.mobile-nav.open > :nth-child(5) { transition-delay: 0.34s; }
+.mobile-nav.open > :nth-child(6) { transition-delay: 0.39s; }
+.mobile-nav.open > :nth-child(7) { transition-delay: 0.46s; }
+.mobile-nav.open > :nth-child(8) { transition-delay: 0.52s; }
+body.nav-open { overflow: hidden; }
+
+/* ── Mobile Aktionsleiste: fährt rein, verschwindet am Kontaktbereich ── */
+.js .action-bar { transform: translateY(110%); transition: transform 0.5s cubic-bezier(0.2,0.7,0.2,1); }
+.js .action-bar.show { transform: none; }
+.js .action-bar.show.away { transform: translateY(110%); }
+
+/* ════════════ TOUCH-GERÄTE ════════════
+   Kein Hover: Karten und Galeriebilder zeigen ihren Hover-Zustand, wenn sie
+   in der Bildschirmmitte stehen; Buttons geben beim Tippen Feedback. */
+@media (hover: none) {
+  html { -webkit-tap-highlight-color: transparent; }
+  .btn-primary:hover { transform: none; box-shadow: none; background: var(--orange); }
+  .btn-outline:hover { box-shadow: none; }
+  .btn-primary:active, .btn-outline:active, .action-bar a:active, .b-card:active, .gal-item:active { transform: scale(0.97); }
+  .b-card, .gal-item { transition: transform 0.2s ease; }
+
+  .b-card.in-view .b-bg img { transform: scale(1.07); filter: brightness(0.38); }
+  .b-card.in-view .b-overlay { background: linear-gradient(to top, rgba(3,4,8,0.93) 0%, rgba(3,4,8,0.35) 60%); }
+  .b-card.in-view .b-num { color: rgba(255,107,53,0.09); }
+  .b-card.in-view .b-desc { max-height: 90px; opacity: 1; }
+  .b-card.in-view .b-arrow { opacity: 1; transform: translateY(0); background: var(--orange); }
+
+  .q-card.in-view { border-color: rgba(255,107,53,0.35); }
+  .q-card.in-view::before { opacity: 1; }
+  .q-card.in-view .q-media img { transform: scale(1.08); }
+  .q-card.in-view .q-icon { background: rgba(255,107,53,0.25); box-shadow: 0 0 20px var(--orange-glow); }
+
+  .gal-item.in-view .gal-cap { opacity: 1; transform: translateY(0); }
+  .gal-item.in-view .gal-zoom { opacity: 1; transform: scale(1); }
+  .gal-item.in-view img { transform: scale(1.05); filter: brightness(0.62); }
+}
+
+/* ════════════ MOBIL-FEINSCHLIFF ════════════ */
+@media (max-width: 768px) {
+  body { background-attachment: scroll; padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+  .action-bar { padding-bottom: calc(0.7rem + env(safe-area-inset-bottom)); }
+  .mobile-nav { padding: calc(2rem + env(safe-area-inset-top)) 2rem calc(2rem + env(safe-area-inset-bottom)); gap: 1.4rem; overflow-y: auto; }
+
+  .svc-hero-content h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
+  .svc-hero-content .hero-sub { font-size: 0.97rem; }
+  .svc-hero-actions .btn-primary, .svc-hero-actions .btn-outline,
+  .cta-actions .btn-primary, .cta-actions .btn-outline { justify-content: center; }
+
+  /* Infoband als 2er-Raster, Text darf umbrechen */
+  .info-band { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem 1rem; padding: 1.5rem 6%; }
+  .info-item { white-space: normal; align-items: flex-start; gap: 0.6rem; }
+  .info-item svg { margin-top: 2px; }
+  .info-item span span { font-size: 0.76rem; line-height: 1.45; display: block; }
+
+  /* Sprungmarken: Verlauf rechts deutet an, dass man wischen kann */
+  .svc-subnav-inner {
+    -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+    mask-image: linear-gradient(to right, #000 85%, transparent);
+    scroll-behavior: smooth;
+  }
+
+  .cta-section { padding: 5.5rem 6%; }
+  .reveal-left, .reveal-right { transform: translateY(40px); }
+  .faq-q { font-size: 0.95rem; padding: 1.2rem 0; }
+  .footer-col ul li a { display: inline-block; padding: 0.15rem 0; }
+  .ueber-badge { width: 124px; height: 124px; right: -1.1rem; bottom: -1.1rem; }
+  .ueber-badge strong { font-size: 0.92rem; }
+  .ueber-box { height: 320px; }
+}
+@media (max-width: 380px) {
+  .info-band { grid-template-columns: 1fr; }
+}
+
+/* ════════════ WENIGER BEWEGUNG ════════════ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important; transition-delay: 0s !important;
+  }
+  .reveal, .reveal-left, .reveal-right, .reveal-item { opacity: 1; transform: none; }
+  .split-word { opacity: 1; transform: none; filter: none; }
+}
