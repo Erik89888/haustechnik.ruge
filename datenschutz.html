@@ -213,10 +213,6 @@
   .data-card dt { font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); padding-top: 0.15rem; }
   .data-card dd { color: var(--text-primary); font-size: 0.95rem; }
 
-  .note { background: rgba(255,107,53,0.06); border: 1px solid rgba(255,107,53,0.25); border-radius: 12px; padding: 1.1rem 1.4rem; margin-top: 1rem; }
-  .note p { color: var(--text-secondary); font-size: 0.88rem; margin: 0; }
-  .note strong { color: var(--orange); }
-
   /* ── FOOTER ── */
   /* Seitenabschluss: durchgehend schwarz, kein Verlauf */
   footer.site-footer { background: #000; border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
@@ -480,6 +476,11 @@
           Daten handeln, die über eine Website generiert werden.
         </p>
         <p>
+          Wir setzen folgenden Hoster ein:<br />
+          Spaceship, Inc., 4600 East Washington Street, Suite 305, Phoenix, AZ 85034, USA<br />
+          Website: <a href="https://www.spaceship.com" target="_blank" rel="noopener">www.spaceship.com</a>
+        </p>
+        <p>
           Der Einsatz des Hosters erfolgt zum Zweck der Vertragserfüllung gegenüber
           unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) sowie
           im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres
@@ -496,6 +497,16 @@
           vorgeschriebenen Vertrag, der gewährleistet, dass der Auftragsverarbeiter
           personenbezogene Daten unserer Websitebesucher nur nach unseren Weisungen und
           unter Einhaltung der DSGVO verarbeitet.
+        </p>
+        <p>
+          Da Spaceship, Inc. seinen Sitz in den USA hat, kann eine Übermittlung
+          personenbezogener Daten in die USA nicht ausgeschlossen werden. Die
+          Datenübertragung stützt sich auf die Standardvertragsklauseln der
+          EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO), die Bestandteil des
+          Auftragsverarbeitungsvertrags sind. Details finden Sie in der
+          <a href="https://www.spaceship.com/legal/privacy-policy/" target="_blank" rel="noopener">Datenschutzerklärung von Spaceship</a>
+          sowie im
+          <a href="https://www.spaceship.com/legal/data-processing-addendum/" target="_blank" rel="noopener">Data Processing Addendum</a>.
         </p>
 
         <h3>Server-Log-Dateien</h3>
@@ -518,14 +529,6 @@
           technisch fehlerfreien Darstellung und der Optimierung seiner Website. Hierzu
           müssen die Server-Log-Dateien erfasst werden.
         </p>
-
-        <div class="note">
-          <p>
-            <strong>Hinweis für den Betreiber:</strong> Bitte tragen Sie hier Namen und
-            Anschrift des tatsächlich eingesetzten Hosting-Anbieters ein und legen Sie
-            den Auftragsverarbeitungsvertrag (AVV) ab, bevor die Seite live geht.
-          </p>
-        </div>
       </section>
 
       <!-- 5 -->
@@ -586,17 +589,6 @@
           Ihres Anliegens. Zwingende gesetzliche Bestimmungen, insbesondere gesetzliche
           Aufbewahrungsfristen, bleiben unberührt.
         </p>
-
-        <div class="note">
-          <p>
-            <strong>Hinweis für den Betreiber:</strong> Der Formularversand läuft über
-            das PHP-Skript <code>kontakt.php</code> auf dem eigenen Webspace. Es wird
-            kein externer Formulardienst eingesetzt, daher ist hier auch keiner zu
-            benennen. Wird später ein Dienst wie Formspree oder ein externer
-            SMTP-Anbieter eingebunden, muss dieser Abschnitt ergänzt und ein
-            Auftragsverarbeitungsvertrag geschlossen werden.
-          </p>
-        </div>
       </section>
 
       <!-- 6 -->
@@ -848,14 +840,6 @@
           Einführung neuer Funktionen auf dieser Website. Für Ihren erneuten Besuch gilt
           dann die neue Datenschutzerklärung.
         </p>
-        <div class="note">
-          <p>
-            <strong>Hinweis für den Betreiber:</strong> Diese Datenschutzerklärung ist
-            eine sorgfältig erstellte Vorlage, ersetzt aber keine Rechtsberatung. Bitte
-            lassen Sie sie vor dem Livegang prüfen und ergänzen Sie die oben markierten
-            Stellen (Hoster, Formularversand, eingebundene Dienste).
-          </p>
-        </div>
       </section>
 
     </div>
@@ -911,7 +895,7 @@
 
   <div class="footer-bottom">
     <p>© <span data-year>2026</span> R. Ruge Sanitär Heizung Regenerative Energien</p>
-    <nav aria-label="Rechtliches">
+    <nav aria-label="Rechtliches" class="footer-bottom-links">
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html" aria-current="page">Datenschutz</a>
       <a href="kontakt.php">Kontakt</a>
@@ -971,4 +955,3 @@
 </script>
 </body>
 </html>
-
