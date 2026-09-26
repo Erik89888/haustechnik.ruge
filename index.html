@@ -3,28 +3,29 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>R. Ruge – Sanitär · Heizung · Regenerative Energien | Steinheim an der Murr</title>
-<meta name="description" content="Meisterbetrieb R. Ruge aus Steinheim an der Murr: Sanitär und Badumbau, Heizung und Brennwerttechnik, Solar, Wärmepumpe und Fotovoltaik sowie Flaschnerei – alles aus einer Hand." />
+<title>R. Ruge: Sanitär · Heizung · Regenerative Energien | Steinheim an der Murr</title>
+<meta name="description" content="Meisterbetrieb R. Ruge aus Steinheim an der Murr: Sanitär und Badumbau, Heizung und Brennwerttechnik, Solar, Wärmepumpe und Fotovoltaik sowie Flaschnerei, alles aus einer Hand." />
 <meta name="theme-color" content="#01328F" />
 <link rel="icon" type="image/png" href="favicon.ruge.png" />
 <link rel="apple-touch-icon" href="favicon.ruge.png" />
 
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="de_DE" />
-<meta property="og:title" content="R. Ruge – Sanitär · Heizung · Regenerative Energien" />
-<meta property="og:description" content="Meisterbetrieb aus Steinheim an der Murr. Bad, Heizung, regenerative Energien und Flaschnerei – alles aus einer Hand." />
+<meta property="og:title" content="R. Ruge: Sanitär · Heizung · Regenerative Energien" />
+<meta property="og:description" content="Meisterbetrieb aus Steinheim an der Murr. Bad, Heizung, regenerative Energien und Flaschnerei, alles aus einer Hand." />
 <meta property="og:image" content="hero-installateur.jpg" />
 
 <link rel="preload" href="inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="fonts.css" />
+<script>document.documentElement.classList.add('js');</script>
 
 <style>
   :root {
     --orange:        #FF6B35;
     --orange-dark:   #E85A28;
     --orange-glow:   rgba(255, 107, 53, 0.3);
-    --brand-blue:    #0A2647;   /* dunkles Navy – Blau des Logo-Banners gemischt mit Schwarz */
+    --brand-blue:    #0A2647;   /* dunkles Navy, Blau des Logo-Banners gemischt mit Schwarz */
     --brand-blue-d:  #030D1E;
 
     /* Hintergrund: bewusste Mischung aus Schwarz und Dunkelblau */
@@ -136,6 +137,7 @@
     font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem;
     letter-spacing: 1.3px; text-transform: uppercase; border: 1px solid var(--border);
     cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.6rem;
+    position: relative; overflow: hidden;
   }
   .btn-outline svg { width: 16px; height: 16px; flex-shrink: 0; }
   .btn-outline:hover { border-color: var(--orange); color: var(--orange); box-shadow: 0 0 22px var(--orange-glow); }
@@ -144,7 +146,8 @@
   header.site-header {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     background: transparent; border-bottom: 1px solid transparent;
-    transition: background 0.4s ease, box-shadow 0.3s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+    transition: background 0.4s ease, box-shadow 0.3s ease, border-color 0.4s ease, backdrop-filter 0.4s ease,
+                transform 0.45s cubic-bezier(0.2,0.7,0.2,1);
   }
   header.site-header.scrolled {
     background: linear-gradient(100deg, var(--brand-blue) 0%, var(--brand-blue-d) 100%);
@@ -608,9 +611,19 @@
   .faq-icon svg { width: 12px; height: 12px; stroke: var(--text-secondary); transition: transform 0.3s, stroke 0.3s; }
   .faq-item.open .faq-icon { background: var(--orange); border-color: var(--orange); }
   .faq-item.open .faq-icon svg { transform: rotate(45deg); stroke: white; }
-  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-  .faq-item.open .faq-a { max-height: 260px; }
-  .faq-a p { padding-bottom: 1.4rem; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; }
+  /* grid-rows statt max-height: animiert auf die echte Höhe, lange Antworten
+     auf schmalen Bildschirmen werden nicht mehr abgeschnitten */
+  .faq-a {
+    display: grid; grid-template-rows: 0fr; overflow: hidden;
+    transition: grid-template-rows 0.5s cubic-bezier(0.2,0.7,0.2,1);
+  }
+  .faq-item.open .faq-a { grid-template-rows: 1fr; }
+  .faq-a p {
+    min-height: 0; overflow: hidden;
+    padding-bottom: 1.4rem; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;
+    opacity: 0; transform: translateY(-8px); transition: opacity 0.35s ease, transform 0.45s ease;
+  }
+  .faq-item.open .faq-a p { opacity: 1; transform: none; transition-delay: 0.1s; }
 
   /* ── CTA ── */
   .cta-section {
@@ -636,8 +649,8 @@
   .cta-actions .btn-outline { padding: 1.05rem 2.3rem; }
 
   /* ── FOOTER ── */
-  /* Welle 4/4: läuft zum Seitenende hin dunkel aus */
-  footer.site-footer { background: var(--wave-down); border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
+  /* Seitenabschluss: durchgehend schwarz, kein Verlauf */
+  footer.site-footer { background: #000; border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
   .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.8rem; }
   .footer-logo { display: inline-block; margin-bottom: 1.1rem; }
   .footer-logo img { height: 46px; width: auto; }
@@ -676,11 +689,11 @@
   .ab-mail { background: var(--orange); color: #fff; }
 
   /* ── REVEAL ANIMATIONS ── */
-  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.2,0.7,0.2,1); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.2,0.7,0.2,1); }
   .reveal-left.visible { opacity: 1; transform: translateX(0); }
-  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.2,0.7,0.2,1); }
   .reveal-right.visible { opacity: 1; transform: translateX(0); }
   .reveal-d1 { transition-delay: 0.1s; } .reveal-d2 { transition-delay: 0.2s; } .reveal-d3 { transition-delay: 0.3s; }
 
@@ -724,7 +737,250 @@
     .cursor-glow { display: none; }
   }
 
+  /* ═══════════════ ANIMATIONEN ═══════════════ */
+
+  /* Scroll-Fortschritt oben am Rand */
+  .scroll-progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 1002;
+    background: linear-gradient(90deg, var(--orange-dark), var(--orange) 60%, #FFB08A);
+    box-shadow: 0 0 12px var(--orange-glow);
+    transform: scaleX(0); transform-origin: 0 50%; pointer-events: none;
+  }
+
+  /* Header fährt beim Laden ein; auf Mobil beim Runterscrollen weg */
+  header.site-header { animation: headerIn 0.9s cubic-bezier(0.2,0.7,0.2,1); }
+  header.site-header.hide { transform: translateY(-100%); }
+  @keyframes headerIn { from { transform: translateY(-100%); opacity: 0; } }
+
+  /* Hero: Linie zeichnet sich, Überschrift Wort für Wort, Chips ploppen auf */
+  .hero-eyebrow::before { transform-origin: left center; animation: lineGrow 0.9s cubic-bezier(0.2,0.7,0.2,1) 0.5s both; }
+  @keyframes lineGrow { from { transform: scaleX(0); } }
+  .hero h1.is-split { opacity: 1; transform: none; animation: none; }
+  .hero h1 .split-word { animation: wordIn 0.9s cubic-bezier(0.2,0.7,0.2,1) both; animation-delay: calc(0.35s + var(--wi, 0) * 0.08s); }
+  @keyframes wordIn {
+    from { opacity: 0; transform: translateY(0.45em) rotate(2deg); filter: blur(8px); }
+    to   { opacity: 1; transform: none; filter: none; }
+  }
+  .hero-chips .chip { animation: chipIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both; }
+  .hero-chips .chip:nth-child(1) { animation-delay: 1.15s; }
+  .hero-chips .chip:nth-child(2) { animation-delay: 1.25s; }
+  .hero-chips .chip:nth-child(3) { animation-delay: 1.35s; }
+  @keyframes chipIn { from { opacity: 0; transform: translateY(12px) scale(0.9); } }
+  .js-parallax .hero-media, .js-parallax .hero-content { will-change: transform; }
+
+  /* Sektionsüberschriften: Wörter steigen gestaffelt aus der Unschärfe auf */
+  .split-word {
+    display: inline-block; opacity: 0; transform: translateY(0.5em); filter: blur(6px);
+    transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2,0.7,0.2,1), filter 0.7s ease;
+    transition-delay: calc(0.12s + var(--wi, 0) * 0.06s);
+  }
+  .visible .split-word { opacity: 1; transform: none; filter: none; }
+
+  /* Gestaffelte Einzel-Elemente (Perks, Listen, FAQ, Infoband, Footer) */
+  .reveal-item {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.2,0.7,0.2,1);
+  }
+  .perk.reveal-item { transform: translateX(28px); }
+  .energien-list li.reveal-item { transform: translateX(-20px); }
+  .reveal-item.visible { opacity: 1; transform: none; }
+
+  /* Leistungs-Karten: 3D-Neigung + Lichtreflex, der dem Cursor folgt */
+  .l-card::after {
+    content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255,255,255,0.09), transparent 45%);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .l-card:not(.reveal) { transition: transform 0.25s ease-out, border-color 0.4s, box-shadow 0.4s; }
+    .l-card:not(.reveal):hover {
+      transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-6px);
+    }
+    .l-card:hover::after { opacity: 1; }
+  }
+
+  /* Bildkarten: Bild wird von unten aufgezogen und zoomt dabei zurück */
+  .js .b-card.reveal {
+    clip-path: inset(14% 0 0 0 round 14px);
+    transition-property: opacity, transform, clip-path;
+    transition-duration: 0.8s, 0.9s, 1.1s;
+    transition-timing-function: ease, cubic-bezier(0.2,0.7,0.2,1), cubic-bezier(0.2,0.7,0.2,1);
+  }
+  .js .b-card.reveal.visible { clip-path: inset(0 0 0 0 round 14px); }
+  .js .b-card.reveal .b-bg img { transition: transform 1.3s cubic-bezier(0.2,0.7,0.2,1), filter 0.4s; }
+  .js .b-card.reveal:not(.visible) .b-bg img { transform: scale(1.2); }
+
+  /* Regenerative Energien: „grün“ schimmert, Hintergrund mit Parallax */
+  .energien-copy h2 .word-green {
+    background: linear-gradient(100deg, #22C55E 0%, #22C55E 40%, #B6F5CE 50%, #22C55E 60%, #22C55E 100%);
+    background-size: 260% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: greenShine 5.5s ease-in-out infinite;
+  }
+  @keyframes greenShine { 0%, 55% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+  .js-parallax .energien-media { inset: -15% 0; will-change: transform; }
+
+  /* Über uns: Bild wird wie ein Vorhang aufgezogen, Karte schwebt */
+  .js .ueber-visual.reveal-left .ueber-box {
+    clip-path: inset(0 100% 0 0 round 14px);
+    transition: clip-path 1.3s cubic-bezier(0.77,0,0.175,1) 0.15s;
+  }
+  .js .ueber-visual.reveal-left.visible .ueber-box { clip-path: inset(0 0 0 0 round 14px); }
+  .js .ueber-visual:not(.visible) .ueber-box > img { transform: scale(1.18); }
+  .ueber-visual .ueber-box > img { transition: transform 1.6s cubic-bezier(0.2,0.7,0.2,1); }
+  .ueber-float { animation: floatY 5s ease-in-out infinite; }
+  @keyframes floatY { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+
+  /* Bewertungen: Sterne ploppen nacheinander auf */
+  .section-header.visible .bw-summary .bw-stars svg { animation: starPop 0.55s cubic-bezier(0.34,1.56,0.64,1) both; }
+  .section-header.visible .bw-summary .bw-stars svg:nth-child(1) { animation-delay: 0.45s; }
+  .section-header.visible .bw-summary .bw-stars svg:nth-child(2) { animation-delay: 0.53s; }
+  .section-header.visible .bw-summary .bw-stars svg:nth-child(3) { animation-delay: 0.61s; }
+  .section-header.visible .bw-summary .bw-stars svg:nth-child(4) { animation-delay: 0.69s; }
+  .section-header.visible .bw-summary .bw-stars svg:nth-child(5) { animation-delay: 0.77s; }
+  @keyframes starPop { from { opacity: 0; transform: scale(0.2) rotate(-60deg); } }
+
+  /* CTA: Hintergrundwort driftet mit dem Scroll, Glow atmet */
+  .cta-section::before { transform: translate(calc(-50% + var(--cta-x, 0px)), -50%); }
+  .cta-section::after { animation: ctaGlow 7s ease-in-out infinite; }
+  @keyframes ctaGlow {
+    0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.8; }
+    50%      { transform: translate(-50%, -50%) scale(1.18); opacity: 1; }
+  }
+
+  /* Klick-/Tap-Welle auf Buttons */
+  .ripple {
+    position: absolute; border-radius: 50%; pointer-events: none;
+    background: rgba(255,255,255,0.32); transform: scale(0);
+    animation: ripple 0.65s ease-out forwards;
+  }
+  @keyframes ripple { to { transform: scale(1); opacity: 0; } }
+
+  /* Mobile Navigation: Einträge fahren gestaffelt ein */
+  .mobile-nav > * {
+    opacity: 0; transform: translateX(40px);
+    transition: opacity 0.4s ease, transform 0.55s cubic-bezier(0.2,0.7,0.2,1);
+  }
+  .mobile-nav.open > * { opacity: 1; transform: none; }
+  .mobile-nav.open > :nth-child(1) { transition-delay: 0.14s; }
+  .mobile-nav.open > :nth-child(2) { transition-delay: 0.19s; }
+  .mobile-nav.open > :nth-child(3) { transition-delay: 0.24s; }
+  .mobile-nav.open > :nth-child(4) { transition-delay: 0.29s; }
+  .mobile-nav.open > :nth-child(5) { transition-delay: 0.34s; }
+  .mobile-nav.open > :nth-child(6) { transition-delay: 0.39s; }
+  .mobile-nav.open > :nth-child(7) { transition-delay: 0.46s; }
+  .mobile-nav.open > :nth-child(8) { transition-delay: 0.52s; }
+  body.nav-open { overflow: hidden; }
+
+  /* Mobile Aktionsleiste: fährt rein, verschwindet am Kontaktbereich */
+  .action-bar a { position: relative; overflow: hidden; }
+  .js .action-bar { transform: translateY(110%); transition: transform 0.5s cubic-bezier(0.2,0.7,0.2,1); }
+  .js .action-bar.show { transform: none; }
+  .js .action-bar.show.away { transform: translateY(110%); }
+
+  /* Referenzen-Karussell: Punkte (nur mobil sichtbar) */
+  .ref-dots { display: none; justify-content: center; gap: 0.5rem; margin-top: 1.4rem; }
+  .ref-dots button {
+    width: 8px; height: 8px; border-radius: 99px; border: 0; padding: 0; cursor: pointer;
+    background: rgba(255,255,255,0.2); transition: width 0.35s cubic-bezier(0.2,0.7,0.2,1), background 0.35s;
+    position: relative;
+  }
+  .ref-dots button::after { content: ''; position: absolute; inset: -12px -6px; } /* größere Tippfläche */
+  .ref-dots button.active { width: 26px; background: var(--orange); }
+
+  /* ═══════════════ TOUCH-GERÄTE ═══════════════ */
+  /* Hover gibt es hier nicht: Karten „aktivieren“ sich, wenn sie in der
+     Bildschirmmitte stehen, und Buttons geben beim Tippen Feedback. */
+  @media (hover: none) {
+    html { -webkit-tap-highlight-color: transparent; }
+    .btn-primary:hover { transform: none; box-shadow: none; background: var(--orange); }
+    .btn-outline:hover { box-shadow: none; }
+    .btn-primary:active, .btn-outline:active, .action-bar a:active, .b-card:active { transform: scale(0.97); }
+    .b-card { transition: transform 0.2s ease; }
+
+    .b-card.in-view .b-bg img { transform: scale(1.07); filter: brightness(0.38); }
+    .b-card.in-view .b-overlay { background: linear-gradient(to top, rgba(3,4,8,0.93) 0%, rgba(3,4,8,0.35) 60%); }
+    .b-card.in-view .b-num { color: rgba(255,107,53,0.09); }
+    .b-card.in-view .b-desc { max-height: 90px; opacity: 1; }
+    .b-card.in-view .b-arrow { opacity: 1; transform: translateY(0); background: var(--orange); }
+
+    .l-card.in-view { border-color: rgba(255,107,53,0.35); box-shadow: 0 0 0 1px rgba(255,107,53,0.3), 0 0 34px rgba(255,107,53,0.18), 0 24px 60px rgba(0,0,0,0.5); }
+    .l-card.in-view::before { opacity: 1; }
+    .l-card.in-view .l-media img { transform: scale(1.07); }
+    .l-card.in-view .l-icon { background: rgba(255,107,53,0.2); box-shadow: 0 0 20px var(--orange-glow); }
+    .l-card.in-view .l-num { color: rgba(255,107,53,0.07); }
+  }
+
+  /* ═══════════════ MOBIL-FEINSCHLIFF ═══════════════ */
+  @media (max-width: 768px) {
+    body { background-attachment: scroll; padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+    .action-bar { padding-bottom: calc(0.7rem + env(safe-area-inset-bottom)); }
+    .mobile-nav { padding: calc(2rem + env(safe-area-inset-top)) 2rem calc(2rem + env(safe-area-inset-bottom)); gap: 1.5rem; overflow-y: auto; }
+    .mobile-nav a { font-size: 1.5rem; }
+
+    /* Hero wächst mit dem Inhalt statt ihn abzuschneiden */
+    .hero { height: auto; min-height: 100svh; padding-bottom: 3.5rem; }
+    .hero h1 { font-size: clamp(2.15rem, 10.2vw, 2.9rem); letter-spacing: -1px; }
+    .hero-sub { font-size: 0.98rem; }
+    .hero-actions .btn-primary, .hero-actions .btn-outline,
+    .cta-actions .btn-primary, .cta-actions .btn-outline { justify-content: center; }
+
+    /* Sektionen kompakter */
+    .leistungen, .bereiche, .referenzen, .ueber, .faq, .bewertungen { padding: 4.75rem 6%; }
+    .cta-section { padding: 5.5rem 6%; }
+    .section-header { margin-bottom: 2.4rem; }
+    .section-header p { font-size: 0.95rem; }
+    .l-card-inner { padding: 1.7rem; padding-top: 2.2rem; }
+
+    /* Infoband als 2er-Raster, Text darf umbrechen */
+    .info-band { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem 1rem; padding: 1.5rem 6%; }
+    .info-item { white-space: normal; align-items: flex-start; gap: 0.6rem; }
+    .info-item svg { margin-top: 2px; }
+    .info-item span span { font-size: 0.76rem; line-height: 1.45; display: block; }
+
+    /* Energien: Text steht über dem ganzen Bild → gleichmäßiger abdunkeln */
+    .energien-band { min-height: 0; }
+    .energien-scrim { background: linear-gradient(180deg, rgba(4,6,12,0.93) 0%, rgba(6,10,24,0.86) 100%); }
+    .energien-inner { padding: 4.75rem 6%; }
+
+    /* Über uns */
+    .ueber-box { height: 320px; }
+    .ueber-badge { width: 124px; height: 124px; right: -1.1rem; bottom: -1.1rem; }
+    .ueber-badge strong { font-size: 0.92rem; }
+    .reveal-left, .reveal-right { transform: translateY(40px); }
+    .perk { padding: 0.9rem 0.4rem; gap: 1rem; }
+    .perk.reveal-item { transform: translateY(20px); }
+
+    /* Referenzen als wischbares Karussell */
+    .ref-grid {
+      display: flex; gap: 1rem; overflow-x: auto; overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory; scroll-padding-inline: 6vw;
+      margin-inline: -6vw; padding: 0 6vw 0.4rem;
+      scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    }
+    .ref-grid::-webkit-scrollbar { display: none; }
+    .ref-grid .b-card { flex: 0 0 82%; height: 380px; scroll-snap-align: start; }
+    .js .ref-grid .b-card.reveal { opacity: 1; transform: none; clip-path: none; }
+    .js .ref-grid .b-card.reveal:not(.visible) .b-bg img { transform: none; }
+    .ref-dots { display: flex; }
+
+    .faq-q { font-size: 0.95rem; padding: 1.2rem 0; }
+    .faq-a p { font-size: 0.92rem; }
+    .footer-col ul li a { display: inline-block; padding: 0.15rem 0; }
+  }
+  @media (max-width: 380px) {
+    .info-band { grid-template-columns: 1fr; }
+    .hero-eyebrow { letter-spacing: 2px; font-size: 0.66rem; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important; transition-delay: 0s !important;
+    }
+    .reveal, .reveal-left, .reveal-right, .reveal-item { opacity: 1; transform: none; }
+    .split-word { opacity: 1; transform: none; filter: none; }
     .bw-track { animation: none; padding-bottom: 0; }
     .bw-card[data-dup] { display: none; }
     .bw-cols {
@@ -738,6 +994,7 @@
 
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 <div class="cursor-glow" id="cursorGlow"></div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <!-- MOBILE NAV -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
@@ -760,8 +1017,8 @@
 <!-- HEADER -->
 <header class="site-header" id="header">
   <div class="header-inner">
-    <a href="index.html" class="logo" aria-label="R. Ruge – Startseite">
-      <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" />
+    <a href="index.html" class="logo" aria-label="Zur Startseite von R. Ruge">
+      <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" />
     </a>
     <nav class="header-nav" aria-label="Hauptnavigation">
       <a href="leistungen.html">Leistungen</a>
@@ -798,7 +1055,7 @@
     <p class="hero-eyebrow"><span>Meisterbetrieb aus Steinheim an der Murr</span></p>
     <h1>Ihr Partner für<br><em>Heizung,</em><br>Sanitär &amp; Energie</h1>
     <p class="hero-sub">
-      Sanitär, Heizung und regenerative Energien – von der Planung bis zur
+      Sanitär, Heizung und regenerative Energien, von der Planung bis zur
       fertigen Anlage. Alles aus einer Hand, vom Meister persönlich.
     </p>
     <div class="hero-actions">
@@ -829,7 +1086,7 @@
   <div class="section-header reveal">
     <div class="section-eyebrow">Unsere Leistungen</div>
     <h2>Was wir für Sie leisten</h2>
-    <p>Vom Wasserhahn bis zur kompletten Heizungsanlage: Wir planen, installieren und warten Ihre Haustechnik – zuverlässig und aus einer Hand.</p>
+    <p>Vom Wasserhahn bis zur kompletten Heizungsanlage: Wir planen, installieren und warten Ihre Haustechnik, zuverlässig und aus einer Hand.</p>
   </div>
   <div style="text-align:center; margin-bottom: 2.5rem;">
     <a href="leistungen.html" class="l-link" style="justify-content:center;">Alle Leistungen im Detail ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -845,7 +1102,7 @@
         <div class="l-num">01</div>
         <div class="l-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
         <h3 class="l-title">Heizung &amp; Brennwerttechnik</h3>
-        <p class="l-desc">Moderne Heizsysteme, Kesseltausch und hydraulischer Abgleich – für spürbar niedrigere Verbrauchskosten und ein gleichmäßig warmes Zuhause.</p>
+        <p class="l-desc">Moderne Heizsysteme, Kesseltausch und hydraulischer Abgleich für spürbar niedrigere Verbrauchskosten und ein gleichmäßig warmes Zuhause.</p>
         <a href="#kontakt" class="l-link">Jetzt anfragen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
@@ -887,7 +1144,7 @@
         <div class="l-num">04</div>
         <div class="l-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <h3 class="l-title">Flaschnerei &amp; Spenglerei</h3>
-        <p class="l-desc">Dachrinnen, Verwahrungen, Kaminverkleidungen und Bleche – saubere Klempnerarbeit vom Meister im Klempner-Handwerk.</p>
+        <p class="l-desc">Dachrinnen, Verwahrungen, Kaminverkleidungen und Bleche: saubere Klempnerarbeit vom Meister im Klempner-Handwerk.</p>
         <a href="#kontakt" class="l-link">Jetzt anfragen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
@@ -967,7 +1224,7 @@
       </p>
       <ul class="energien-list">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Solarthermie für Warmwasser und Heizungsunterstützung</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Wärmepumpen – Luft/Wasser und Sole/Wasser</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Wärmepumpen, Luft/Wasser und Sole/Wasser</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Fotovoltaik und Infrarotheizung als Ergänzung</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Brennwerttechnik und hydraulischer Abgleich im Bestand</li>
       </ul>
@@ -984,7 +1241,7 @@
   <div class="section-header reveal">
     <div class="section-eyebrow">Leistungsbereiche</div>
     <h2>Für wen wir arbeiten</h2>
-    <p>Wir betreuen private Bauherren und Eigentümer in Steinheim an der Murr und der Umgebung – vom einzelnen Bad bis zur kompletten Haustechnik.</p>
+    <p>Wir betreuen private Bauherren und Eigentümer in Steinheim an der Murr und der Umgebung, vom einzelnen Bad bis zur kompletten Haustechnik.</p>
   </div>
   <div style="text-align:center; margin-bottom: 2.5rem;">
     <a href="bereiche.html" class="l-link" style="justify-content:center;">Alle Bereiche mit Standort &amp; Bauart ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -1010,7 +1267,7 @@
       <div class="b-content">
         <div class="b-tag">Sanierung</div>
         <h3 class="b-title">Sanierung &amp;<br>Modernisierung</h3>
-        <p class="b-desc">Alte Anlagen raus, effiziente Technik rein – Schritt für Schritt und bewohnbar.</p>
+        <p class="b-desc">Alte Anlagen raus, effiziente Technik rein, Schritt für Schritt und bewohnbar.</p>
         <div class="b-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </div>
     </a>
@@ -1037,7 +1294,7 @@
     <h2>Ausgeführte Projekte</h2>
     <p>Ein Ausschnitt aus Bädern, Heizungs- und Solaranlagen, die wir umgesetzt haben.</p>
   </div>
-  <div class="bereiche-grid">
+  <div class="bereiche-grid ref-grid">
 
     <a href="referenzen.html#bad-oberstenfeld" class="b-card reveal reveal-d1">
       <div class="b-bg"><img src="bad-modern.jpg" width="764" height="600" loading="lazy" decoding="async" alt="Modernes Bad mit wandhängendem WC nach dem Umbau" /></div>
@@ -1045,7 +1302,7 @@
       <div class="b-num">01</div>
       <div class="b-content">
         <div class="b-tag">Sanitär</div>
-        <h3 class="b-title">Badumbau –<br>Nachher</h3>
+        <h3 class="b-title">Badumbau<br>Nachher</h3>
         <p class="b-desc">Wandhängendes WC und moderne Fliesen nach der Komplettsanierung.</p>
         <div class="b-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </div>
@@ -1081,7 +1338,7 @@
       <div class="b-num">04</div>
       <div class="b-content">
         <div class="b-tag">Sanierung</div>
-        <h3 class="b-title">Badumbau –<br>Vorher</h3>
+        <h3 class="b-title">Badumbau<br>Vorher</h3>
         <p class="b-desc">Ausgangszustand vor Rückbau und kompletter Neuinstallation.</p>
         <div class="b-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </div>
@@ -1132,7 +1389,7 @@
       <div class="section-header left">
         <div class="section-eyebrow">Über uns</div>
         <h2>Handwerk, das<br />nachvollziehbar ist</h2>
-        <p>R. Ruge ist ein inhabergeführter Meisterbetrieb in Steinheim an der Murr. Sie sprechen mit dem Meister, der die Arbeit auch ausführt – kein Callcenter, keine anonyme Kette.</p>
+        <p>R. Ruge ist ein inhabergeführter Meisterbetrieb in Steinheim an der Murr. Sie sprechen mit dem Meister, der die Arbeit auch ausführt. Kein Callcenter, keine anonyme Kette.</p>
         <p><a href="ueber-uns.html" class="l-link">Mehr über uns erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
       </div>
       <div class="perks">
@@ -1142,7 +1399,7 @@
         </div>
         <div class="perk">
           <div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-          <div><h4>Meister im Klempner-Handwerk</h4><p>Abgelegt bei der Handwerkskammer Konstanz – Flaschnerei inklusive.</p></div>
+          <div><h4>Meister im Klempner-Handwerk</h4><p>Abgelegt bei der Handwerkskammer Konstanz, Flaschnerei inklusive.</p></div>
         </div>
         <div class="perk">
           <div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
@@ -1150,7 +1407,7 @@
         </div>
         <div class="perk">
           <div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div><h4>Regelmäßige Fortbildung</h4><p>Wärmepumpe, Trinkwasserhygiene, Regeltechnik – wir bleiben auf dem Stand der Technik.</p></div>
+          <div><h4>Regelmäßige Fortbildung</h4><p>Wärmepumpe, Trinkwasserhygiene, Regeltechnik: Wir bleiben auf dem Stand der Technik.</p></div>
         </div>
       </div>
     </div>
@@ -1203,7 +1460,7 @@
             </span>
             <svg class="bw-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
           </div>
-          <p class="bw-text">Unser Bad wurde komplett neu gemacht – vom ersten Aufmaß bis zur Endreinigung alles aus einer Hand. Termine wurden eingehalten und die Baustelle war jeden Abend aufgeräumt.</p>
+          <p class="bw-text">Unser Bad wurde komplett neu gemacht, vom ersten Aufmaß bis zur Endreinigung alles aus einer Hand. Termine wurden eingehalten und die Baustelle war jeden Abend aufgeräumt.</p>
           <div class="bw-person">
             <div class="bw-avatar" aria-hidden="true">MB</div>
             <div><div class="bw-name">Michael B.</div><div class="bw-meta">vor 2 Wochen</div></div>
@@ -1239,7 +1496,7 @@
             </span>
             <svg class="bw-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
           </div>
-          <p class="bw-text">Barrierefreie Dusche für meine Mutter eingebaut. Sehr rücksichtsvoll gearbeitet – die Wohnung war nach jedem Arbeitstag wieder normal nutzbar.</p>
+          <p class="bw-text">Barrierefreie Dusche für meine Mutter eingebaut. Sehr rücksichtsvoll gearbeitet, die Wohnung war nach jedem Arbeitstag wieder normal nutzbar.</p>
           <div class="bw-person">
             <div class="bw-avatar" aria-hidden="true">KM</div>
             <div><div class="bw-name">Karin M.</div><div class="bw-meta">vor 6 Wochen</div></div>
@@ -1357,7 +1614,7 @@
             </span>
             <svg class="bw-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
           </div>
-          <p class="bw-text">Nur eine kleine Reparatur an der Armatur – trotzdem schnell einen Termin bekommen. Hier fühlt man sich auch mit einem kleinen Auftrag ernst genommen.</p>
+          <p class="bw-text">Nur eine kleine Reparatur an der Armatur, trotzdem schnell einen Termin bekommen. Hier fühlt man sich auch mit einem kleinen Auftrag ernst genommen.</p>
           <div class="bw-person">
             <div class="bw-avatar" aria-hidden="true">ND</div>
             <div><div class="bw-name">Nicole D.</div><div class="bw-meta">vor 3 Tagen</div></div>
@@ -1382,7 +1639,7 @@
       <button class="faq-q" type="button">In welchem Umkreis sind Sie tätig?
         <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
-      <div class="faq-a"><p>Unser Betrieb sitzt in Steinheim an der Murr. Wir arbeiten in Steinheim und der näheren Umgebung – so bleiben die Wege kurz und wir sind bei Rückfragen schnell wieder vor Ort. Ob Ihr Ort dazugehört, klären wir in einem kurzen Telefonat.</p></div>
+      <div class="faq-a"><p>Unser Betrieb sitzt in Steinheim an der Murr. Wir arbeiten in Steinheim und der näheren Umgebung. So bleiben die Wege kurz und wir sind bei Rückfragen schnell wieder vor Ort. Ob Ihr Ort dazugehört, klären wir in einem kurzen Telefonat.</p></div>
     </div>
 
     <div class="faq-item">
@@ -1396,7 +1653,7 @@
       <button class="faq-q" type="button">Übernehmen Sie auch kleine Reparaturen?
         <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
-      <div class="faq-a"><p>Ja. Tropfende Armatur, defekte Spülung, verstopfter Ablauf oder eine Heizung, die nicht mehr warm wird: Auch kleine Aufträge gehören zu unserem Alltag – melden Sie sich einfach.</p></div>
+      <div class="faq-a"><p>Ja. Tropfende Armatur, defekte Spülung, verstopfter Ablauf oder eine Heizung, die nicht mehr warm wird: Auch kleine Aufträge gehören zu unserem Alltag. Melden Sie sich einfach.</p></div>
     </div>
 
     <div class="faq-item">
@@ -1410,7 +1667,7 @@
       <button class="faq-q" type="button">Lohnt sich der Umstieg auf erneuerbare Energien für mein Haus?
         <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
-      <div class="faq-a"><p>Das hängt von Baujahr, Dämmzustand, Heizflächen und Ihrem Verbrauch ab. Wir schauen uns die Anlage an und sagen Ihnen ehrlich, ob sich ein Wechsel rechnet – oder ob zunächst kleinere Maßnahmen wie ein hydraulischer Abgleich sinnvoller sind.</p></div>
+      <div class="faq-a"><p>Das hängt von Baujahr, Dämmzustand, Heizflächen und Ihrem Verbrauch ab. Wir schauen uns die Anlage an und sagen Ihnen ehrlich, ob sich ein Wechsel rechnet oder ob zunächst kleinere Maßnahmen wie ein hydraulischer Abgleich sinnvoller sind.</p></div>
     </div>
 
     <div class="faq-item">
@@ -1428,7 +1685,7 @@
   <div class="cta-inner reveal">
     <div class="section-eyebrow">Kostenlos &amp; unverbindlich</div>
     <h2>Jetzt Angebot<br>anfragen</h2>
-    <p>Schildern Sie uns kurz Ihr Vorhaben – wir melden uns persönlich bei Ihnen zurück und besprechen die nächsten Schritte.</p>
+    <p>Schildern Sie uns kurz Ihr Vorhaben. Wir melden uns persönlich bei Ihnen zurück und besprechen die nächsten Schritte.</p>
     <div class="cta-actions">
       <a href="kontakt.php" class="btn-primary">
         Zum Kontaktformular
@@ -1445,8 +1702,8 @@
 <footer class="site-footer">
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="index.html" class="footer-logo" aria-label="R. Ruge – Startseite">
-        <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" loading="lazy" />
+      <a href="index.html" class="footer-logo" aria-label="Zur Startseite von R. Ruge">
+        <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" loading="lazy" />
       </a>
       <p>Inhabergeführter Meisterbetrieb für Sanitär, Heizung, regenerative Energien und Flaschnerei in Steinheim an der Murr.</p>
     </div>
@@ -1511,30 +1768,38 @@
 <noscript><style>.reveal,.reveal-left,.reveal-right{opacity:1!important;transform:none!important;}</style></noscript>
 
 <script>
-  // Cursor glow
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var touchLike = window.matchMedia('(hover: none)').matches;
+  var mqMobile = window.matchMedia('(max-width: 768px)');
+  var hasIO = 'IntersectionObserver' in window;
+  if (!reduce) root.classList.add('js-parallax');
+
+  // Cursor glow (per rAF, damit mousemove nicht jedes Mal layoutet)
   var glow = document.getElementById('cursorGlow');
   if (glow && window.matchMedia('(pointer:fine)').matches) {
+    var gx = 0, gy = 0, gPending = false;
     document.addEventListener('mousemove', function (e) {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top  = e.clientY + 'px';
+      gx = e.clientX; gy = e.clientY;
+      if (gPending) return;
+      gPending = true;
+      requestAnimationFrame(function () { glow.style.left = gx + 'px'; glow.style.top = gy + 'px'; gPending = false; });
     });
   }
 
-  // Header scroll shadow
+  // Mobile nav (mit Scroll-Sperre im Hintergrund)
   var header = document.getElementById('header');
-  if (header) {
-    var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 20); };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
-  // Mobile nav
   var burger = document.getElementById('hamburger');
   var mobileNav = document.getElementById('mobileNav');
   function setNav(open) {
+    if (!burger || !mobileNav) return;
     mobileNav.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    if (open && header) header.classList.remove('hide');
   }
   if (burger && mobileNav) {
     burger.addEventListener('click', function () { setNav(!mobileNav.classList.contains('open')); });
@@ -1542,25 +1807,91 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setNav(false); });
   }
 
+  /* ── Überschriften in Wörter zerlegen ──
+     Textknoten werden pro Wort in <span class="split-word"> gepackt, Elemente
+     (z. B. <em>, .word-green) bleiben als Ganzes erhalten, <br> bleibt stehen.
+     aria-label hält den Satz für Screenreader zusammen. */
+  function splitWords(el) {
+    var i = 0;
+    el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+    Array.prototype.slice.call(el.childNodes).forEach(function (n) {
+      if (n.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+          var s = document.createElement('span');
+          s.className = 'split-word'; s.style.setProperty('--wi', i++); s.textContent = part;
+          frag.appendChild(s);
+        });
+        el.replaceChild(frag, n);
+      } else if (n.nodeType === 1 && n.tagName !== 'BR') {
+        var w = document.createElement('span');
+        w.className = 'split-word'; w.style.setProperty('--wi', i++);
+        el.replaceChild(w, n); w.appendChild(n);
+      }
+    });
+    el.classList.add('is-split');
+  }
+  if (!reduce && hasIO) {
+    document.querySelectorAll('.hero h1, .section-header h2, .energien-copy h2, .cta-section h2').forEach(splitWords);
+  }
+
   // Scroll reveal
   var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-  if ('IntersectionObserver' in window) {
+  if (hasIO) {
     var revealObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
-    }, { threshold: 0.12 });
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target;
+        el.classList.add('visible');
+        revealObs.unobserve(el);
+        // Karten nach dem Einblenden von den Reveal-Klassen befreien, damit
+        // ihre eigenen Hover-Übergänge (Lift, Neigung) wieder greifen
+        if (el.classList.contains('l-card') || el.classList.contains('b-card')) {
+          setTimeout(function () { el.classList.remove('reveal', 'reveal-d1', 'reveal-d2', 'reveal-d3', 'visible'); }, 1500);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
     revealEls.forEach(function (el) { revealObs.observe(el); });
-    setTimeout(function () { revealEls.forEach(function (el) { el.classList.add('visible'); }); }, 4000);
+    // Sicherheitsnetz: alles, was schon im oder über dem Viewport liegt, zeigen
+    setTimeout(function () {
+      revealEls.forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); });
+    }, 4000);
+    window.addEventListener('beforeprint', function () { revealEls.forEach(function (el) { el.classList.add('visible'); }); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('visible'); });
   }
 
+  // Gestaffelte Einzel-Elemente: was im selben Moment ins Bild kommt, erscheint nacheinander
+  if (hasIO && !reduce) {
+    var items = document.querySelectorAll('.perk, .energien-list li, .faq-item, .info-band .info-item, .footer-top > div');
+    items.forEach(function (el) { el.classList.add('reveal-item'); });
+    var itemObs = new IntersectionObserver(function (entries) {
+      var k = 0;
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, d = k++ * 90;
+        el.style.transitionDelay = d + 'ms';
+        el.classList.add('visible');
+        itemObs.unobserve(el);
+        setTimeout(function () { el.classList.remove('reveal-item', 'visible'); el.style.transitionDelay = ''; }, d + 900);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+    items.forEach(function (el) { itemObs.observe(el); });
+  }
+
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.setAttribute('aria-expanded', 'false');
     btn.addEventListener('click', function () {
       var item = btn.closest('.faq-item');
       var wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(function (i) { i.classList.remove('open'); });
-      if (!wasOpen) item.classList.add('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (i) {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
     });
   });
 
@@ -1572,10 +1903,10 @@
       var t = document.querySelector(id);
       if (!t) return;
       e.preventDefault();
-      var headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'), 10) || 86;
+      var headerH = parseInt(getComputedStyle(root).getPropertyValue('--header-h'), 10) || 86;
       var top = t.getBoundingClientRect().top + window.pageYOffset - headerH - 10;
-      window.scrollTo({ top: top, behavior: 'smooth' });
-      setNav && setNav(false);
+      window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+      setNav(false);
     });
   });
 
@@ -1594,9 +1925,200 @@
       track.appendChild(clone);
     });
   });
+
+  // Bewertungsnote zählt hoch, sobald sie sichtbar wird
+  var score = document.querySelector('.bw-score');
+  if (score && hasIO && !reduce) {
+    var target = parseFloat(score.textContent.replace(',', '.')) || 0;
+    var scoreObs = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      scoreObs.disconnect();
+      var t0 = performance.now(), dur = 1300;
+      (function tick(now) {
+        var p = Math.min(1, (now - t0) / dur), eased = 1 - Math.pow(1 - p, 3);
+        score.textContent = (target * eased).toFixed(1).replace('.', ',');
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+    }, { threshold: 0.6 });
+    scoreObs.observe(score);
+  }
+
+  // Desktop: Karten neigen sich zum Cursor, Haupt-Buttons sind leicht „magnetisch“
+  if (finePointer && !reduce) {
+    document.querySelectorAll('.l-card').forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        card.style.setProperty('--ry', ((px - 0.5) * 7).toFixed(2) + 'deg');
+        card.style.setProperty('--rx', ((0.5 - py) * 7).toFixed(2) + 'deg');
+        card.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+        card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+      });
+      card.addEventListener('pointerleave', function () {
+        card.style.setProperty('--rx', '0deg'); card.style.setProperty('--ry', '0deg');
+      });
+    });
+    document.querySelectorAll('.hero-actions a, .cta-actions a, .energien-copy .btn-primary').forEach(function (btn) {
+      btn.addEventListener('pointermove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var dx = (e.clientX - (r.left + r.width / 2)) * 0.22, dy = (e.clientY - (r.top + r.height / 2)) * 0.35;
+        btn.style.translate = dx.toFixed(1) + 'px ' + dy.toFixed(1) + 'px';
+      });
+      btn.addEventListener('pointerleave', function () { btn.style.translate = ''; });
+    });
+  }
+
+  // Tap-/Klick-Welle
+  if (!reduce) {
+    document.querySelectorAll('.btn-primary, .btn-outline, .action-bar a').forEach(function (btn) {
+      btn.addEventListener('pointerdown', function (e) {
+        var r = btn.getBoundingClientRect(), size = Math.max(r.width, r.height) * 2.2;
+        var s = document.createElement('span');
+        s.className = 'ripple';
+        s.style.width = s.style.height = size + 'px';
+        s.style.left = (e.clientX - r.left - size / 2) + 'px';
+        s.style.top = (e.clientY - r.top - size / 2) + 'px';
+        btn.appendChild(s);
+        s.addEventListener('animationend', function () { s.remove(); });
+      });
+    });
+  }
+
+  // Touch: Karte in der Bildschirmmitte zeigt ihren Hover-Zustand
+  var refGrid = document.querySelector('.ref-grid');
+  if (touchLike && hasIO) {
+    var toggleInView = function (entries) { entries.forEach(function (e) { e.target.classList.toggle('in-view', e.isIntersecting); }); };
+    var centerObs = new IntersectionObserver(toggleInView, { rootMargin: '-38% 0px -38% 0px' });
+    document.querySelectorAll('.l-card, .bereiche-bento .b-card').forEach(function (el) { centerObs.observe(el); });
+    if (refGrid) {
+      if (mqMobile.matches) {
+        var carouselObs = new IntersectionObserver(toggleInView, { root: refGrid, threshold: 0.75 });
+        refGrid.querySelectorAll('.b-card').forEach(function (el) { carouselObs.observe(el); });
+      } else {
+        refGrid.querySelectorAll('.b-card').forEach(function (el) { centerObs.observe(el); });
+      }
+    }
+  }
+
+  // Referenzen-Karussell (mobil): Punkte + einmaliger „Wisch mich“-Hinweis
+  if (refGrid) {
+    var refCards = refGrid.querySelectorAll('.b-card');
+    var dots = document.createElement('div');
+    dots.className = 'ref-dots';
+    refCards.forEach(function (card, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Projekt ' + (i + 1) + ' anzeigen');
+      b.addEventListener('click', function () {
+        refGrid.scrollTo({ left: card.offsetLeft - refCards[0].offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+      });
+      dots.appendChild(b);
+    });
+    refGrid.parentNode.insertBefore(dots, refGrid.nextSibling);
+    var dotBtns = dots.querySelectorAll('button');
+    var updateDots = function () {
+      if (refCards.length < 2) return;
+      var step = refCards[1].offsetLeft - refCards[0].offsetLeft;
+      var max = refGrid.scrollWidth - refGrid.clientWidth;
+      var idx = refGrid.scrollLeft >= max - 4 ? refCards.length - 1 : Math.round(refGrid.scrollLeft / step);
+      dotBtns.forEach(function (b, i) { b.classList.toggle('active', i === idx); });
+    };
+    updateDots();
+    refGrid.addEventListener('scroll', function () { requestAnimationFrame(updateDots); }, { passive: true });
+    window.addEventListener('resize', updateDots);
+
+    if (hasIO && !reduce) {
+      var nudgeObs = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting || !mqMobile.matches || refGrid.scrollLeft > 0) return;
+        nudgeObs.disconnect();
+        refGrid.style.scrollSnapType = 'none';
+        setTimeout(function () { refGrid.scrollBy({ left: 70, behavior: 'smooth' }); }, 500);
+        setTimeout(function () { refGrid.scrollTo({ left: 0, behavior: 'smooth' }); }, 1150);
+        setTimeout(function () { refGrid.style.scrollSnapType = ''; }, 1900);
+      }, { threshold: 0.6 });
+      nudgeObs.observe(refGrid);
+    }
+  }
+
+  // Mobile Aktionsleiste: kurz nach dem Laden einfahren, am Kontaktbereich weg
+  var bar = document.querySelector('.action-bar');
+  if (bar) {
+    setTimeout(function () { bar.classList.add('show'); }, 900);
+    if (hasIO) {
+      var awayTargets = document.querySelectorAll('.cta-section, footer.site-footer');
+      var awayState = new Map();
+      var awayObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { awayState.set(e.target, e.isIntersecting); });
+        var any = false;
+        awayState.forEach(function (v) { if (v) any = true; });
+        bar.classList.toggle('away', any);
+      }, { threshold: 0.25 });
+      awayTargets.forEach(function (el) { awayObs.observe(el); });
+    }
+  }
+
+  /* ── Ein Scroll-Handler für alles, was am Scroll hängt ──
+     Header-Zustand, Fortschrittsbalken, Header-Autohide (mobil) und Parallax. */
+  var progress = document.getElementById('scrollProgress');
+  var hero = document.getElementById('hero');
+  var heroMedia = hero && hero.querySelector('.hero-media');
+  var heroContent = hero && hero.querySelector('.hero-content');
+  var enSec = document.getElementById('energien');
+  var enMedia = enSec && enSec.querySelector('.energien-media');
+  var cta = document.getElementById('kontakt');
+  var lastY = window.pageYOffset, ticking = false;
+
+  function sectionProgress(el, vh) {
+    var r = el.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > vh) return null;
+    return (r.top + r.height / 2 - vh / 2) / (vh + r.height); // ca. -0.5 … 0.5
+  }
+
+  function frame() {
+    ticking = false;
+    var y = window.pageYOffset, vh = window.innerHeight;
+    var max = document.documentElement.scrollHeight - vh;
+
+    if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0).toFixed(4) + ')';
+    if (header) {
+      header.classList.toggle('scrolled', y > 20);
+      var navOpen = mobileNav && mobileNav.classList.contains('open');
+      if (mqMobile.matches && !navOpen) {
+        if (y > lastY + 4 && y > 320) header.classList.add('hide');
+        else if (y < lastY - 4 || y <= 320) header.classList.remove('hide');
+      } else {
+        header.classList.remove('hide');
+      }
+    }
+    lastY = y;
+    if (reduce) return;
+
+    if (hero && heroMedia && heroContent) {
+      var hh = hero.offsetHeight;
+      if (y < hh) {
+        heroMedia.style.transform = 'translate3d(0,' + (y * 0.35).toFixed(1) + 'px,0)';
+        heroContent.style.transform = 'translate3d(0,' + (y * 0.12).toFixed(1) + 'px,0)';
+        heroContent.style.opacity = Math.max(0, 1 - y / (hh * 0.85)).toFixed(3);
+      }
+    }
+    if (enSec && enMedia) {
+      var p = sectionProgress(enSec, vh);
+      if (p !== null) enMedia.style.transform = 'translate3d(0,' + (-p * enSec.offsetHeight * 0.28).toFixed(1) + 'px,0)';
+    }
+    if (cta) {
+      var pc = sectionProgress(cta, vh);
+      if (pc !== null) cta.style.setProperty('--cta-x', (pc * -260).toFixed(1) + 'px');
+    }
+  }
+  function requestFrame() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', requestFrame, { passive: true });
+  window.addEventListener('resize', requestFrame);
+  frame();
+})();
 </script>
 </body>
 </html>
+
 
 
 
