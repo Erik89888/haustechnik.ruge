@@ -20,9 +20,10 @@ declare(strict_types=1);
 
 $config = require __DIR__ . '/config.php';
 
-require_once __DIR__ . '/libs/PHPMailer/src/Exception.php';
-require_once __DIR__ . '/libs/PHPMailer/src/PHPMailer.php';
-require_once __DIR__ . '/libs/PHPMailer/src/SMTP.php';
+// PHPMailer liegt (wie alles im Repo) direkt neben dieser Datei
+require_once __DIR__ . '/Exception.php';
+require_once __DIR__ . '/PHPMailer.php';
+require_once __DIR__ . '/SMTP.php';
 
 use PHPMailer\PHPMailer\Exception as MailerException;
 use PHPMailer\PHPMailer\PHPMailer;

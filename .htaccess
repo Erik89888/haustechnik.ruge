@@ -32,9 +32,11 @@ DirectoryIndex index.html index.php
     # Header always set Strict-Transport-Security "max-age=31536000"
 </IfModule>
 
-# ── Konfigurationsdatei nicht ausliefern ───────────────────────────────────
-# Greift falls PHP einmal ausfällt und die Datei sonst im Klartext erscheint.
-<Files "config.php">
+# ── Konfiguration und PHPMailer-Klassen nicht direkt ausliefern ────────────
+# config.php: greift falls PHP einmal ausfällt und die Datei sonst im Klartext
+# erscheint. Exception/PHPMailer/SMTP.php werden nur von kontakt.php geladen
+# (liegen flach im Hauptordner statt in libs/).
+<FilesMatch "^(config|Exception|PHPMailer|SMTP)\.php$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
@@ -42,7 +44,7 @@ DirectoryIndex index.html index.php
         Order allow,deny
         Deny from all
     </IfModule>
-</Files>
+</FilesMatch>
 
 # ── Verzeichnisauflistung verhindern ───────────────────────────────────────
 Options -Indexes
