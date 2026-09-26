@@ -95,9 +95,17 @@ header.site-header.hide { transform: translateY(-100%); }
 .js .b-card.reveal .b-bg img { transition: transform 1.3s cubic-bezier(0.2,0.7,0.2,1), filter 0.4s; }
 .js .b-card.reveal:not(.visible) .b-bg img { transform: scale(1.2); }
 
-/* ── Service-Videos: öffnen sich wie ein Vorhang ── */
-.js .svc-video.reveal { clip-path: inset(0 0 100% 0 round 12px); transition-property: opacity, transform, clip-path; transition-duration: 0.8s, 0.9s, 1.2s; }
-.js .svc-video.reveal.visible { clip-path: inset(0 0 0 0 round 12px); }
+/* ── Service-Videos: öffnen sich wie ein Vorhang ──
+   Bewusst KEIN clip-path auf .svc-video selbst: Chrome rechnet den eigenen
+   Clip in den IntersectionObserver ein, ein ganz weggeclipptes Element gilt
+   dann nie als sichtbar. Folge: kein "visible" und kein Autoplay, das Video
+   bleibt dauerhaft verdeckt. Stattdessen zieht sich eine Blende (::before) weg. */
+.js .svc-video.reveal::before {
+  content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: #0a1929; transform-origin: 50% 100%;
+  transition: transform 1.2s cubic-bezier(0.77,0,0.175,1) 0.1s;
+}
+.js .svc-video.reveal.visible::before { transform: scaleY(0); }
 
 /* ── Bereiche: Titelbild zoomt beim Einblenden zurück, Etikett gleitet herein ── */
 .js .bereich-media { clip-path: inset(0 0 12% 0); transition: clip-path 1.2s cubic-bezier(0.2,0.7,0.2,1); }
@@ -202,6 +210,61 @@ body.nav-open { overflow: hidden; }
 .js .action-bar.show { transform: none; }
 .js .action-bar.show.away { transform: translateY(110%); }
 
+/* ════════════ KONTAKT (kontakt.php) ════════════ */
+
+/* Seitenkopf: Linie zeichnet sich, Überschrift Wort für Wort, Glow schwebt */
+.page-head .eyebrow { animation: fadeUpIn 0.8s cubic-bezier(0.2,0.7,0.2,1) 0.15s both; }
+.page-head .eyebrow::before { transform-origin: left center; animation: lineGrow 0.9s cubic-bezier(0.2,0.7,0.2,1) 0.35s both; }
+.page-head h1 .split-word { animation: wordIn 0.9s cubic-bezier(0.2,0.7,0.2,1) both; animation-delay: calc(0.25s + var(--wi, 0) * 0.08s); }
+.page-head .inner > p { animation: fadeUpIn 0.8s cubic-bezier(0.2,0.7,0.2,1) 0.6s both; }
+.page-head::after { animation: orbFloat 12s ease-in-out infinite; }
+@keyframes fadeUpIn { from { opacity: 0; transform: translateY(24px); } }
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-30px, 30px) scale(1.06); }
+  66%      { transform: translate(20px, -15px) scale(0.95); }
+}
+
+/* Formularkarte: Icon ploppt auf */
+.form-card.visible .form-card-icon { animation: iconPop 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.25s both; }
+
+/* Anliegen-Kacheln: Icon hüpft bei Auswahl */
+.topic-option label { transition: all 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1); }
+.topic-option label:active { transform: scale(0.95); }
+.topic-option input:checked + label svg { animation: topicPop 0.45s cubic-bezier(0.34,1.56,0.64,1); }
+.topic-option input:focus-visible + label { outline: 2px solid var(--orange); outline-offset: 2px; }
+@keyframes topicPop { 40% { transform: scale(1.35) rotate(-8deg); } }
+
+/* Felder: Beschriftung leuchtet beim Ausfüllen auf */
+.field label { transition: color 0.25s; }
+.field:focus-within label { color: var(--orange); }
+
+/* Fehler: Hinweis schüttelt kurz, Feldfehler blenden ein */
+.form-status.err.show { animation: shake 0.5s cubic-bezier(0.36,0.07,0.19,0.97) 0.4s both; }
+.field-error { animation: fadeUpIn 0.4s ease both; }
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-6px); }
+  40%, 60% { transform: translateX(6px); }
+}
+
+/* Absenden: Lade-Kreisel, solange die Anfrage unterwegs ist */
+.btn-primary[aria-busy="true"] { pointer-events: none; opacity: 0.85; }
+.btn-primary[aria-busy="true"]::after {
+  content: ''; width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.35); border-top-color: #fff;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Danke-Seite: Kreis pulsiert, Haken zeichnet sich */
+.success-icon { animation: successPop 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.3s both, successRing 2.4s ease-out 1s infinite; }
+.success-icon svg polyline { stroke-dasharray: 30; stroke-dashoffset: 30; animation: drawCheck 0.6s ease-out 0.8s forwards; }
+@keyframes successPop { from { opacity: 0; transform: scale(0.3); } }
+@keyframes successRing { 0% { box-shadow: 0 0 0 0 var(--orange-glow); } 70%, 100% { box-shadow: 0 0 0 18px rgba(255,107,53,0); } }
+@keyframes drawCheck { to { stroke-dashoffset: 0; } }
+
 /* ════════════ TOUCH-GERÄTE ════════════
    Kein Hover: Karten und Galeriebilder zeigen ihren Hover-Zustand, wenn sie
    in der Bildschirmmitte stehen; Buttons geben beim Tippen Feedback. */
@@ -259,6 +322,15 @@ body.nav-open { overflow: hidden; }
   .ueber-badge { width: 124px; height: 124px; right: -1.1rem; bottom: -1.1rem; }
   .ueber-badge strong { font-size: 0.92rem; }
   .ueber-box { height: 320px; }
+
+  /* Kontakt: 16px in Feldern verhindert das automatische Hineinzoomen auf iOS */
+  .field input, .field select, .field textarea { font-size: 16px; }
+  .topic-option:last-child { grid-column: 1 / -1; }
+  .topic-option label { padding: 0.85rem 0.4rem; }
+  .page-head h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
+  .success-panel { padding: 2.2rem 1.4rem; }
+  .success-panel .cta-actions { flex-direction: column; align-items: stretch; }
+  .success-panel .cta-actions a { justify-content: center; }
 }
 @media (max-width: 380px) {
   .info-band { grid-template-columns: 1fr; }
