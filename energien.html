@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Regenerative Energien – Sonne, Wärmepumpe &amp; Fotovoltaik | R. Ruge</title>
+<title>Regenerative Energien: Sonne, Wärmepumpe &amp; Fotovoltaik | R. Ruge</title>
 <meta name="description" content="Wärmepumpe, Solarthermie, Fotovoltaik und Infrarotheizung von R. Ruge: ehrliche Beratung zu regenerativen Energien für Ihr Zuhause in Steinheim an der Murr." />
 <meta name="theme-color" content="#01328F" />
 <link rel="icon" type="image/png" href="favicon.ruge.png" />
@@ -11,13 +11,14 @@
 
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="de_DE" />
-<meta property="og:title" content="Regenerative Energien – R. Ruge" />
-<meta property="og:description" content="Wärmepumpe, Solarthermie, Fotovoltaik und Infrarotheizung – ehrliche Beratung statt Verkaufsdruck." />
+<meta property="og:title" content="Regenerative Energien | R. Ruge" />
+<meta property="og:description" content="Wärmepumpe, Solarthermie, Fotovoltaik und Infrarotheizung. Ehrliche Beratung statt Verkaufsdruck." />
 <meta property="og:image" content="energien-hero-poster.jpg" />
 
 <link rel="preload" href="inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="fonts.css" />
+<script>document.documentElement.classList.add('js');</script>
 
 <style>
   :root {
@@ -400,7 +401,7 @@
     position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(100deg, rgba(4,6,12,0.97) 0%, rgba(6,10,24,0.92) 34%, rgba(8,14,32,0.55) 62%, rgba(8,14,32,0.12) 100%);
   }
-  /* Herstellerzeichen oben rechts im Band – helle Karte, damit das rote
+  /* Herstellerzeichen oben rechts im Band: helle Karte, damit das rote
      NIBE-Logo auch auf dem dunklen Bild sauber steht. */
   .nibe-badge {
     position: absolute; z-index: 3; top: 2rem; right: 6%;
@@ -435,9 +436,30 @@
     }
   }
 
-  /* ── FÖRDERUNG ── */
-  .funding { padding: 5rem 6%; background: var(--wave-down); text-align: center; }
-  .funding-inner { max-width: 720px; margin-inline: auto; }
+  /* ── FÖRDERUNG (Foto-Banner) ── */
+  .funding {
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; min-height: 460px;
+    padding: 6rem 6%; text-align: center;
+    background: var(--navy-mid-blue); scroll-margin-top: 5rem;
+  }
+  .funding-media { position: absolute; inset: 0; z-index: 0; }
+  .funding-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+  /* Der Verlauf beginnt oben im Blau der Infrarot-Sektion und endet unten im
+     Dunkel der FAQ-Sektion. Dadurch bleiben beide Nähte unsichtbar und das
+     Foto zeigt sich nur in der Mitte, wo kein Text steht. */
+  .funding-scrim {
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      radial-gradient(ellipse at 50% 42%, rgba(255,107,53,0.1) 0%, transparent 62%),
+      linear-gradient(to bottom,
+        #0b1330 0%, rgba(11,19,48,0.9) 12%, rgba(7,11,30,0.72) 34%,
+        rgba(5,8,22,0.74) 62%, rgba(4,5,12,0.93) 86%, #04050a 100%);
+  }
+  .funding-inner { position: relative; z-index: 2; max-width: 720px; margin-inline: auto; }
+  @media (max-width: 768px) {
+    .funding { min-height: 0; padding: 4.5rem 6%; }
+  }
 
   /* ── FAQ ── */
   .faq { padding: 5rem 6%; background: var(--wave-up); }
@@ -508,8 +530,8 @@
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ── FOOTER ── */
-  /* Wellenende: cta läuft dunkel aus, Footer trägt einen vollen Bogen */
-  footer.site-footer { background: var(--wave-full); border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
+  /* Seitenabschluss: durchgehend schwarz, kein Verlauf */
+  footer.site-footer { background: #000; border-top: 1px solid var(--border); padding: 3.5rem 6% 2rem; }
   .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.8rem; }
   .footer-logo { display: inline-block; margin-bottom: 1.1rem; }
   .footer-logo img { height: 46px; width: auto; }
@@ -581,6 +603,7 @@
     .gal-span-3, .gal-span-4 { grid-column: span 2; }
   }
 </style>
+<link rel="stylesheet" href="motion.css" />
 </head>
 
 <body>
@@ -608,8 +631,8 @@
 <!-- ══ HEADER ══ -->
 <header class="site-header" id="header">
   <div class="header-inner">
-    <a href="index.html" class="logo" aria-label="R. Ruge – Startseite">
-      <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" />
+    <a href="index.html" class="logo" aria-label="Zur Startseite von R. Ruge">
+      <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" />
     </a>
     <nav class="header-nav" aria-label="Hauptnavigation">
       <a href="leistungen.html">Leistungen</a>
@@ -708,7 +731,7 @@
     <div class="section-header reveal">
       <div class="section-eyebrow">Im Überblick</div>
       <h2>Drei Technologien, ein Ziel:<br /><em>weniger Kosten</em></h2>
-      <p>Ob Wärmepumpe, Solarthermie, Fotovoltaik oder Infrarotheizung – jede Technologie hat ihre Stärken. Wir zeigen Ihnen, was zu Ihrem Gebäude, Ihrem Verbrauch und Ihrem Budget passt, und rechnen ehrlich vor, was sich wirklich lohnt.</p>
+      <p>Jede Technologie hat ihre Stärken, ob Wärmepumpe, Solarthermie, Fotovoltaik oder Infrarotheizung. Wir zeigen Ihnen, was zu Ihrem Gebäude, Ihrem Verbrauch und Ihrem Budget passt, und rechnen ehrlich vor, was sich wirklich lohnt.</p>
     </div>
   </div>
 </section>
@@ -720,19 +743,19 @@
       <div class="svc-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
       </div>
-      <h2>Wärmepumpe – Heizen mit Umweltenergie</h2>
+      <h2>Wärmepumpe: Heizen mit Umweltenergie</h2>
     </div>
     <p class="svc-intro reveal">
       Eine Wärmepumpe entzieht der Luft, dem Erdreich oder dem Grundwasser Wärme und macht sie
       mit Strom statt Öl oder Gas nutzbar. Richtig ausgelegt arbeitet sie auch im Bestand
-      effizient – vor allem in Kombination mit einem hydraulischen Abgleich und passenden
+      effizient, vor allem in Kombination mit einem hydraulischen Abgleich und passenden
       Heizflächen.
     </p>
 
     <div class="svc-gallery reveal" data-gallery="waermepumpe">
-      <button class="gal-item gal-span-2" type="button" data-full="https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Wärmepumpe – Außeneinheit">
+      <button class="gal-item gal-span-2" type="button" data-full="https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Außeneinheit einer Wärmepumpe">
         <img src="https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&amp;fit=crop&amp;w=1000&amp;h=800&amp;q=80" width="1000" height="800" loading="lazy" decoding="async" alt="Außeneinheit einer Luft-Wasser-Wärmepumpe neben einem Wohnhaus" />
-        <span class="gal-cap">Wärmepumpe – Außeneinheit</span>
+        <span class="gal-cap">Außeneinheit einer Wärmepumpe</span>
         <span class="gal-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
       </button>
       <button class="gal-item" type="button" data-full="https://images.unsplash.com/photo-1738617456836-521b634c0141?auto=format&amp;fit=crop&amp;w=1600&amp;h=1600&amp;q=80" data-caption="Außeneinheit an der Hauswand">
@@ -774,7 +797,7 @@
       <div class="svc-text-col reveal">
         <p>
           Ob Neubau oder Bestand: Wir prüfen Gebäudehülle, Heizflächen und Verbrauch, bevor wir
-          Ihnen eine Wärmepumpe empfehlen – nicht andersherum.
+          Ihnen eine Wärmepumpe empfehlen, nicht andersherum.
         </p>
         <a href="kontakt.php" class="btn-outline">
           Wärmepumpe anfragen
@@ -800,7 +823,7 @@
             <h2>Unsere Wärmepumpen<br />kommen von <span class="word-accent">NIBE</span>.</h2>
             <p>
               Wir planen, montieren und warten Wärmepumpen dieses Herstellers. Die
-              Produktübersicht wird laufend von NIBE gepflegt – Sie sehen hier also
+              Produktübersicht wird laufend von NIBE gepflegt. Sie sehen hier also
               immer den aktuellen Stand.
             </p>
             <ul class="nibe-list">
@@ -812,7 +835,7 @@
               Zu unseren Wärmepumpen
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <span class="nibe-hint">Öffnet unsere NIBE-Produktseite – die Inhalte dort stammen von NIBE</span>
+            <span class="nibe-hint">Öffnet unsere NIBE-Produktseite. Die Inhalte dort stammen von NIBE</span>
           </div>
         </div>
       </div>
@@ -827,7 +850,7 @@
       <div class="svc-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </div>
-      <h2>Solarthermie &amp; Fotovoltaik – Energie von Ihrem Dach</h2>
+      <h2>Solarthermie &amp; Fotovoltaik: Energie von Ihrem Dach</h2>
     </div>
     <p class="svc-intro reveal">
       Solarthermie erwärmt Ihr Trinkwasser und unterstützt die Heizung, Fotovoltaik erzeugt
@@ -904,7 +927,7 @@
       <div class="svc-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 8.5a5 5 0 0 1 7 7M5.5 5.5a9 9 0 0 1 13 13"/><circle cx="12" cy="12" r="1"/></svg>
       </div>
-      <h2>Infrarotheizung – punktuelle Wärme ohne Umbau</h2>
+      <h2>Infrarotheizung: punktuelle Wärme ohne Umbau</h2>
     </div>
     <p class="svc-intro reveal">
       Infrarotpaneele heizen Flächen und Körper direkt auf, nicht die Raumluft. Das macht sie
@@ -964,7 +987,7 @@
       <div class="svc-text-col reveal">
         <p>
           Für ein einzelnes Bad, ein Homeoffice oder einen selten genutzten Raum oft die
-          pragmatischste Lösung – wir sagen Ihnen ehrlich, wann sie sich lohnt.
+          pragmatischste Lösung. Wir sagen Ihnen ehrlich, wann sie sich lohnt.
         </p>
         <a href="kontakt.php" class="btn-outline">
           Infrarotheizung anfragen
@@ -977,11 +1000,16 @@
 
 <!-- ══ FÖRDERUNG ══ -->
 <section class="funding" id="foerderung">
+  <div class="funding-media">
+    <img src="baum-himmel.jpg" width="2002" height="805" loading="lazy" decoding="async"
+         alt="Einzelner Baum auf einer grünen Wiese unter weitem blauem Himmel" />
+  </div>
+  <div class="funding-scrim"></div>
   <div class="funding-inner reveal">
     <div class="section-eyebrow">Förderung</div>
     <h2 style="font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 800; margin-bottom: 1.2rem;">Was an Förderung möglich ist, prüfen wir für Sie</h2>
-    <p style="color: var(--text-secondary);">
-      Förderprogramme für Wärmepumpen, Solarthermie und Fotovoltaik ändern sich regelmäßig –
+    <p style="color: #D3DBEF;">
+      Förderprogramme für Wärmepumpen, Solarthermie und Fotovoltaik ändern sich regelmäßig,
       auf Bundes- wie auf Landesebene. Statt pauschaler Versprechen schauen wir uns Ihr
       Vorhaben konkret an und sagen Ihnen ehrlich, welche Programme aktuell realistisch
       infrage kommen.
@@ -1002,21 +1030,21 @@
       <button class="faq-q" type="button">Lohnt sich der Umstieg auf erneuerbare Energien für mein Haus?
         <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
-      <div class="faq-a"><p>Das hängt von Baujahr, Dämmzustand, Heizflächen und Ihrem Verbrauch ab. Wir schauen uns die Anlage an und sagen Ihnen ehrlich, ob sich ein Wechsel rechnet – oder ob zunächst kleinere Maßnahmen wie ein hydraulischer Abgleich sinnvoller sind.</p></div>
+      <div class="faq-a"><p>Das hängt von Baujahr, Dämmzustand, Heizflächen und Ihrem Verbrauch ab. Wir schauen uns die Anlage an und sagen Ihnen ehrlich, ob sich ein Wechsel rechnet oder ob zunächst kleinere Maßnahmen wie ein hydraulischer Abgleich sinnvoller sind.</p></div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" type="button">Kann ich eine Wärmepumpe auch im Altbau nachrüsten?
         <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
-      <div class="faq-a"><p>Ja, in vielen Fällen funktioniert das gut – besonders in Kombination mit größeren Heizflächen und einem hydraulischen Abgleich. Ob es bei Ihrem Gebäude passt, schauen wir uns konkret an.</p></div>
+      <div class="faq-a"><p>Ja, in vielen Fällen funktioniert das gut, besonders in Kombination mit größeren Heizflächen und einem hydraulischen Abgleich. Ob es bei Ihrem Gebäude passt, schauen wir uns konkret an.</p></div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" type="button">Muss ich mich zwischen Solarthermie und Fotovoltaik entscheiden?
         <div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
-      <div class="faq-a"><p>Nein. Bei ausreichender Dachfläche lassen sich beide Systeme kombinieren – Solarthermie für Warmwasser, Fotovoltaik für den eigenen Strom.</p></div>
+      <div class="faq-a"><p>Nein. Bei ausreichender Dachfläche lassen sich beide Systeme kombinieren: Solarthermie für Warmwasser, Fotovoltaik für den eigenen Strom.</p></div>
     </div>
 
     <div class="faq-item">
@@ -1034,7 +1062,7 @@
   <div class="cta-inner reveal">
     <div class="section-eyebrow">Kostenlos &amp; unverbindlich</div>
     <h2>Jetzt Energie-Check<br>anfragen</h2>
-    <p>Schildern Sie uns kurz Ihr Gebäude – wir sagen Ihnen ehrlich, welche Technik sich für Sie lohnt.</p>
+    <p>Schildern Sie uns kurz Ihr Gebäude. Wir sagen Ihnen ehrlich, welche Technik sich für Sie lohnt.</p>
     <div class="cta-actions">
       <a href="kontakt.php" class="btn-primary">
         Kostenlos anfragen
@@ -1051,8 +1079,8 @@
 <footer class="site-footer">
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="index.html" class="footer-logo" aria-label="R. Ruge – Startseite">
-        <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge – Sanitär, Heizung, Regenerative Energien" loading="lazy" />
+      <a href="index.html" class="footer-logo" aria-label="Zur Startseite von R. Ruge">
+        <img src="logo-ruge.png" width="712" height="424" alt="Logo R. Ruge Sanitär Heizung Regenerative Energien" loading="lazy" />
       </a>
       <p>Inhabergeführter Meisterbetrieb für Sanitär, Heizung, regenerative Energien und Flaschnerei in Steinheim an der Murr.</p>
     </div>
@@ -1168,12 +1196,12 @@
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
     }, { threshold: 0.1 });
     revealEls.forEach(function (el) { revealObs.observe(el); });
-    setTimeout(function () { revealEls.forEach(function (el) { el.classList.add('visible'); }); }, 4000);
+    setTimeout(function () { revealEls.forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); }); }, 4000);
   } else {
     revealEls.forEach(function (el) { el.classList.add('visible'); });
   }
 
-  // Sprungmarken – aktiver Zustand
+  // Sprungmarken: aktiver Zustand
   var subnavLinks = Array.prototype.slice.call(document.querySelectorAll('.svc-pill'));
   var jumpSections = Array.prototype.slice.call(document.querySelectorAll('#ueberblick, #waermepumpe, #solar, #infrarot, #foerderung, #faq'));
   if ('IntersectionObserver' in window && subnavLinks.length) {
@@ -1272,8 +1300,10 @@
     });
   })();
 </script>
+<script src="motion.js" defer></script>
 </body>
 </html>
+
 
 
 
