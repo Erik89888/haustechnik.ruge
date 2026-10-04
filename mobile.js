@@ -29,6 +29,46 @@
     });
   }
 
+  /* ── Hintergrund-Videos auf Handy/Tablet zuverlässig starten ──
+     iOS ignoriert "autoplay" z. B. im Stromsparmodus und zeigt dann ein
+     Play-Symbol, das unter der Abdunklung nicht antippbar ist. Deshalb:
+     stumm + inline erzwingen, sichtbare Videos aktiv starten (unsichtbare
+     pausieren, schont Akku und Decoder) und, falls iOS blockt, beim ersten
+     Antippen der Seite erneut versuchen. */
+  var mqTouch = window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)');
+  var vids = Array.prototype.slice.call(document.querySelectorAll('video[autoplay]'));
+  if (mqTouch.matches && vids.length) {
+    var tryPlay = function (v) {
+      v.muted = true; v.defaultMuted = true; v.playsInline = true;
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    };
+    vids.forEach(function (v) {
+      v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', '');
+      v.muted = true; v.defaultMuted = true; v.playsInline = true;
+      v.disableRemotePlayback = true;
+      if (v.getAttribute('preload') === 'none') v.setAttribute('preload', 'metadata');
+    });
+    var inView = [];
+    if (hasIO) {
+      var vidObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          var v = e.target, i = inView.indexOf(v);
+          if (e.isIntersecting) { if (i < 0) inView.push(v); tryPlay(v); }
+          else { if (i >= 0) inView.splice(i, 1); v.pause(); }
+        });
+      }, { rootMargin: '150px 0px' });
+      vids.forEach(function (v) { vidObs.observe(v); });
+    } else {
+      inView = vids;
+      vids.forEach(tryPlay);
+    }
+    var kick = function () { inView.forEach(function (v) { if (v.paused) tryPlay(v); }); };
+    ['touchend', 'click'].forEach(function (ev) { document.addEventListener(ev, kick, { passive: true }); });
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) kick(); });
+    window.addEventListener('pageshow', kick);
+  }
+
   /* ── Startseite: Leistungs-Karussell mit Punkten (wie bei den Referenzen) ── */
   var grid = document.querySelector('.leistungen-grid');
   if (!grid) return;

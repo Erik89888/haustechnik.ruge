@@ -41,6 +41,16 @@
     justify-content: center; padding: 0.95rem 1.4rem; font-size: 0.78rem; letter-spacing: 1.1px;
   }
 }
+/* Hintergrund-Videos: kein iOS-Play-Symbol (unter der Abdunklung ohnehin nicht
+   antippbar), mobile.js startet die Videos selbst. Jede Regel einzeln, damit
+   Browser ohne diese Pseudo-Elemente nicht die ganze Regel verwerfen. */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
+}
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  video::-webkit-media-controls { display: none !important; }
+}
+
 /* Menü-Abstände und Schriftgröße auf allen Seiten wie auf der Startseite (motion.css hatte 1.4rem) */
 @media (max-width: 768px) {
   .mobile-nav { gap: 1.5rem; }
@@ -120,4 +130,8 @@
   /* ── Startseite, Fotobanner Energien: Haken-Punkte stehen fest an ihrem Platz,
         kein seitliches Einrücken beim Erreichen (Einblenden bleibt) ── */
   .energien-list li.reveal-item { transform: none; }
+
+  /* ── Startseite, Hero-Überschrift: füllt die Breite (vorher ca. 80 %).
+        12vw lässt „IHR PARTNER“ knapp in eine Zeile passen (voll wäre 12,6vw). ── */
+  .hero h1 { font-size: clamp(2.3rem, 12vw, 3.6rem); }
 }
