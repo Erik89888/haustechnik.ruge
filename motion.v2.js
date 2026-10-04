@@ -6,7 +6,6 @@
    ════════════════════════════════════════════════════════════════════ */
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var touchLike = window.matchMedia('(hover: none)').matches;
   var hasIO = 'IntersectionObserver' in window;
   var each = function (sel, fn, ctx) { Array.prototype.forEach.call((ctx || document).querySelectorAll(sel), fn); };
 
@@ -65,14 +64,6 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
     Array.prototype.forEach.call(tiles, function (t) { tileObs.observe(t); });
-  }
-
-  // Touch: Kachel in der Bildschirmmitte zeigt ihren Hover-Zustand
-  if (touchLike && hasIO) {
-    var centerObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { e.target.classList.toggle('in-view', e.isIntersecting); });
-    }, { rootMargin: '-38% 0px -38% 0px' });
-    each('.svc-tile, .bereich-tile', function (el) { centerObs.observe(el); });
   }
 
   // Parallax der Bannerbilder (über "translate", damit Zoom/Hover-"transform" unberührt bleibt)

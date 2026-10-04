@@ -59,14 +59,6 @@
 .page-head-inner > .btn-outline { animation: fadeUpIn 0.8s cubic-bezier(0.2,0.7,0.2,1) 0.75s both; }
 .nibe-frame { animation: fadeUpIn 0.9s cubic-bezier(0.2,0.7,0.2,1) 0.9s both; }
 
-/* ── Touch: Kachel in der Bildschirmmitte zeigt ihren Hover-Zustand ── */
-@media (hover: none) {
-  .svc-tile.in-view, .bereich-tile.in-view { border-color: rgba(255,107,53,0.35); transform: translateX(4px); }
-  .svc-tile.in-view::before, .bereich-tile.in-view::before { top: 0; bottom: 0; }
-  .svc-tile.in-view .svc-tile-icon { background: var(--orange); border-color: var(--orange); }
-  .svc-tile.in-view .svc-tile-icon svg { stroke: #fff; }
-}
-
 /* ── Mobil: Flip-Banner stehen dort links → Linie wächst auch von links ── */
 @media (max-width: 768px) {
   .svc-section.flip .svc-title h2::after, .bereich-section.alt .bereich-title h2::after { transform-origin: left center; }

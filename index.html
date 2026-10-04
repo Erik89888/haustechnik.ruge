@@ -890,26 +890,13 @@
   .ref-dots button.active { width: 26px; background: var(--orange); }
 
   /* ═══════════════ TOUCH-GERÄTE ═══════════════ */
-  /* Hover gibt es hier nicht: Karten „aktivieren“ sich, wenn sie in der
-     Bildschirmmitte stehen, und Buttons geben beim Tippen Feedback. */
+  /* Hover gibt es hier nicht: Buttons und Karten geben beim Tippen Feedback. */
   @media (hover: none) {
     html { -webkit-tap-highlight-color: transparent; }
     .btn-primary:hover { transform: none; box-shadow: none; background: var(--orange); }
     .btn-outline:hover { box-shadow: none; }
     .btn-primary:active, .btn-outline:active, .action-bar a:active, .b-card:active { transform: scale(0.97); }
     .b-card { transition: transform 0.2s ease; }
-
-    .b-card.in-view .b-bg img { transform: scale(1.07); filter: brightness(0.38); }
-    .b-card.in-view .b-overlay { background: linear-gradient(to top, rgba(3,4,8,0.93) 0%, rgba(3,4,8,0.35) 60%); }
-    .b-card.in-view .b-num { color: rgba(255,107,53,0.09); }
-    .b-card.in-view .b-desc { max-height: 90px; opacity: 1; }
-    .b-card.in-view .b-arrow { opacity: 1; transform: translateY(0); background: var(--orange); }
-
-    .l-card.in-view { border-color: rgba(255,107,53,0.35); box-shadow: 0 0 0 1px rgba(255,107,53,0.3), 0 0 34px rgba(255,107,53,0.18), 0 24px 60px rgba(0,0,0,0.5); }
-    .l-card.in-view::before { opacity: 1; }
-    .l-card.in-view .l-media img { transform: scale(1.07); }
-    .l-card.in-view .l-icon { background: rgba(255,107,53,0.2); box-shadow: 0 0 20px var(--orange-glow); }
-    .l-card.in-view .l-num { color: rgba(255,107,53,0.07); }
   }
 
   /* ═══════════════ MOBIL-FEINSCHLIFF ═══════════════ */
@@ -1784,7 +1771,6 @@
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  var touchLike = window.matchMedia('(hover: none)').matches;
   var mqMobile = window.matchMedia('(max-width: 768px)');
   var hasIO = 'IntersectionObserver' in window;
   if (!reduce) root.classList.add('js-parallax');
@@ -1996,23 +1982,8 @@
     });
   }
 
-  // Touch: Karte in der Bildschirmmitte zeigt ihren Hover-Zustand
-  var refGrid = document.querySelector('.ref-grid');
-  if (touchLike && hasIO) {
-    var toggleInView = function (entries) { entries.forEach(function (e) { e.target.classList.toggle('in-view', e.isIntersecting); }); };
-    var centerObs = new IntersectionObserver(toggleInView, { rootMargin: '-38% 0px -38% 0px' });
-    document.querySelectorAll('.l-card, .bereiche-bento .b-card').forEach(function (el) { centerObs.observe(el); });
-    if (refGrid) {
-      if (mqMobile.matches) {
-        var carouselObs = new IntersectionObserver(toggleInView, { root: refGrid, threshold: 0.75 });
-        refGrid.querySelectorAll('.b-card').forEach(function (el) { carouselObs.observe(el); });
-      } else {
-        refGrid.querySelectorAll('.b-card').forEach(function (el) { centerObs.observe(el); });
-      }
-    }
-  }
-
   // Referenzen-Karussell (mobil): Punkte + einmaliger „Wisch mich“-Hinweis
+  var refGrid = document.querySelector('.ref-grid');
   if (refGrid) {
     var refCards = refGrid.querySelectorAll('.b-card');
     var dots = document.createElement('div');
@@ -2131,5 +2102,3 @@
 <script src="mobile.js" defer></script>
 </body>
 </html>
-
-

@@ -1,0 +1,109 @@
+/* ════════════════════════════════════════════════════════════════════
+   mobile.css · Handy-Feinschliff für alle Seiten
+   Wird als LETZTES Stylesheet geladen (nach Inline-<style>, motion.css und
+   motion.v2.css). Jede Regel steht in einer Media-Query, die nur auf
+   Smartphones (≤ 768 px) oder Touch-Geräten ohne Maus greift, die Desktop-
+   Version bleibt dadurch unverändert. Gegenstück: mobile.js.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ════════════ TOUCH-GERÄTE BIS 1024 px (Handy quer, Tablet) ════════════
+   Die Desktop-Menüleiste passt erst ab ca. 960 px in eine Zeile, auf Handys
+   im Querformat wurde „Anfrage senden“ abgeschnitten. Touch-Geräte bekommen
+   deshalb bis 1024 px das Hamburger-Menü. Maus-Desktops matchen hier nie. */
+@media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  :root { --header-h: 68px; }
+  .logo img { height: 42px; }
+  .header-nav, .header-inner > .btn-primary { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* ════════════ HAMBURGER + MENÜ-OVERLAY ════════════ */
+@media (max-width: 768px), (max-width: 1024px) and (hover: none) and (pointer: coarse) {
+  /* Tippfläche 44 px, Striche bleiben optisch an derselben Stelle */
+  .hamburger { padding: 13px 10px; margin: -13px -10px; }
+
+  /* Menü startet unter der Kopfzeile und scrollt auf kleinen Displays,
+     statt oben unter dem Logo abgeschnitten zu werden */
+  .mobile-nav {
+    justify-content: flex-start; overflow-y: auto; overscroll-behavior: contain;
+    padding: calc(var(--header-h) + 1rem + env(safe-area-inset-top)) 1.5rem calc(2rem + env(safe-area-inset-bottom));
+  }
+  .mobile-nav > :first-child { margin-top: auto; }
+  .mobile-nav > :last-child { margin-bottom: auto; }
+  .mobile-nav > a { text-align: center; padding: 0.2rem 0.5rem; line-height: 1.25; }
+  .mobile-nav a[aria-current="page"] { color: var(--orange); }
+
+  /* Kontakt-Buttons im Menü: echte Daumen-Größe statt Mini-Buttons */
+  .mobile-nav .mobile-actions { align-items: stretch; width: min(100%, 290px); margin-top: 0.6rem; }
+  .mobile-nav .mobile-actions .btn-primary,
+  .mobile-nav .mobile-actions .btn-outline {
+    justify-content: center; padding: 0.95rem 1.4rem; font-size: 0.78rem; letter-spacing: 1.1px;
+  }
+}
+/* Niedrige Displays (kleine Handys, Querformat): Menü kompakter */
+@media (max-width: 768px) and (max-height: 720px), (max-width: 1024px) and (hover: none) and (pointer: coarse) and (max-height: 720px) {
+  .mobile-nav { gap: 1.05rem; }
+  .mobile-nav > a { font-size: 1.28rem; }
+  .mobile-nav .mobile-meta { margin-top: 0.6rem; }
+}
+
+/* ════════════ SMARTPHONE (≤ 768 px) ════════════ */
+@media (max-width: 768px) {
+
+  /* ── Aktionsleiste ──
+     Kein farbiger Streifen mehr unter dem Footer: der Platz für die Leiste
+     liegt jetzt im (schwarzen) Footer statt als Body-Abstand darunter. */
+  body { padding-bottom: 0; }
+  footer.site-footer { padding-bottom: calc(2rem + 68px + env(safe-area-inset-bottom)); }
+  .action-bar { padding-bottom: calc(0.7rem + env(safe-area-inset-bottom)); }
+  /* Im Hero stehen dieselben Buttons schon groß im Bild: Leiste erst danach */
+  .js .action-bar.show.hero-vis { transform: translateY(110%); }
+
+  /* ── Tippflächen ohne optische Änderung (Padding + Gegen-Margin) ── */
+  .l-link { padding-block: 0.6rem; margin-top: 0.6rem; margin-bottom: -0.6rem; }
+  .footer-col ul li { margin-bottom: 0.1rem; }
+  .footer-col ul li a { display: inline-block; padding: 0.56rem 0; }
+  .f-row a, .data-card dd a { display: inline-block; padding: 0.56rem 0; margin: -0.56rem 0; }
+  .footer-bottom-links { gap: 0.4rem; justify-content: center; flex-wrap: wrap; }
+  .footer-bottom-links a { display: inline-block; padding: 0.7rem 0.55rem; margin: -0.7rem 0; }
+  .svc-pill { padding: 0.7rem 1.15rem; }
+  .toc a { padding: 0.6rem 0; }
+
+  /* ── Über uns: Badge liegt im Bild, statt vom Bildrand abgeschnitten zu werden ── */
+  .ueber-badge { width: 118px; height: 118px; right: 0.9rem; bottom: 0.9rem; border-width: 3px; padding: 0.6rem; }
+  .ueber-badge strong { font-size: 0.9rem; }
+  .ueber-badge span { font-size: 0.6rem; letter-spacing: 0.3px; }
+
+  /* ── Bereiche: Icon + Überschrift in einer Zeile, Text auf voller Breite
+        (vorher quetschte das Icon den Text in eine schmale Spalte) ── */
+  .bereich-tile {
+    display: grid; grid-template-columns: 44px 1fr; align-items: center;
+    column-gap: 0.95rem; row-gap: 0.75rem; padding: 1.25rem 1.25rem 1.3rem 1.45rem;
+  }
+  .bereich-tile > div { display: contents; }
+  .bereich-tile-icon { width: 44px; height: 44px; border-radius: 11px; }
+  .bereich-tile-icon svg { width: 20px; height: 20px; }
+  .bereich-tile h3 { margin-bottom: 0; }
+  .bereich-tile p { grid-column: 1 / -1; }
+
+  /* ── Startseite: Leistungen als wischbares Karussell (wie die Referenzen) ──
+        sechs Karten untereinander waren über 4000 px Scrollweg */
+  .leistungen-grid {
+    display: flex; gap: 1rem; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding-inline: 6vw;
+    margin-inline: -6vw; padding: 0.4rem 6vw 1.4rem;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .leistungen-grid::-webkit-scrollbar { display: none; }
+  .leistungen-grid .l-card { flex: 0 0 84%; scroll-snap-align: start; display: flex; flex-direction: column; }
+  .leistungen-grid .l-media { height: 190px; flex-shrink: 0; }
+  .leistungen-grid .l-card-inner { flex: 1; display: flex; flex-direction: column; align-items: flex-start; }
+  .leistungen-grid .l-desc { flex: 1; }
+  /* Karten rechts außerhalb des Bildes lösen kein Scroll-Reveal aus → sofort zeigen */
+  .js .leistungen-grid .l-card.reveal { opacity: 1; transform: none; }
+  .leistungen .ref-dots { margin-top: 0.4rem; }
+
+  /* ── Kontakt: lange Platzhalter enden mit „…“ statt hart abgeschnitten ── */
+  .field input { text-overflow: ellipsis; }
+}
