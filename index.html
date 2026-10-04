@@ -1284,7 +1284,7 @@
       </div>
     </a>
 
-    <a href="kontakt.php" class="b-card reveal reveal-d2">
+    <a href="kontakt.php" class="b-card reveal reveal-d3">
       <div class="b-bg"><img src="mehrfamilienhaus.jpg" width="1400" height="1867" loading="lazy" decoding="async" alt="Mehrfamilienhaus mit Balkonen in der Abenddämmerung" /></div>
       <div class="b-overlay"></div>
       <div class="b-num">03</div>
@@ -1877,7 +1877,7 @@
 
   // Gestaffelte Einzel-Elemente: was im selben Moment ins Bild kommt, erscheint nacheinander
   if (hasIO && !reduce) {
-    var items = document.querySelectorAll('.perk, .faq-item, .info-band .info-item, .footer-top > div');
+    var items = document.querySelectorAll('.perk, .energien-list li, .faq-item, .info-band .info-item, .footer-top > div');
     items.forEach(function (el) { el.classList.add('reveal-item'); });
     var itemObs = new IntersectionObserver(function (entries) {
       var k = 0;
@@ -2131,4 +2131,5 @@
 <script src="mobile.js" defer></script>
 </body>
 </html>
+
 
