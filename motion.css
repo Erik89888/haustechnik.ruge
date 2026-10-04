@@ -266,29 +266,13 @@ body.nav-open { overflow: hidden; }
 @keyframes drawCheck { to { stroke-dashoffset: 0; } }
 
 /* ════════════ TOUCH-GERÄTE ════════════
-   Kein Hover: Karten und Galeriebilder zeigen ihren Hover-Zustand, wenn sie
-   in der Bildschirmmitte stehen; Buttons geben beim Tippen Feedback. */
+   Kein Hover: Buttons und Karten geben beim Tippen Feedback. */
 @media (hover: none) {
   html { -webkit-tap-highlight-color: transparent; }
   .btn-primary:hover { transform: none; box-shadow: none; background: var(--orange); }
   .btn-outline:hover { box-shadow: none; }
   .btn-primary:active, .btn-outline:active, .action-bar a:active, .b-card:active, .gal-item:active { transform: scale(0.97); }
   .b-card, .gal-item { transition: transform 0.2s ease; }
-
-  .b-card.in-view .b-bg img { transform: scale(1.07); filter: brightness(0.38); }
-  .b-card.in-view .b-overlay { background: linear-gradient(to top, rgba(3,4,8,0.93) 0%, rgba(3,4,8,0.35) 60%); }
-  .b-card.in-view .b-num { color: rgba(255,107,53,0.09); }
-  .b-card.in-view .b-desc { max-height: 90px; opacity: 1; }
-  .b-card.in-view .b-arrow { opacity: 1; transform: translateY(0); background: var(--orange); }
-
-  .q-card.in-view { border-color: rgba(255,107,53,0.35); }
-  .q-card.in-view::before { opacity: 1; }
-  .q-card.in-view .q-media img { transform: scale(1.08); }
-  .q-card.in-view .q-icon { background: rgba(255,107,53,0.25); box-shadow: 0 0 20px var(--orange-glow); }
-
-  .gal-item.in-view .gal-cap { opacity: 1; transform: translateY(0); }
-  .gal-item.in-view .gal-zoom { opacity: 1; transform: scale(1); }
-  .gal-item.in-view img { transform: scale(1.05); filter: brightness(0.62); }
 }
 
 /* ════════════ MOBIL-FEINSCHLIFF ════════════ */
