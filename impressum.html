@@ -136,13 +136,13 @@
   .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .mobile-nav {
     position: fixed; inset: 0; background: rgba(5,6,9,0.97); backdrop-filter: blur(20px);
-    z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6rem;
+    z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
     transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.77,0,0.175,1);
     padding: 2rem;
   }
   .mobile-nav.open { transform: translateX(0); }
   .mobile-nav a {
-    font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800;
+    font-family: 'Montserrat', sans-serif; font-size: 1.7rem; font-weight: 800;
     color: var(--text-primary); text-decoration: none; text-transform: uppercase;
     letter-spacing: 2px; transition: color 0.3s;
   }
@@ -153,6 +153,21 @@
     padding: 0.55rem 1.1rem; font-size: 0.68rem; letter-spacing: 0.8px; white-space: nowrap;
   }
   .mobile-meta { margin-top: 1.5rem; font-size: 0.82rem; color: var(--text-secondary); text-align: center; line-height: 1.8; }
+  /* Mobile Navigation: Einträge fahren gestaffelt ein, Seite dahinter scrollt nicht (wie Startseite) */
+  .mobile-nav > * {
+    opacity: 0; transform: translateX(40px);
+    transition: opacity 0.4s ease, transform 0.55s cubic-bezier(0.2,0.7,0.2,1);
+  }
+  .mobile-nav.open > * { opacity: 1; transform: none; }
+  .mobile-nav.open > :nth-child(1) { transition-delay: 0.14s; }
+  .mobile-nav.open > :nth-child(2) { transition-delay: 0.19s; }
+  .mobile-nav.open > :nth-child(3) { transition-delay: 0.24s; }
+  .mobile-nav.open > :nth-child(4) { transition-delay: 0.29s; }
+  .mobile-nav.open > :nth-child(5) { transition-delay: 0.34s; }
+  .mobile-nav.open > :nth-child(6) { transition-delay: 0.39s; }
+  .mobile-nav.open > :nth-child(7) { transition-delay: 0.46s; }
+  .mobile-nav.open > :nth-child(8) { transition-delay: 0.52s; }
+  body.nav-open { overflow: hidden; }
 
   /* ── SEITENKOPF ── */
   .page-head {
@@ -277,6 +292,7 @@
     .cursor-glow { display: none; }
   }
 </style>
+<link rel="stylesheet" href="mobile.css" />
 </head>
 
 <body>
@@ -313,15 +329,15 @@
 
 <!-- ══ MOBILE NAV ══ -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
-  <a href="index.html#leistungen">Leistungen</a>
-  <a href="energien.html">Regenerative Energien</a>
+  <a href="leistungen.html">Leistungen</a>
+  <a href="energien.html">Energien</a>
   <a href="bereiche.html">Bereiche</a>
   <a href="referenzen.html">Referenzen</a>
   <a href="ueber-uns.html">Über uns</a>
-  <a href="kontakt.php">Kontakt</a>
+  <a href="index.html#faq">FAQ</a>
   <div class="mobile-actions">
-    <a href="kontakt.php" class="btn btn-primary">Anfrage senden</a>
-    <a href="tel:+4971443345604" class="btn btn-outline">07144 3345604</a>
+    <a href="kontakt.php" class="btn-primary">Anfrage senden</a>
+    <a href="tel:+4971443345604" class="btn-outline">07144 3345604</a>
   </div>
   <div class="mobile-meta">
     R. Ruge Sanitär Heizung Regenerative Energien<br />
@@ -628,6 +644,7 @@
   var mobileNav = document.getElementById('mobileNav');
   function setNav(open) {
     mobileNav.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
   }
@@ -653,5 +670,6 @@
 
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 </script>
+<script src="mobile.js" defer></script>
 </body>
 </html>
