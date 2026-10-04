@@ -783,7 +783,6 @@
     transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.2,0.7,0.2,1);
   }
   .perk.reveal-item { transform: translateX(28px); }
-  .energien-list li.reveal-item { transform: translateX(-20px); }
   .reveal-item.visible { opacity: 1; transform: none; }
 
   /* Leistungs-Karten: 3D-Neigung + Lichtreflex, der dem Cursor folgt */
@@ -1000,6 +999,7 @@
   .info-item span { color: var(--text-secondary); opacity: 1; }
   .info-item strong { color: #fff; }
   .info-div { background: rgba(255,255,255,0.12); }</style>
+<link rel="stylesheet" href="mobile.css" />
 </head>
 <body>
 
@@ -1283,7 +1283,7 @@
       </div>
     </a>
 
-    <a href="kontakt.php" class="b-card reveal reveal-d3">
+    <a href="kontakt.php" class="b-card reveal reveal-d2">
       <div class="b-bg"><img src="mehrfamilienhaus.jpg" width="1400" height="1867" loading="lazy" decoding="async" alt="Mehrfamilienhaus mit Balkonen in der Abenddämmerung" /></div>
       <div class="b-overlay"></div>
       <div class="b-num">03</div>
@@ -1855,6 +1855,16 @@
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         var el = e.target;
+        // Bereiche-Bento (Desktop): alle drei Karten gemeinsam einblenden
+        var bento = el.closest('.bereiche-bento');
+        if (bento && window.matchMedia('(min-width: 769px)').matches) {
+          bento.querySelectorAll('.b-card.reveal:not(.visible)').forEach(function (c) {
+            if (c === el) return;
+            revealObs.unobserve(c);
+            c.classList.add('visible');
+            setTimeout(function () { c.classList.remove('reveal', 'reveal-d1', 'reveal-d2', 'reveal-d3', 'visible'); }, 1500);
+          });
+        }
         el.classList.add('visible');
         revealObs.unobserve(el);
         // Karten nach dem Einblenden von den Reveal-Klassen befreien, damit
@@ -1876,7 +1886,7 @@
 
   // Gestaffelte Einzel-Elemente: was im selben Moment ins Bild kommt, erscheint nacheinander
   if (hasIO && !reduce) {
-    var items = document.querySelectorAll('.perk, .energien-list li, .faq-item, .info-band .info-item, .footer-top > div');
+    var items = document.querySelectorAll('.perk, .faq-item, .info-band .info-item, .footer-top > div');
     items.forEach(function (el) { el.classList.add('reveal-item'); });
     var itemObs = new IntersectionObserver(function (entries) {
       var k = 0;
@@ -2127,5 +2137,6 @@
   frame();
 })();
 </script>
+<script src="mobile.js" defer></script>
 </body>
 </html>
