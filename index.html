@@ -783,6 +783,7 @@
     transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.2,0.7,0.2,1);
   }
   .perk.reveal-item { transform: translateX(28px); }
+  .energien-list li.reveal-item { transform: translateX(-20px); }
   .reveal-item.visible { opacity: 1; transform: none; }
 
   /* Leistungs-Karten: 3D-Neigung + Lichtreflex, der dem Cursor folgt */
@@ -1855,16 +1856,6 @@
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         var el = e.target;
-        // Bereiche-Bento (Desktop): alle drei Karten gemeinsam einblenden
-        var bento = el.closest('.bereiche-bento');
-        if (bento && window.matchMedia('(min-width: 769px)').matches) {
-          bento.querySelectorAll('.b-card.reveal:not(.visible)').forEach(function (c) {
-            if (c === el) return;
-            revealObs.unobserve(c);
-            c.classList.add('visible');
-            setTimeout(function () { c.classList.remove('reveal', 'reveal-d1', 'reveal-d2', 'reveal-d3', 'visible'); }, 1500);
-          });
-        }
         el.classList.add('visible');
         revealObs.unobserve(el);
         // Karten nach dem Einblenden von den Reveal-Klassen befreien, damit
@@ -2140,3 +2131,4 @@
 <script src="mobile.js" defer></script>
 </body>
 </html>
+
