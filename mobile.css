@@ -41,6 +41,11 @@
     justify-content: center; padding: 0.95rem 1.4rem; font-size: 0.78rem; letter-spacing: 1.1px;
   }
 }
+/* Menü-Abstände und Schriftgröße auf allen Seiten wie auf der Startseite (motion.css hatte 1.4rem) */
+@media (max-width: 768px) {
+  .mobile-nav { gap: 1.5rem; }
+  .mobile-nav a { font-size: 1.5rem; }
+}
 /* Niedrige Displays (kleine Handys, Querformat): Menü kompakter */
 @media (max-width: 768px) and (max-height: 720px), (max-width: 1024px) and (hover: none) and (pointer: coarse) and (max-height: 720px) {
   .mobile-nav { gap: 1.05rem; }
@@ -106,4 +111,13 @@
 
   /* ── Kontakt: lange Platzhalter enden mit „…“ statt hart abgeschnitten ── */
   .field input { text-overflow: ellipsis; }
+
+  /* ── Videos auch auf dem Handy statt nur des Standbilds ──
+        (die Seiten blendeten das Video unter 769 px aus und zeigten das Foto) */
+  .hero-media video, .svc-hero-media video, .energien-media video { display: block; }
+  .hero-media img.hero-photo, .svc-hero-media img.svc-hero-photo, .energien-media img.energien-photo { display: none; }
+
+  /* ── Startseite, Fotobanner Energien: Haken-Punkte stehen fest an ihrem Platz,
+        kein seitliches Einrücken beim Erreichen (Einblenden bleibt) ── */
+  .energien-list li.reveal-item { transform: none; }
 }

@@ -6,7 +6,7 @@
  * Läuft auf jedem üblichen Webhosting mit PHP 7.4 oder neuer.
  * Einstellungen (Empfänger, Absender, SMTP, Spamschutz) stehen in config.php.
  *
- * Versand über PHPMailer (libs/PHPMailer) statt der eingebauten mail()-
+ * Versand über PHPMailer (Exception/PHPMailer/SMTP.php im selben Ordner) statt der eingebauten mail()-
  * Funktion: sauberere Header, funktionierendes SMTP mit Login/TLS und damit
  * deutlich bessere Zustellraten. Ohne SMTP-Zugangsdaten in config.php nutzt
  * PHPMailer intern weiterhin mail(), zum Testen ausreichend, siehe Hinweis
@@ -516,13 +516,13 @@ header('X-Content-Type-Options: nosniff');
   .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .mobile-nav {
     position: fixed; inset: 0; background: rgba(5,6,9,0.97); backdrop-filter: blur(20px);
-    z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6rem;
+    z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
     transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.77,0,0.175,1);
     padding: 2rem;
   }
   .mobile-nav.open { transform: translateX(0); }
   .mobile-nav a {
-    font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800;
+    font-family: 'Montserrat', sans-serif; font-size: 1.7rem; font-weight: 800;
     color: var(--text-primary); text-decoration: none; text-transform: uppercase;
     letter-spacing: 2px; transition: color 0.3s;
   }
@@ -719,6 +719,7 @@ header('X-Content-Type-Options: nosniff');
 </style>
 <link rel="stylesheet" href="motion.css" />
 <link rel="stylesheet" href="motion.v2.css" />
+<link rel="stylesheet" href="mobile.css" />
 </head>
 
 <body>
@@ -729,13 +730,13 @@ header('X-Content-Type-Options: nosniff');
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
   <a href="leistungen.html">Leistungen</a>
   <a href="energien.html">Energien</a>
-  <a href="index.html#bereiche">Bereiche</a>
+  <a href="bereiche.html">Bereiche</a>
   <a href="referenzen.html">Referenzen</a>
-  <a href="index.html#ueber">Über uns</a>
-  <a href="kontakt.php" aria-current="page">Kontakt</a>
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="index.html#faq">FAQ</a>
   <div class="mobile-actions">
-    <a href="tel:+4971443345604" class="btn-primary">07144 3345604</a>
-    <a href="mailto:reinholdruge@t-online.de" class="btn-outline">E-Mail schreiben</a>
+    <a href="kontakt.php" class="btn-primary">Anfrage senden</a>
+    <a href="tel:+4971443345604" class="btn-outline">07144 3345604</a>
   </div>
   <div class="mobile-meta">
     R. Ruge Sanitär Heizung Regenerative Energien<br />
@@ -1163,5 +1164,6 @@ header('X-Content-Type-Options: nosniff');
 </script>
 <script src="motion.js" defer></script>
 <script src="motion.v2.js" defer></script>
+<script src="mobile.js" defer></script>
 </body>
 </html>
