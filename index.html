@@ -338,7 +338,14 @@
   }
   .l-card:hover::before { opacity: 1; }
   /* Bildkopf: verläuft nach unten weich in die Kartenfläche */
-  .l-media { position: relative; height: 200px; overflow: hidden; background: #070a18; }
+  /* Maske am Container: blendet Bild + Verlauf an der Unterkante gemeinsam aus, sonst
+     blitzt bei Zoom/Neigung (v. a. bei 125/150 % Windows-Skalierung) die helle unterste
+     Bildzeile unter dem Verlauf als Linie hervor */
+  .l-media {
+    position: relative; height: 200px; overflow: hidden; background: var(--card-bg);
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 6px), transparent);
+            mask-image: linear-gradient(to bottom, #000 calc(100% - 6px), transparent);
+  }
   .l-media img {
     width: 100%; height: 100%; object-fit: cover; display: block;
     transform: scale(1.02); transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
