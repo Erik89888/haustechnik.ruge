@@ -50,6 +50,15 @@
 @media (max-width: 768px), (hover: none) and (pointer: coarse) {
   video::-webkit-media-controls { display: none !important; }
 }
+/* Blockiert das Handy Autoplay (iPhone-Stromsparmodus, „Video-Vorschau
+   automatisch abspielen“ aus), setzt mobile.js .vid-blocked: das Standbild
+   bewegt sich dann langsam, bis ein Tippen das Video startet. */
+@keyframes vidPosterDrift { from { transform: scale(1); } to { transform: scale(1.08); } }
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference), (hover: none) and (pointer: coarse) and (prefers-reduced-motion: no-preference) {
+  .hero-media video.vid-blocked, .svc-hero-media video.vid-blocked, .energien-media video.vid-blocked {
+    animation: vidPosterDrift 14s ease-in-out infinite alternate;
+  }
+}
 
 /* Menü-Abstände und Schriftgröße auf allen Seiten wie auf der Startseite (motion.css hatte 1.4rem) */
 @media (max-width: 768px) {
@@ -118,6 +127,18 @@
   /* Karten rechts außerhalb des Bildes lösen kein Scroll-Reveal aus → sofort zeigen */
   .js .leistungen-grid .l-card.reveal { opacity: 1; transform: none; }
   .leistungen .ref-dots { margin-top: 0.4rem; }
+
+  /* ── Startseite, „Für wen wir arbeiten“: wischbar wie die Referenzen darunter ── */
+  .bereiche-grid.bereiche-bento {
+    display: flex; gap: 1rem; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding-inline: 6vw;
+    margin-inline: -6vw; padding: 0 6vw 0.4rem;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .bereiche-bento::-webkit-scrollbar { display: none; }
+  .bereiche-bento .b-card { flex: 0 0 82%; height: 380px; scroll-snap-align: start; }
+  .js .bereiche-bento .b-card.reveal { opacity: 1; transform: none; clip-path: none; }
+  .js .bereiche-bento .b-card.reveal:not(.visible) .b-bg img { transform: none; }
 
   /* ── Kontakt: lange Platzhalter enden mit „…“ statt hart abgeschnitten ── */
   .field input { text-overflow: ellipsis; }

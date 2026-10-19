@@ -38,16 +38,20 @@
   var mqTouch = window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)');
   var vids = Array.prototype.slice.call(document.querySelectorAll('video[autoplay]'));
   if (mqTouch.matches && vids.length) {
+    // Blockt das Gerät Autoplay, bekommt das Video .vid-blocked (Standbild bewegt sich, siehe mobile.css)
     var tryPlay = function (v) {
       v.muted = true; v.defaultMuted = true; v.playsInline = true;
       var p = v.play();
-      if (p && p.catch) p.catch(function () {});
+      if (p && p.then) p.then(null, function (err) {
+        if (err && err.name === 'NotAllowedError') v.classList.add('vid-blocked');
+      });
     };
     vids.forEach(function (v) {
       v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', '');
       v.muted = true; v.defaultMuted = true; v.playsInline = true;
       v.disableRemotePlayback = true;
       if (v.getAttribute('preload') === 'none') v.setAttribute('preload', 'metadata');
+      v.addEventListener('playing', function () { v.classList.remove('vid-blocked'); });
     });
     var inView = [];
     if (hasIO) {
@@ -69,68 +73,73 @@
     window.addEventListener('pageshow', kick);
   }
 
-  /* ── Startseite: Leistungs-Karussell mit Punkten (wie bei den Referenzen) ── */
-  var grid = document.querySelector('.leistungen-grid');
-  if (!grid) return;
-  var cards = grid.querySelectorAll('.l-card');
-  var dots = null, built = false;
+  /* ── Startseite: Leistungen und „Für wen wir arbeiten“ als Karussell mit
+        Punkten (wie bei den Referenzen) ── */
+  carousel(document.querySelector('.leistungen-grid'), '.l-card', 'Leistung');
+  carousel(document.querySelector('.bereiche-bento'), '.b-card', 'Bereich');
 
-  function current() {
-    if (cards.length < 2) return 0;
-    var step = cards[1].offsetLeft - cards[0].offsetLeft;
-    var max = grid.scrollWidth - grid.clientWidth;
-    return grid.scrollLeft >= max - 4 ? cards.length - 1 : Math.round(grid.scrollLeft / step);
-  }
-  function update() {
-    if (!built) return;
-    var idx = current();
-    Array.prototype.forEach.call(dots.children, function (b, i) { b.classList.toggle('active', i === idx); });
-    Array.prototype.forEach.call(cards, function (c, i) { c.classList.toggle('is-cur', i === idx); });
-  }
+  function carousel(grid, cardSel, label) {
+    if (!grid) return;
+    var cards = grid.querySelectorAll(cardSel);
+    var dots = null, built = false;
 
-  function build() {
-    if (built || !mqMobile.matches) return;
-    built = true;
-    dots = document.createElement('div');
-    dots.className = 'ref-dots';
-    Array.prototype.forEach.call(cards, function (card, i) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.setAttribute('aria-label', 'Leistung ' + (i + 1) + ' anzeigen');
-      b.addEventListener('click', function () {
-        grid.scrollTo({ left: card.offsetLeft - cards[0].offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
-      });
-      dots.appendChild(b);
-    });
-    grid.parentNode.insertBefore(dots, grid.nextSibling);
-    update();
-
-    // Einmaliger „Wisch mich“-Hinweis, sobald das Karussell im Bild ist
-    if (hasIO && !reduce) {
-      var nudge = new IntersectionObserver(function (entries) {
-        if (!entries[0].isIntersecting || !mqMobile.matches || grid.scrollLeft > 0) return;
-        nudge.disconnect();
-        grid.style.scrollSnapType = 'none';
-        setTimeout(function () { grid.scrollBy({ left: 70, behavior: 'smooth' }); }, 500);
-        setTimeout(function () { grid.scrollTo({ left: 0, behavior: 'smooth' }); }, 1150);
-        setTimeout(function () { grid.style.scrollSnapType = ''; }, 1900);
-      }, { threshold: 0.6 });
-      nudge.observe(grid);
+    function current() {
+      if (cards.length < 2) return 0;
+      var step = cards[1].offsetLeft - cards[0].offsetLeft;
+      var max = grid.scrollWidth - grid.clientWidth;
+      return grid.scrollLeft >= max - 4 ? cards.length - 1 : Math.round(grid.scrollLeft / step);
     }
-  }
+    function update() {
+      if (!built) return;
+      var idx = current();
+      Array.prototype.forEach.call(dots.children, function (b, i) { b.classList.toggle('active', i === idx); });
+      Array.prototype.forEach.call(cards, function (c, i) { c.classList.toggle('is-cur', i === idx); });
+    }
 
-  function teardown() {
-    if (!built) return;
-    built = false;
-    if (dots && dots.parentNode) dots.parentNode.removeChild(dots);
-    dots = null;
-    Array.prototype.forEach.call(cards, function (c) { c.classList.remove('is-cur'); });
-  }
+    function build() {
+      if (built || !mqMobile.matches) return;
+      built = true;
+      dots = document.createElement('div');
+      dots.className = 'ref-dots';
+      Array.prototype.forEach.call(cards, function (card, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', label + ' ' + (i + 1) + ' anzeigen');
+        b.addEventListener('click', function () {
+          grid.scrollTo({ left: card.offsetLeft - cards[0].offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+        });
+        dots.appendChild(b);
+      });
+      grid.parentNode.insertBefore(dots, grid.nextSibling);
+      update();
 
-  build();
-  grid.addEventListener('scroll', function () { requestAnimationFrame(update); }, { passive: true });
-  window.addEventListener('resize', update);
-  var onChange = function () { if (mqMobile.matches) build(); else teardown(); };
-  if (mqMobile.addEventListener) mqMobile.addEventListener('change', onChange);
-  else if (mqMobile.addListener) mqMobile.addListener(onChange);
+      // Einmaliger „Wisch mich“-Hinweis, sobald das Karussell im Bild ist
+      if (hasIO && !reduce) {
+        var nudge = new IntersectionObserver(function (entries) {
+          if (!entries[0].isIntersecting || !mqMobile.matches || grid.scrollLeft > 0) return;
+          nudge.disconnect();
+          grid.style.scrollSnapType = 'none';
+          setTimeout(function () { grid.scrollBy({ left: 70, behavior: 'smooth' }); }, 500);
+          setTimeout(function () { grid.scrollTo({ left: 0, behavior: 'smooth' }); }, 1150);
+          setTimeout(function () { grid.style.scrollSnapType = ''; }, 1900);
+        }, { threshold: 0.6 });
+        nudge.observe(grid);
+      }
+    }
+
+    function teardown() {
+      if (!built) return;
+      built = false;
+      if (dots && dots.parentNode) dots.parentNode.removeChild(dots);
+      dots = null;
+      Array.prototype.forEach.call(cards, function (c) { c.classList.remove('is-cur'); });
+    }
+
+    build();
+    grid.addEventListener('scroll', function () { requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', update);
+    var onChange = function () { if (mqMobile.matches) build(); else teardown(); };
+    if (mqMobile.addEventListener) mqMobile.addEventListener('change', onChange);
+    else if (mqMobile.addListener) mqMobile.addListener(onChange);
+  }
 })();
